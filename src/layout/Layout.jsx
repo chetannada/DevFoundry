@@ -7,7 +7,7 @@ import ContentWrapper from "./ContentWrapper";
 const Layout = () => {
   return (
     <>
-      <div className="min-h-screen bg-lightBackground dark:bg-background">
+      <div className="min-h-screen bg-background-light dark:bg-background-dark">
         {/* Header Component */}
         <Header />
 

@@ -16,7 +16,7 @@ const Sidebar = ({ isLoggedIn, handleLogoutClick, handleLoginClick, sidebarOpen 
   return (
     <>
       <ul
-        className={`fixed top-14 left-0 w-[40%] min-w-40 h-full bg-primary text-white z-20 transition-transform duration-300 ${
+        className={`fixed top-14 left-0 w-[40%] min-w-40 h-full bg-text-dark text-white z-20 transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -25,7 +25,7 @@ const Sidebar = ({ isLoggedIn, handleLogoutClick, handleLoginClick, sidebarOpen 
             icon={<FiLogOut />}
             label="Logout"
             onClick={handleLogoutClick}
-            hoverClass="hover:bg-secondary"
+            hoverClass="hover:bg-secondary-dark"
             pxClass="px-8"
           />
         ) : (
@@ -33,7 +33,7 @@ const Sidebar = ({ isLoggedIn, handleLogoutClick, handleLoginClick, sidebarOpen 
             icon={<FiLogIn />}
             label="Login"
             onClick={handleLoginClick}
-            hoverClass="hover:bg-secondary"
+            hoverClass="hover:bg-secondary-dark"
             pxClass="px-8"
           />
         )}
