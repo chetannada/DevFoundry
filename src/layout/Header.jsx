@@ -38,9 +38,9 @@ const Header = () => {
   const handleLoginClick = () => setShowLoginModal(true);
 
   const handleOnLogin = () => {
-    const API_VERSION_PREFIX = '/api';
+    const API_VERSION_PREFIX = "/api";
 
-    const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX; 
+    const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
     window.location.href = `${API_BACKEND_URL}/auth/github`;
   };
 
@@ -76,15 +76,16 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-lightPrimary text-lightText border-b-4 border-secondary dark:bg-primary dark:text-white dark:border-b-secondary transition-colors duration-300">
+      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light text-text-light border-b-4 border-secondary-light dark:bg-primary-dark dark:text-text-dark dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
             <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold">
-              <span className="text-lightSecondary dark:text-secondary">React.js</span> Projects
+              <span className="text-secondary-light dark:text-secondary-dark">React.js</span>{" "}
+              Projects
             </h1>
           </a>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             {renderAuthUI()}
 
             <div

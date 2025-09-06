@@ -42,14 +42,26 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#0f172a", // dark mode background (slate-900)
-        secondary: "#c084fc", // dark mode accent (purple-400)
-        background: "#f4f4f4", // dark mode content background
-        lightPrimary: "#f8fafc", // light mode background (slate-50)
-        lightSecondary: "#7e22ce", // light mode accent (indigo-100)
-        lightBackground: "#f1f5f9", // light mode content background (slate-100)
-        lightText: "#1e293b", // readable text (slate-800)
-        accentText: "#4f46e5", // strong purple text (indigo-600)
+        primary: {
+          dark: "#0f172a", // slate-900
+          light: "#f1f5f9", // slate-100
+        },
+        secondary: {
+          dark: "#c084fc", // purple-400
+          light: "#7e22ce", // indigo-700
+        },
+        background: {
+          dark: "#f1f5f9", // slate-100
+          light: "#ffffff", // white
+        },
+        text: {
+          dark: "#f1f5f9", // slate-100
+          light: "#1e293b", // slate-800
+        },
+        accent: {
+          dark: "#c084fc", // purple-400
+          light: "#4f46e5", // indigo-600
+        },
       },
       width: {
         68: "17rem",
