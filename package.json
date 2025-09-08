@@ -1,7 +1,7 @@
 {
-  "name": "reactjs-projects",
-  "version": "1.1.0",
-  "description": "Awesome Machine Coding React.js Projects",
+  "name": "devfoundry",
+  "version": "2.0.0",
+  "description": "DevFoundry — A curated collection of machine coding challenges where developers forge full-stack projects with modular architecture and live demos.",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",

@@ -1,16 +1,16 @@
-# ❤️ React.js Projects 🚀
+# ❤️ DevFoundry — Where developers forge their projects. 🚀
 
-Welcome to the `React.js Projects` repository — a curated collection of machine coding projects built using React.js. These projects are designed to be both beginner-friendly and valuable for experienced developers looking to sharpen their frontend skills.
+Welcome to the `DevFoundry` repository — a curated collection of machine coding challenges designed to help developers build, learn, and showcase their skills across stacks. Whether you're just starting out or refining your craft, these projects offer hands-on experience with real-world UI workflows and full-stack architecture.
 
-Each project includes a live demo and showcases best practices in modular architecture, responsive UI, and modern tooling.
+Each project includes a live demo and demonstrates best practices in modular design, responsive UI, and modern tooling.
 
-- [🚀 _Live Frontend Demo_ 😍](https://reactjs-projects-app.netlify.app/)
+- [🚀 _Live Frontend Demo_ 😍](https://devfoundry.netlify.app)
 
 ## 🚀 About the Project
 
-This repository contains a collection of **machine coding projects** built with React.js, designed to help developers practice real-world UI workflows and frontend architecture. Each project demonstrates key concepts like component modularity, state management, API integration, and responsive design.
+DevFoundry is a developer-focused showcase of **machine coding projects**, originally built with React.js and now evolving toward a stack-neutral, contributor-friendly platform. These projects highlight key concepts like component modularity, state management, API integration, and responsive design.
 
-The backend is powered by a RESTful API built with Node.js and Express.js, enabling full-stack functionality for this project.
+The backend is powered by a RESTful API built with Node.js and Express.js, enabling full-stack functionality and real-time data workflows. As the platform grows, DevFoundry aims to support multiple tech stacks and foster a vibrant community of builders and learners.
 
 ## 🛠️ Tech Stack
 
@@ -34,17 +34,19 @@ The backend is powered by a RESTful API built with Node.js and Express.js, enabl
 
 ## 🔗 Backend Resources
 
-- [📦 Backend Repository](https://github.com/chetannada/ReactJs-Projects-Backend)
-- [🌐 Live API Server](https://reactjs-projects-api.vercel.app/)
+- [📦 Backend Repository](https://github.com/chetannada/DevFoundry-Backend)
+- [🌐 Live API Server](https://devfoundry.vercel.app)
 
 ## 🌻 Projects
 
-This repository contains a collection of cool coding projects built with **React.js**, complete with source code and live URLs. These projects are designed to help you practice and master React.js through hands-on experience.
+DevFoundry hosts a growing collection of hands-on machine coding projects originally built with **React.js**, now evolving to support multiple stacks. Each project includes source code and live demos, offering developers a practical way to explore UI workflows, modular architecture, and real-world problem solving.
+
+Whether you're refining your frontend skills or contributing full-stack features, these projects are designed to help you forge your craft through experience.
 
 ## 🌱 Structure of this Project
 
 ```bash
-/REACTJS-PROJECTS
+/DEVFOUNDRY
 
 ├── public/
 │ └── images/
@@ -75,41 +77,41 @@ This repository contains a collection of cool coding projects built with **React
 └── README.md                  # Project documentation
 ```
 
-## 📚 Project 01 - To-Do List App
+## 📚 To-Do List
 
 - 👨‍💻 [_Coding Challenge_](./src/features/todo-list/README.md)
 - 💻 [_Source Code_](./src/features/todo-list/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/todo-list)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/todo-list)
 
-## 📚 Project 02 - Redux Counter App
+## 📚 Redux Counter
 
 - 👨‍💻 [_Coding Challenge_](./src/features/redux-counter/README.md)
 - 💻 [_Source Code_](./src/features/redux-counter/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/redux-counter)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/redux-counter)
 
-## 📚 Project 03 - Google Authentication App
+## 📚 Google Authentication
 
 - 👨‍💻 [_Coding Challenge_](./src/features/google-auth/README.md)
 - 💻 [_Source Code_](./src/features/google-auth/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/google-auth)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/google-auth)
 
-## 📚 Project 04 - HTTP GET Request App
+## 📚 HTTP GET Request
 
 - 👨‍💻 [_Coding Challenge_](./src/features/http-get-request/README.md)
 - 💻 [_Source Code_](./src/features/http-get-request/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/http-get-request)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-get-request)
 
-## 📚 Project 05 - HTTP POST Request App
+## 📚 HTTP POST Request
 
 - 👨‍💻 [_Coding Challenge_](./src/features/http-post-request/README.md)
 - 💻 [_Source Code_](./src/features/http-post-request/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/http-post-request)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-post-request)
 
-## 📚 Project 06 - Image Generation
+## 📚 Image Generation
 
 - 👨‍💻 [_Coding Challenge_](./src/features/image-generation/README.md)
 - 💻 [_Source Code_](./src/features/image-generation/)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/image-generation)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/image-generation)
 
 ## 🎻 Prerequisites
 
@@ -120,13 +122,13 @@ Before getting started with the Practicing Projects, you should have a basic und
 You need to write the following commands on the terminal screen (in vscode) so that you can run this project locally.
 
 ```bash
-git clone "https://github.com/chetannada/ReactJs-Projects.git"
+git clone "https://github.com/chetannada/DevFoundry-Backend.git"
 ```
 
 Go to the project directory
 
 ```bash
-cd ReactJs-Projects
+cd DevFoundry
 ```
 
 Install dependencies
@@ -163,10 +165,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chetannada"><img src="https://avatars.githubusercontent.com/u/83969719?v=4?s=100" width="100px;" alt="Chetan Nada"/><br /><sub><b>Chetan Nada</b></sub></a><br /><a href="https://github.com/chetannada/ReactJs-Projects/commits?author=chetannada" title="Code">💻</a> <a href="#data-chetannada" title="Data">🔣</a> <a href="#content-chetannada" title="Content">🖋</a> <a href="#design-chetannada" title="Design">🎨</a> <a href="https://github.com/chetannada/ReactJs-Projects/commits?author=chetannada" title="Documentation">📖</a> <a href="https://github.com/chetannada/ReactJs-Projects/pulls?q=is%3Apr+reviewed-by%3Achetannada" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/chetannada/ReactJs-Projects/issues?q=author%3Achetannada" title="Bug reports">🐛</a> <a href="#ideas-chetannada" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-chetannada" title="Maintenance">🚧</a> <a href="#research-chetannada" title="Research">🔬</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SankalpHaritash21"><img src="https://avatars.githubusercontent.com/u/110713125?v=4?s=100" width="100px;" alt="Sankalp Haritash"/><br /><sub><b>Sankalp Haritash</b></sub></a><br /><a href="https://github.com/chetannada/ReactJs-Projects/commits?author=SankalpHaritash21" title="Code">💻</a> <a href="#research-SankalpHaritash21" title="Research">🔬</a> <a href="#data-SankalpHaritash21" title="Data">🔣</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kdteraiya"><img src="https://avatars.githubusercontent.com/u/113781417?v=4?s=100" width="100px;" alt="Kaushik Teraiya"/><br /><sub><b>Kaushik Teraiya</b></sub></a><br /><a href="https://github.com/chetannada/ReactJs-Projects/commits?author=kdteraiya" title="Code">💻</a> <a href="#research-kdteraiya" title="Research">🔬</a> <a href="#data-kdteraiya" title="Data">🔣</a> <a href="https://github.com/chetannada/ReactJs-Projects/pulls?q=is%3Apr+reviewed-by%3Akdteraiya" title="Reviewed Pull Requests">👀</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/omjpatel586"><img src="https://avatars.githubusercontent.com/u/119939918?v=4?s=100" width="100px;" alt="Om J Patel."/><br /><sub><b>Om J Patel.</b></sub></a><br /><a href="https://github.com/chetannada/ReactJs-Projects/commits?author=omjpatel586" title="Code">💻</a> <a href="#ideas-omjpatel586" title="Ideas, Planning, & Feedback">🤔</a> <a href="#research-omjpatel586" title="Research">🔬</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/chetannada"><img src="https://avatars.githubusercontent.com/u/83969719?v=4?s=100" width="100px;" alt="Chetan Nada"/><br /><sub><b>Chetan Nada</b></sub></a><br /><a href="https://github.com/chetannada/DevFoundry/commits?author=chetannada" title="Code">💻</a> <a href="#data-chetannada" title="Data">🔣</a> <a href="#content-chetannada" title="Content">🖋</a> <a href="#design-chetannada" title="Design">🎨</a> <a href="https://github.com/chetannada/DevFoundry/commits?author=chetannada" title="Documentation">📖</a> <a href="https://github.com/chetannada/DevFoundry/pulls?q=is%3Apr+reviewed-by%3Achetannada" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/chetannada/DevFoundry/issues?q=author%3Achetannada" title="Bug reports">🐛</a> <a href="#ideas-chetannada" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-chetannada" title="Maintenance">🚧</a> <a href="#research-chetannada" title="Research">🔬</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SankalpHaritash21"><img src="https://avatars.githubusercontent.com/u/110713125?v=4?s=100" width="100px;" alt="Sankalp Haritash"/><br /><sub><b>Sankalp Haritash</b></sub></a><br /><a href="https://github.com/chetannada/DevFoundry/commits?author=SankalpHaritash21" title="Code">💻</a> <a href="#research-SankalpHaritash21" title="Research">🔬</a> <a href="#data-SankalpHaritash21" title="Data">🔣</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kdteraiya"><img src="https://avatars.githubusercontent.com/u/113781417?v=4?s=100" width="100px;" alt="Kaushik Teraiya"/><br /><sub><b>Kaushik Teraiya</b></sub></a><br /><a href="https://github.com/chetannada/DevFoundry/commits?author=kdteraiya" title="Code">💻</a> <a href="#research-kdteraiya" title="Research">🔬</a> <a href="#data-kdteraiya" title="Data">🔣</a> <a href="https://github.com/chetannada/DevFoundry/pulls?q=is%3Apr+reviewed-by%3Akdteraiya" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/omjpatel586"><img src="https://avatars.githubusercontent.com/u/119939918?v=4?s=100" width="100px;" alt="Om J Patel."/><br /><sub><b>Om J Patel.</b></sub></a><br /><a href="https://github.com/chetannada/DevFoundry/commits?author=omjpatel586" title="Code">💻</a> <a href="#ideas-omjpatel586" title="Ideas, Planning, & Feedback">🤔</a> <a href="#research-omjpatel586" title="Research">🔬</a></td>
     </tr>
   </tbody>
 </table>
@@ -180,11 +182,11 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ### 💖 Many many Thanks to all the `Stargazers` who has supported this project with stars 🌟
 
-[![Stargazers repo roster for @chetannada/ReactJs-Projects](https://reporoster.com/stars/chetannada/ReactJs-Projects)](https://github.com/chetannada/ReactJs-Projects/stargazers)
+[![Stargazers repo roster for @chetannada/DevFoundry](https://reporoster.com/stars/chetannada/DevFoundry)](https://github.com/chetannada/DevFoundry/stargazers)
 
 ### 💖 Many many Thanks to all the `Forkers` who has supported this project with forks 🍴
 
-[![Forkers repo roster for @chetannada/ReactJs-Projects](https://reporoster.com/forks/chetannada/ReactJs-Projects)](https://github.com/chetannada/ReactJs-Projects/network/members)
+[![Forkers repo roster for @chetannada/DevFoundry](https://reporoster.com/forks/chetannada/DevFoundry)](https://github.com/chetannada/DevFoundry/network/members)
 
 ## 🤝 Let's Connect
 

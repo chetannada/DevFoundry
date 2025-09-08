@@ -1,7 +1,7 @@
 ## 📚 To-Do List App
 
 - 💻 [_Source Code_](/src/features/todo-list)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/todo-list)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/todo-list)
 
 ### 📋 Coding Challenge: React To-Do List App
 
@@ -23,7 +23,6 @@ Develop a To-Do List application that includes an input field with Add, Update b
 - Reusability: Design components that can be easily integrated into other parts of the application.
 
 2. Styling:
-
    - Apply CSS or TailwindCSS to create a visually appealing and responsive design.
 
 #### 🔍 Development Focus:
