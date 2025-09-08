@@ -19,12 +19,12 @@ const Footer = () => {
         <FaRegCopyright />
         {year}
         <a
-          href="https://github.com/chetannada/ReactJs-Projects"
+          href="https://github.com/chetannada/DevFoundry"
           target="_blank"
-          title="ReactJs Projects Github Repository"
+          title="Github Repository"
           className="text-purple-900 font-bold hover:underline"
         >
-          React.js Projects
+          DevFoundry
         </a>
       </footer>
     </>

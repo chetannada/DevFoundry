@@ -1,7 +1,7 @@
 ## 📚 Redux Counter App
 
 - 💻 [_Source Code_](/src/features/redux-counter)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/redux-counter)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/redux-counter)
 
 ### 📋 Coding Challenge: React Counter App with Redux Toolkit
 
@@ -22,11 +22,9 @@ Develop a React application that includes an input field along with Increment, D
 - Reusability: Design components that can be easily integrated into other parts of the application.
 
 2. Redux Store:
-
    - Implement a Redux store, including reducers and actions, to manage the application's state in a predictable and centralized way.
 
 3. Styling:
-
    - Apply CSS or TailwindCSS to create a visually appealing and responsive design.
 
 #### 🔍 Development Focus:

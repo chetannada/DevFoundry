@@ -34,7 +34,7 @@ const TabsPage = ({ activeTab, handleTabs, handleAddModal }) => {
       <div className="flex flex-row flex-wrap gap-4 xmob:gap-2 justify-end sm:justify-start items-center text-lg">
         <div className="bg-gray-100 p-2 rounded-md shadow-sm">
           <iframe
-            src={`https://ghbtns.com/github-btn.html?user=chetannada&repo=ReactJs-Projects&type=star&count=true&size=${
+            src={`https://ghbtns.com/github-btn.html?user=chetannada&repo=DevFoundry&type=star&count=true&size=${
               isMobile ? "small" : "large"
             }`}
             title="GitHub"

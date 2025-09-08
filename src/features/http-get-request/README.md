@@ -1,7 +1,7 @@
 ## 📚 HTTP GET Request App
 
 - 💻 [_Source Code_](/src/features/http-get-request)
-- [🚀 _Live Demo_ 😍](https://reactjs-projects-app.netlify.app/http-get-request)
+- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-get-request)
 
 ### 📋 Coding Challenge: React HTTP GET Requests with Fetch Method
 
@@ -22,7 +22,6 @@ Develop a React application that features a search interface to fetch and displa
 - Reusability: Design components that can be easily integrated into other parts of the application.
 
 2. Styling:
-
    - Apply CSS or TailwindCSS to create a visually appealing and responsive design.
 
 #### 🔍 Development Focus:
