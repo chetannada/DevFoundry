@@ -80,8 +80,10 @@ const Header = () => {
         <nav className="flex justify-between items-center h-full">
           <a href="/">
             <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold">
-              <span className="text-secondary-light dark:text-secondary-dark">React.js</span>{" "}
-              Projects
+              <span className="text-secondary-light dark:text-secondary-dark tracking-widest">
+                Dev
+              </span>
+              <span className="tracking-widest">Foundry</span>
             </h1>
           </a>
 
