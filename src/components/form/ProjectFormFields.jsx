@@ -73,9 +73,9 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
             rules={{
               required: "Live URL is required",
               pattern: {
-                value: activeTab === "crafted" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
+                value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
                 message: `Enter a valid ${
-                  activeTab === "crafted" ? "relative path like /project-folder-name" : "URL"
+                  activeTab === "core" ? "relative path like /project-folder-name" : "URL"
                 }`,
               },
             }}
