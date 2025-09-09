@@ -56,19 +56,23 @@ const Header = () => {
 
     return (
       <>
-        <ThemeToggle />
-        {isLoggedIn && user ? (
-          <UserMenu user={user} handleLogoutClick={handleLogoutClick} />
-        ) : (
-          <div className="block lg:hidden">
-            <button
-              onClick={handleLoginClick}
-              className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2"
-            >
-              <FiLogIn size={18} />
-              Login
-            </button>
-          </div>
+        {!sidebarOpen && (
+          <>
+            <ThemeToggle />
+            {isLoggedIn && user ? (
+              <UserMenu user={user} handleLogoutClick={handleLogoutClick} />
+            ) : (
+              <div className="block lg:hidden">
+                <button
+                  onClick={handleLoginClick}
+                  className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2"
+                >
+                  <FiLogIn size={18} />
+                  Login
+                </button>
+              </div>
+            )}
+          </>
         )}
       </>
     );
@@ -92,7 +96,7 @@ const Header = () => {
 
             <div
               onClick={handleSidebar}
-              className="hidden lg:block p-4 -mr-4 text-3xl mob:text-2xl cursor-pointer"
+              className="hidden lg:block ml-1 text-3xl mob:text-2xl cursor-pointer"
             >
               {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
             </div>
@@ -100,7 +104,7 @@ const Header = () => {
 
           {sidebarOpen && (
             <>
-              <div className="fixed inset-0 top-14 bg-black bg-opacity-60 z-10" />
+              {/* <div className="fixed inset-0 top-14 bg-black bg-opacity-60 z-10" /> */}
               <Sidebar
                 isLoggedIn={isLoggedIn}
                 handleLogoutClick={handleLogoutClick}

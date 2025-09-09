@@ -6,13 +6,13 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="p-2 flex flex-row flex-wrap justify-center items-center gap-2 bg-gray-50 border-t border-purple-300 shadow-lg">
+      <footer className="p-2 flex flex-row flex-wrap justify-center items-center gap-2 bg-primary-light dark:bg-primary-dark text-text-light dark:text-text-dark border-t border-purple-300 shadow-lg">
         Created By <IoMdHeart color="darkred" />
         <a
           href="https://www.linkedin.com/in/chetannada/"
           target="_blank"
           title="Chetan Nada's Linkedin Profile"
-          className="text-purple-900 font-bold hover:underline"
+          className="text-accent-light dark:text-accent-dark font-bold hover:underline"
         >
           Chetan Nada
         </a>
@@ -22,7 +22,7 @@ const Footer = () => {
           href="https://github.com/chetannada/DevFoundry"
           target="_blank"
           title="Github Repository"
-          className="text-purple-900 font-bold hover:underline"
+          className="text-secondary-light dark:text-secondary-dark font-bold hover:underline"
         >
           DevFoundry
         </a>

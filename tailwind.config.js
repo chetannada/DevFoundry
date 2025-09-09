@@ -59,7 +59,7 @@ module.exports = {
           light: "#1e293b", // slate-800
         },
         accent: {
-          dark: "#c084fc", // purple-400
+          dark: "#a855f7", // purple-500
           light: "#4f46e5", // indigo-600
         },
       },
