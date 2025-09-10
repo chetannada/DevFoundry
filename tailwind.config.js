@@ -59,8 +59,20 @@ module.exports = {
           light: "#1e293b", // slate-800
         },
         accent: {
-          dark: "#a855f7", // purple-500
+          dark: "#581c87", // purple-900
           light: "#4f46e5", // indigo-600
+        },
+        neutral: {
+          light: "#e2e8f0", // slate-200
+          dark: "#1e293b", // slate-800
+        },
+        hover: {
+          light: "#e0e7ff", // indigo-100
+          dark: "#312e81", // indigo-900
+        },
+        focus: {
+          light: "#c7d2fe", // indigo-200
+          dark: "#4338ca", // indigo-700
         },
       },
       width: {
