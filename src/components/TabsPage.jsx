@@ -1,22 +1,19 @@
 import { MdAddCircleOutline } from "react-icons/md";
-import useWindowSize from "../hooks/useWindowSize";
 
 const TabsPage = ({ activeTab, handleTabs, handleAddModal }) => {
-  const windowSize = useWindowSize();
-  const isMobile = windowSize.width < 420;
-
   return (
     <div className="flex justify-between items-center mb-6 gap-4 flex-wrap">
-      <div className="flex gap-2 p-1 rounded-xl bg-gray-100 border border-purple-300">
+      <div className="flex gap-2 p-1 rounded-xl border border-accent-light dark:border-accent-dark bg-neutral-light dark:bg-neutral-dark">
         {["core", "community"].map(tab => (
           <button
             key={tab}
             onClick={() => handleTabs(tab)}
-            className={`px-6 xsm:px-4 xmob:px-3 py-2 rounded-xl text-sm mob:text-xs font-semibold transition-all duration-200 border-2 ${
-              activeTab === tab
-                ? "bg-white text-purple-700 border-purple-700"
-                : "bg-transparent text-gray-700 border-transparent"
-            }`}
+            className={`px-6 xsm:px-4 xmob:px-3 py-2 rounded-xl text-sm mob:text-xs font-semibold transition-all duration-200 border-2
+  ${
+    activeTab === tab
+      ? "bg-background-light dark:bg-background-dark text-text-light dark:text-accent-dark border-accent-light dark:border-accent-dark"
+      : "bg-transparent text-text-light dark:text-text-dark border-transparent"
+  }`}
           >
             {tab === "core" ? "Core Builds" : "Community Builds"}
           </button>
