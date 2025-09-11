@@ -28,7 +28,7 @@ const SearchBar = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`w-full mobMidMin:max-w-2xl flex flex-row mobMid:flex-col items-stretch mobMid:gap-2 border mobMid:border-none border-secondary-dark ${isDisabled ? "bg-gray-100" : "bg-neutral-light dark:bg-neutral-dark"} mobMid:bg-transparent rounded-xl mobMid:rounded-none overflow-hidden`}
+      className={`w-full mobMidMin:max-w-2xl flex flex-row mobMid:flex-col items-stretch mobMid:gap-2 border mobMid:border-none border-secondary-dark ${isDisabled ? "bg-gray-100" : "bg-white"} mobMid:bg-transparent rounded-xl mobMid:rounded-none overflow-hidden`}
     >
       <div className="relative w-full mobMidMin:max-w-48 mobMid:border mobMid:border-secondary-dark mobMid:rounded-xl">
         <select
@@ -38,7 +38,7 @@ const SearchBar = ({
           className={`w-full px-3 py-4 mr-6 text-sm border-r mobMid:border-none mobMid:rounded-xl border-secondary-dark outline-none appearance-none ${
             isDisabled
               ? "bg-gray-100 text-gray-500 cursor-not-allowed"
-              : "bg-neutral-light dark:bg-neutral-dark text-text-light dark:text-text-dark cursor-pointer"
+              : "bg-white text-text-light cursor-pointer"
           }`}
         >
           <option value="title"> {!isDisabled && "Title"}</option>
@@ -62,7 +62,7 @@ const SearchBar = ({
       </div>
 
       <div
-        className={`w-full ${isDisabled ? "bg-gray-100" : "bg-neutral-light dark:bg-neutral-dark"} flex items-center mobMid:border mobMid:border-secondary-dark mobMid:rounded-xl`}
+        className={`w-full ${isDisabled ? "bg-gray-100" : "bg-white"} flex items-center mobMid:border mobMid:border-secondary-dark mobMid:rounded-xl`}
       >
         <input
           type="text"
@@ -70,19 +70,15 @@ const SearchBar = ({
           onChange={e => setInputSearch(e.target.value)}
           placeholder={isDisabled ? inputSearch : `Search by ${fieldLabels[searchBy]}...`}
           disabled={isDisabled}
-          className={`px-4 py-3 outline-none w-full text-sm mobMid:rounded-xl ${
-            isDisabled
-              ? "text-gray-500 cursor-not-allowed"
-              : "bg-neutral-light dark:bg-neutral-dark text-text-light dark:text-text-dark"
+          className={`px-4 py-3 ${isDisabled ? "bg-gray-100" : "bg-white"} outline-none w-full text-sm mobMid:rounded-xl ${
+            isDisabled ? "text-gray-500 cursor-not-allowed" : "text-text-light"
           } placeholder-gray-400`}
         />
         <button
           type="submit"
           disabled={isDisabled}
           className={`px-4 py-[18px] mobMid:rounded-r-xl ${
-            isDisabled
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-secondary-light hover:bg-accent-dark dark:bg-accent-dark hover:dark:bg-secondary-light"
+            isDisabled ? "bg-gray-300 cursor-not-allowed" : "bg-purple-700 hover:bg-purple-800"
           } text-white flex items-center justify-center transition`}
         >
           <FaSearch />

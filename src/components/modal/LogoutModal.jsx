@@ -4,9 +4,11 @@ import Modal from ".";
 const LogoutModal = ({ isOpen, onClose, onLogout, title, description }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <h2 className="text-xl font-semibold text-blue-700 mb-4 mr-8">{title}</h2>
+      <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-4 mr-8">
+        {title}
+      </h2>
 
-      <p className="text-gray-600 mb-6">{description}</p>
+      <p className="text-text-light dark:text-text-dark mb-6">{description}</p>
 
       <div className="flex flex-row mob:flex-col justify-center gap-4">
         <button
@@ -21,7 +23,7 @@ const LogoutModal = ({ isOpen, onClose, onLogout, title, description }) => {
 
         <button
           onClick={onClose}
-          className="text-sm px-5 py-2.5 text-gray-700 bg-gray-200 hover:bg-gray-300 focus:ring-1 focus:outline-none font-medium rounded-lg"
+          className="text-sm px-5 py-2.5 text-text-light dark:text-text-light bg-background-light dark:bg-background-dark hover:bg-accent-dark hover:text-text-dark hover:dark:bg-accent-dark hover:dark:text-text-dark focus:ring-1 focus:outline-none font-medium rounded-lg"
         >
           Cancel
         </button>
