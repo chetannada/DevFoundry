@@ -11,7 +11,7 @@ import strings from "../utils/strings";
 const Body = () => {
   const { user, isLoggedIn, isAuthReady } = useSelector(state => state.auth);
 
-  const [activeTab, setActiveTab] = useState("core");
+  const [activeTab, setActiveTab] = useState("community");
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add"); // "add" | "edit" | "review" | "restore"
   const [selectedItem, setSelectedItem] = useState(null);
@@ -42,7 +42,7 @@ const Body = () => {
   const fetchProjects = async (
     search = { query: "", field: "title" },
     contributorId = null,
-    activeTab = "community"
+    activeTab = "core"
   ) => {
     setIsLoading(true);
     const { query, field } = search;

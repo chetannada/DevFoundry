@@ -151,8 +151,10 @@ const ProjectGallery = ({
         description={
           <span>
             Are you sure you want to delete{" "}
-            <span className="font-semibold text-red-600">{deleteItem?.projectTitle}</span> project?
-            This action cannot be undone.
+            <span className="font-semibold text-red-600 dark:text-red-300">
+              {deleteItem?.projectTitle}
+            </span>{" "}
+            project? This action cannot be undone.
           </span>
         }
       />

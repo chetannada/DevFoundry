@@ -17,12 +17,12 @@ const Modal = ({ isOpen, onClose, children, width = "w-128" }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 px-4">
       <div
-        className={`bg-white rounded-lg shadow-2xl p-6 relative transition-all duration-300 ${width} max-h-[80vh] overflow-y-auto`}
+        className={`bg-neutral-light dark:bg-neutral-dark rounded-lg shadow-2xl p-6 relative transition-all duration-300 ${width} max-h-[80vh] overflow-y-auto`}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-6 text-gray-500 hover:text-red-500 hover:shadow-md hover:bg-grey-100 transition-all duration-200 rounded-full p-2 flex items-center justify-center"
+          className="absolute top-4 right-6 text-text-light dark:text-text-dark hover:shadow-md hover:bg-accent-dark hover:text-text-dark transition-all duration-200 rounded-full p-2 flex items-center justify-center"
           aria-label="Close"
         >
           <FiX size={22} />
