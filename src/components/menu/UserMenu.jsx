@@ -46,8 +46,13 @@ const UserMenu = ({ user, handleLogoutClick }) => {
             </div>
           </div>
 
-          <ul className="text-text-light dark:text-text-dark text-sm">
-            <MenuItem icon={<FiLogOut />} label="Logout" onClick={handleLogoutClick} />
+          <ul className="text-sm">
+            <MenuItem
+              icon={<FiLogOut />}
+              label="Logout"
+              onClick={handleLogoutClick}
+              hoverClass="hover:bg-secondary-light hover:dark:bg-secondary-dark hover:text-text-dark hover:dark:text-text-light"
+            />
           </ul>
         </div>
       )}
