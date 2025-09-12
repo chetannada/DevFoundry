@@ -80,7 +80,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light text-text-light border-b-4 border-secondary-light dark:bg-primary-dark dark:text-text-dark dark:border-b-secondary-dark transition-colors duration-300">
+      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light text-text-light border-b-4 border-b-secondary-light dark:bg-primary-dark dark:text-text-dark dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
             <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold">

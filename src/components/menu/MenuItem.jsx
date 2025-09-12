@@ -4,12 +4,12 @@ const MenuItem = ({
   icon,
   label,
   onClick,
-  hoverClass = "hover:bg-text-light dark:hover:bg-text-dark",
+  hoverClass = "hover:bg-secondary-light hover:dark:bg-secondary-dark",
   pxClass = "px-4",
 }) => (
   <li
     className={clsx(
-      "flex items-center py-3 cursor-pointer text-light dark:text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-200",
+      "flex items-center py-3 cursor-pointer text-text-light dark:text-text-dark transition-colors duration-200",
       hoverClass,
       pxClass
     )}
