@@ -50,7 +50,7 @@ const ProjectActionModal = ({
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose} width="w-180 md:w-128">
-      <h2 className="text-xl font-semibold text-gray-700 mb-6 mr-8">
+      <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-6 mr-8">
         {projectFormTitle(activeTab, modalMode)}
       </h2>
 
@@ -67,7 +67,7 @@ const ProjectActionModal = ({
         <div className="flex flex-row justify-center gap-4 pt-4">
           <button
             onClick={handleClose}
-            className="text-sm px-5 py-2.5 text-gray-700 bg-gray-200 hover:bg-gray-300 focus:ring-1 focus:outline-none font-medium rounded-lg"
+            className="text-sm px-5 py-2.5 text-text-light dark:text-text-light bg-background-light dark:bg-background-dark hover:bg-accent-dark hover:text-text-dark hover:dark:bg-accent-dark hover:dark:text-text-dark focus:ring-1 focus:outline-none font-medium rounded-lg"
           >
             Cancel
           </button>
