@@ -1,16 +1,9 @@
 import clsx from "clsx";
 
-const MenuItem = ({
-  icon,
-  label,
-  onClick,
-  hoverClass = "hover:bg-secondary-light hover:dark:bg-secondary-dark",
-  pxClass = "px-4",
-}) => (
+const MenuItem = ({ icon, label, onClick, pxClass = "px-4" }) => (
   <li
     className={clsx(
-      "flex items-center py-3 cursor-pointer text-text-light dark:text-text-dark transition-colors duration-200",
-      hoverClass,
+      "flex items-center py-3 cursor-pointer hover:bg-hover-light hover:dark:bg-hover-dark transition-colors duration-200",
       pxClass
     )}
     onClick={onClick}

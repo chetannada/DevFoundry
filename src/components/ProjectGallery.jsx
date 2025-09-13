@@ -3,12 +3,13 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { removeProjectFromGallery } from "../services/projectService";
 import { capitalizeWord } from "../utils/function";
-import DeleteProjectModal from "./modal/DeleteProjectModal";
 import NoData from "./NoData";
 import NoResults from "./NoResults";
 import ProjectCard from "./ProjectCard";
 import SearchBar from "./SearchBar";
 import SkeletonProjectCard from "./skeleton/SkeletonProjectCard";
+import ActionModal from "./modal/ActionModal";
+import { FaTrashAlt } from "react-icons/fa";
 
 const ProjectGallery = ({
   activeTab,
@@ -142,21 +143,28 @@ const ProjectGallery = ({
 
       {renderProjects()}
 
-      <DeleteProjectModal
+      {/* Delete Modal */}
+      <ActionModal
         isOpen={showModal}
         onClose={handleClose}
-        onDelete={() => handleDelete(deleteItem._id)}
-        isDisabled={isDisabled}
-        title={`Delete ${capitalizeWord(activeTab)} Project?`}
+        title={`Delete ${capitalizeWord(activeTab)} Build?`}
         description={
           <span>
             Are you sure you want to delete{" "}
             <span className="font-semibold text-red-600 dark:text-red-300">
-              {deleteItem?.projectTitle}
+              '{deleteItem?.projectTitle}'
             </span>{" "}
-            project? This action cannot be undone.
+            build? This action cannot be undone.
           </span>
         }
+        onConfirm={() => handleDelete(deleteItem._id)}
+        confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+    text-white bg-gradient-to-br from-red-500 to-red-800
+    hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed
+    disabled:hover:bg-gradient-to-br`}
+        confirmIcon={() => <FaTrashAlt size={18} />}
+        confirmLabel={"Confirm Delete"}
+        isDisabled={isDisabled}
       />
     </>
   );

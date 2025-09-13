@@ -31,7 +31,7 @@ const UserMenu = ({ user, handleLogoutClick }) => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-72 mob:w-52 bg-primary-light dark:bg-primary-dark rounded-xl shadow-lg z-50 overflow-hidden border border-secondary-light dark:border-secondary-dark">
+        <div className="absolute right-0 mt-2 w-72 mob:w-52 bg-card-light dark:bg-card-dark rounded-xl shadow-lg z-50 overflow-hidden border border-secondary-light dark:border-secondary-dark">
           <div className="p-4 border-b">
             <div className="flex items-center gap-3">
               <img
@@ -39,7 +39,7 @@ const UserMenu = ({ user, handleLogoutClick }) => {
                 alt={userName}
                 className="w-12 h-12 rounded-full border-2 border-text-light dark:border-text-dark object-cover"
               />
-              <div className="text-text-light dark:text-text-dark">
+              <div>
                 <p className="font-semibold">{userName}</p>
                 <p className="text-xs">@{github?.remoteName}</p>
               </div>
@@ -47,12 +47,7 @@ const UserMenu = ({ user, handleLogoutClick }) => {
           </div>
 
           <ul className="text-sm">
-            <MenuItem
-              icon={<FiLogOut />}
-              label="Logout"
-              onClick={handleLogoutClick}
-              hoverClass="hover:bg-secondary-light hover:dark:bg-secondary-dark hover:text-text-dark hover:dark:text-text-light"
-            />
+            <MenuItem icon={<FiLogOut />} label="Logout" onClick={handleLogoutClick} />
           </ul>
         </div>
       )}

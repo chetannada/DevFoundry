@@ -39,7 +39,7 @@ const ProjectCard = ({
     <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-5 bg-opacity-50 bg-purple-50 hover:scale-[1.02] transition-transform duration-300 hover:shadow-[0_10px_25px_-5px_rgba(139,92,246,0.5)] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="w-full">
         {(contributorId === userId || userRole === "admin") && (
-          <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-2">
+          <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
             {/* Edit/Delete Controls */}
 
             <div className="flex flex-wrap flex-row gap-3">
@@ -129,12 +129,12 @@ const ProjectCard = ({
 
         {/* Rejection and Restored Reason */}
         {rejectionReason && (userId === contributorId || userRole === "admin") && (
-          <p className="w-fit max-w-full mb-2 p-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-md whitespace-pre-wrap break-words">
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-red-50 border border-red-200 rounded-md whitespace-pre-wrap break-words">
             <strong>Rejected reason:</strong> {rejectionReason}
           </p>
         )}
         {restoredReason && (userId === contributorId || userRole === "admin") && (
-          <p className="w-fit max-w-full mb-2 p-2 text-sm text-green-700 bg-green-50 border border-green-200 rounded-md whitespace-pre-wrap break-words">
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-green-700 bg-green-50 border border-green-200 rounded-md whitespace-pre-wrap break-words">
             <strong>Restored reason:</strong> {restoredReason}
           </p>
         )}

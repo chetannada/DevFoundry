@@ -21,21 +21,9 @@ const Sidebar = ({ isLoggedIn, handleLogoutClick, handleLoginClick, sidebarOpen 
         }`}
       >
         {isLoggedIn ? (
-          <MenuItem
-            icon={<FiLogOut />}
-            label="Logout"
-            onClick={handleLogoutClick}
-            hoverClass="hover:bg-secondary-light hover:dark:bg-secondary-dark hover:text-text-dark hover:dark:text-text-light"
-            pxClass="px-8"
-          />
+          <MenuItem icon={<FiLogOut />} label="Logout" onClick={handleLogoutClick} pxClass="px-8" />
         ) : (
-          <MenuItem
-            icon={<FiLogIn />}
-            label="Login"
-            onClick={handleLoginClick}
-            hoverClass="hover:bg-secondary-light hover:dark:bg-secondary-dark hover:text-text-dark hover:dark:text-text-light"
-            pxClass="px-8"
-          />
+          <MenuItem icon={<FiLogIn />} label="Login" onClick={handleLoginClick} pxClass="px-8" />
         )}
       </ul>
     </>

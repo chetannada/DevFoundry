@@ -43,36 +43,28 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          dark: "#0f172a", // slate-900
-          light: "#f1f5f9", // slate-100
+          dark: "#020612",
+          light: "#fcfcfc",
         },
         secondary: {
-          dark: "#c084fc", // purple-400
-          light: "#7e22ce", // indigo-700
+          dark: "#b374f2",
+          light: "#9346e0",
         },
-        background: {
-          dark: "#f1f5f9", // slate-100
-          light: "#ffffff", // white
+        body: {
+          dark: "#050c21",
+          light: "#ffffff",
+        },
+        card: {
+          dark: "#010512",
+          light: "#fafafa",
         },
         text: {
-          dark: "#f1f5f9", // slate-100
-          light: "#1e293b", // slate-800
-        },
-        accent: {
-          dark: "#581c87", // purple-900
-          light: "#4f46e5", // indigo-600
-        },
-        neutral: {
-          light: "#e2e8f0", // slate-200
-          dark: "#1e293b", // slate-800
+          dark: "#ebeced",
+          light: "#111724",
         },
         hover: {
-          light: "#e0e7ff", // indigo-100
-          dark: "#312e81", // indigo-900
-        },
-        focus: {
-          light: "#c7d2fe", // indigo-200
-          dark: "#4338ca", // indigo-700
+          dark: "#061133",
+          light: "#f1f1f1",
         },
       },
       width: {
