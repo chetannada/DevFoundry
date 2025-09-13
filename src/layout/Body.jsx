@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import LoginModal from "../components/modal/LoginModal";
 import ProjectActionModal from "../components/modal/ProjectActionModal";
 import ProjectGallery from "../components/ProjectGallery";
 import TabsPage from "../components/TabsPage";
 import { fetchGalleryProjects } from "../services/projectService";
 import strings from "../utils/strings";
+import ActionModal from "../components/modal/ActionModal";
+import { FaGithub } from "react-icons/fa";
 
 const Body = () => {
   const { user, isLoggedIn, isAuthReady } = useSelector(state => state.auth);
@@ -17,6 +18,7 @@ const Body = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [projectItems, setProjectItems] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
@@ -35,6 +37,7 @@ const Body = () => {
   const handleRestoreModal = item => openProjectModal("restore", item);
 
   const handleOnLogin = () => {
+    setIsDisabled(true);
     const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
     window.location.href = `${API_BACKEND_URL}/auth/github`;
   };
@@ -98,13 +101,22 @@ const Body = () => {
           activeTab={activeTab}
         />
       ) : (
-        <LoginModal
-          isOpen={showModal}
-          onClose={() => setShowModal(false)}
-          onLogin={handleOnLogin}
-          title={strings.loginBodyTitle}
-          description={strings.loginBodyDescription}
-        />
+        <>
+          {/* Login Modal */}
+          <ActionModal
+            isOpen={showModal}
+            onClose={() => setShowModal(false)}
+            title={strings.loginBodyTitle}
+            description={strings.loginBodyDescription}
+            onConfirm={handleOnLogin}
+            confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+      text-white bg-gradient-to-br from-purple-500 to-blue-800
+      hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
+            confirmIcon={() => <FaGithub size={18} />}
+            confirmLabel={"Login with GitHub"}
+            isDisabled={isDisabled}
+          />
+        </>
       )}
     </>
   );

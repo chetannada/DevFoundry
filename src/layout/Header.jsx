@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import UserMenu from "../components/menu/UserMenu";
-import LoginModal from "../components/modal/LoginModal";
-import LogoutModal from "../components/modal/LogoutModal";
 import ThemeToggle from "../components/theme/ThemeToggle";
 import useWindowSize from "../hooks/useWindowSize";
 import { fetchUser, logoutUser } from "../store/reducers/authSlice";
 import strings from "../utils/strings";
 import Sidebar from "./Sidebar";
+import { FaGithub } from "react-icons/fa";
+import ActionModal from "../components/modal/ActionModal";
 
 axios.defaults.withCredentials = true;
 
@@ -21,6 +21,7 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const windowSize = useWindowSize();
 
@@ -38,6 +39,7 @@ const Header = () => {
   const handleLoginClick = () => setShowLoginModal(true);
 
   const handleOnLogin = () => {
+    setIsDisabled(true);
     const API_VERSION_PREFIX = "/api";
 
     const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
@@ -65,7 +67,7 @@ const Header = () => {
               <div className="block lg:hidden">
                 <button
                   onClick={handleLoginClick}
-                  className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2"
+                  className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2"
                 >
                   <FiLogIn size={18} />
                   Login
@@ -80,7 +82,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light text-text-light border-b-4 border-b-secondary-light dark:bg-primary-dark dark:text-text-dark dark:border-b-secondary-dark transition-colors duration-300">
+      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
             <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold">
@@ -104,7 +106,6 @@ const Header = () => {
 
           {sidebarOpen && (
             <>
-              {/* <div className="fixed inset-0 top-14 bg-black bg-opacity-60 z-10" /> */}
               <Sidebar
                 isLoggedIn={isLoggedIn}
                 handleLogoutClick={handleLogoutClick}
@@ -114,20 +115,33 @@ const Header = () => {
             </>
           )}
 
-          <LoginModal
+          {/* Login Modal */}
+          <ActionModal
             isOpen={showLoginModal}
             onClose={() => setShowLoginModal(false)}
-            onLogin={handleOnLogin}
             title={strings.loginHeaderTitle}
             description={strings.loginHeaderDescription}
+            onConfirm={handleOnLogin}
+            confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+      text-white bg-gradient-to-br from-purple-500 to-blue-800
+      hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
+            confirmIcon={() => <FaGithub size={18} />}
+            confirmLabel={"Login with GitHub"}
+            isDisabled={isDisabled}
           />
 
-          <LogoutModal
+          {/* Logout Modal */}
+          <ActionModal
             isOpen={showLogoutModal}
             onClose={() => setShowLogoutModal(false)}
-            onLogout={handleOnLogout}
             title={strings.logoutHeaderTitle}
             description={strings.logoutHeaderDescription}
+            onConfirm={handleOnLogout}
+            confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+    text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl`}
+            confirmIcon={() => <FiLogOut size={18} />}
+            confirmLabel={"Confirm Logout"}
+            isDisabled={isDisabled}
           />
         </nav>
       </header>

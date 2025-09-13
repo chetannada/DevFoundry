@@ -3,17 +3,13 @@ import { MdAddCircleOutline } from "react-icons/md";
 const TabsPage = ({ activeTab, handleTabs, handleAddModal }) => {
   return (
     <div className="flex justify-between items-center mb-6 gap-4 flex-wrap">
-      <div className="flex gap-2 p-1 rounded-xl bg-gray-100 border border-secondary-dark">
+      <div className="flex gap-2 p-1 rounded-xl bg-card-light dark:bg-card-dark border border-secondary-light dark:border-secondary-dark">
         {["core", "community"].map(tab => (
           <button
             key={tab}
             onClick={() => handleTabs(tab)}
-            className={`px-6 xsm:px-4 xmob:px-3 py-2 rounded-xl text-sm mob:text-xs font-semibold transition-all duration-200 border-2
-  ${
-    activeTab === tab
-      ? "bg-white text-purple-700 border-secondary-light"
-      : "bg-transparent text-gray-800 border-transparent"
-  }`}
+            className={`px-6 xsm:px-4 xmob:px-3 py-3 rounded-xl text-sm mob:text-xs font-semibold transition-all duration-200
+  ${activeTab === tab ? "text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl" : ""}`}
           >
             {tab === "core" ? "Core Builds" : "Community Builds"}
           </button>
@@ -23,21 +19,11 @@ const TabsPage = ({ activeTab, handleTabs, handleAddModal }) => {
       <div>
         <button
           onClick={handleAddModal}
-          className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-br from-teal-700 to-lime-600 hover:from-lime-600 hover:to-teal-700 focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm mob:text-xs transition"
+          className="flex items-center gap-2 px-5 py-3 text-white bg-gradient-to-br from-teal-700 to-lime-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm mob:text-xs transition"
         >
           <MdAddCircleOutline className="text-xl" />
-          Add Project
+          Add Build
         </button>
-      </div>
-
-      <div className="text-lg">
-        <div className="rounded-md shadow-sm">
-          <iframe
-            src={`https://ghbtns.com/github-btn.html?user=chetannada&repo=DevFoundry&type=star&count=true&size=large`}
-            title="GitHub"
-            className="w-32 h-7"
-          />
-        </div>
       </div>
     </div>
   );

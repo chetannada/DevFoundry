@@ -7,19 +7,16 @@ import ContentWrapper from "./ContentWrapper";
 const Layout = () => {
   return (
     <>
-      <div className="min-h-screen bg-background-light dark:bg-background-dark">
-        {/* Header Component */}
+      <div className="min-h-screen bg-body-light dark:bg-body-dark text-text-light dark:text-text-dark">
         <Header />
 
-        {/* Outlet is for render Body and it's Children Component */}
+        {/* Render Body and it's children component */}
         <ContentWrapper>
           <Outlet />
         </ContentWrapper>
 
-        {/* Footer Component */}
         <Footer />
 
-        {/* Manage all Toast notifications */}
         <Toaster position="top-right" />
       </div>
     </>
