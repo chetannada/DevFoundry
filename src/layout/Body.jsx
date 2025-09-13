@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import ProjectActionModal from "../components/modal/ProjectActionModal";
-import ProjectGallery from "../components/ProjectGallery";
+import BuildActionModal from "../components/modal/BuildActionModal";
+import BuildGallery from "../components/BuildGallery";
 import TabsPage from "../components/TabsPage";
-import { fetchGalleryProjects } from "../services/projectService";
+import { fetchGalleryBuilds } from "../services/buildService";
 import strings from "../utils/strings";
 import ActionModal from "../components/modal/ActionModal";
 import { FaGithub } from "react-icons/fa";
@@ -16,7 +16,7 @@ const Body = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add"); // "add" | "edit" | "review" | "restore"
   const [selectedItem, setSelectedItem] = useState(null);
-  const [projectItems, setProjectItems] = useState(null);
+  const [buildItems, setBuildItems] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -25,16 +25,16 @@ const Body = () => {
 
   const handleTabs = tab => setActiveTab(tab);
 
-  const openProjectModal = (mode, item = null) => {
+  const openBuildModal = (mode, item = null) => {
     setModalMode(mode);
     setSelectedItem(item);
     setShowModal(true);
   };
 
-  const handleAddModal = () => openProjectModal("add");
-  const handleEditModal = item => openProjectModal("edit", item);
-  const handleReviewModal = item => openProjectModal("review", item);
-  const handleRestoreModal = item => openProjectModal("restore", item);
+  const handleAddModal = () => openBuildModal("add");
+  const handleEditModal = item => openBuildModal("edit", item);
+  const handleReviewModal = item => openBuildModal("review", item);
+  const handleRestoreModal = item => openBuildModal("restore", item);
 
   const handleOnLogin = () => {
     setIsDisabled(true);
@@ -42,7 +42,7 @@ const Body = () => {
     window.location.href = `${API_BACKEND_URL}/auth/github`;
   };
 
-  const fetchProjects = async (
+  const fetchBuilds = async (
     search = { query: "", field: "title" },
     contributorId = null,
     activeTab = "core"
@@ -53,13 +53,13 @@ const Body = () => {
     lastQueryRef.current = formattedQuery;
 
     try {
-      const res = await fetchGalleryProjects({ query, field }, contributorId, activeTab);
-      setProjectItems(res);
+      const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab);
+      setBuildItems(res);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
-      setProjectItems([]);
+      setBuildItems([]);
     } finally {
       setIsLoading(false);
     }
@@ -70,7 +70,7 @@ const Body = () => {
       setIsLoading(true);
       clearTimeout(debounceRef.current);
       debounceRef.current = setTimeout(() => {
-        fetchProjects({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+        fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
       }, 300);
     }
   }, [isAuthReady, user, activeTab]);
@@ -79,11 +79,11 @@ const Body = () => {
     <>
       <TabsPage activeTab={activeTab} handleTabs={handleTabs} handleAddModal={handleAddModal} />
 
-      <ProjectGallery
+      <BuildGallery
         activeTab={activeTab}
-        projectItems={projectItems}
+        buildItems={buildItems}
         isLoading={isLoading}
-        fetchProjects={fetchProjects}
+        fetchBuilds={fetchBuilds}
         lastQueryRef={lastQueryRef}
         handleEditModal={handleEditModal}
         handleReviewModal={handleReviewModal}
@@ -91,10 +91,10 @@ const Body = () => {
       />
 
       {isLoggedIn && user ? (
-        <ProjectActionModal
+        <BuildActionModal
           isOpen={showModal}
           onClose={() => setShowModal(false)}
-          fetchProjects={fetchProjects}
+          fetchBuilds={fetchBuilds}
           selectedItem={selectedItem}
           setSelectedItem={setSelectedItem}
           modalMode={modalMode}

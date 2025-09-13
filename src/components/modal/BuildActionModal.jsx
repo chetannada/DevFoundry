@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Modal from "../modal";
-import useProjectForm from "../../hooks/useProjectForm";
-import handleProjectSubmit from "../../utils/handleProjectSubmit";
-import ProjectFormFields from "../form/ProjectFormFields";
-import { projectFormTitle } from "../../utils/function";
+import Modal from ".";
+import useBuildForm from "../../hooks/useBuildForm";
+import handleBuildSubmit from "../../utils/handleBuildSubmit";
+import BuildFormFields from "../form/BuildFormFields";
+import { buildFormTitle } from "../../utils/function";
 
-const ProjectActionModal = ({
+const BuildActionModal = ({
   isOpen,
   onClose,
-  fetchProjects,
+  fetchBuilds,
   selectedItem,
   setSelectedItem,
   modalMode, // "add" | "edit" | "review" | "restore"
   activeTab,
 }) => {
   const { user } = useSelector(state => state.auth);
-  const { control, handleSubmit, errors, reset, statusValue } = useProjectForm({
+  const { control, handleSubmit, errors, reset, statusValue } = useBuildForm({
     selectedItem,
     modalMode,
   });
@@ -32,13 +32,13 @@ const ProjectActionModal = ({
 
   const onSubmit = async data => {
     setIsDisabled(true);
-    await handleProjectSubmit({
+    await handleBuildSubmit({
       data,
       user,
       selectedItem,
       modalMode,
       activeTab,
-      fetchProjects,
+      fetchBuilds,
       handleClose,
     });
     setIsDisabled(false);
@@ -51,11 +51,11 @@ const ProjectActionModal = ({
   return (
     <Modal isOpen={isOpen} onClose={handleClose} width="w-180 md:w-128">
       <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-6 mr-8">
-        {projectFormTitle(activeTab, modalMode)}
+        {buildFormTitle(activeTab, modalMode)}
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <ProjectFormFields
+        <BuildFormFields
           control={control}
           errors={errors}
           statusValue={statusValue}
@@ -87,4 +87,4 @@ const ProjectActionModal = ({
   );
 };
 
-export default ProjectActionModal;
+export default BuildActionModal;

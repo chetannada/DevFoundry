@@ -2,7 +2,7 @@ import { fieldLabels } from "../utils/constant";
 
 const NoResults = ({
   searchQuery,
-  fetchProjects,
+  fetchBuilds,
   user,
   setSearchQuery,
   setInputSearch,
@@ -13,7 +13,7 @@ const NoResults = ({
     setSearchBy("title");
     setSearchQuery({ query: "", field: "title" });
     setInputSearch("");
-    fetchProjects({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+    fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
   };
 
   return (
@@ -32,13 +32,13 @@ const NoResults = ({
           />
         </svg>
         <h2 className="text-xl font-semibold text-purple-700">
-          No <span className="text-lime-600 font-medium">{activeTab}</span> projects found with{" "}
+          No <span className="text-lime-600 font-medium">{activeTab}</span> builds found with{" "}
           <span className="text-rose-500 font-medium">{fieldLabels[searchQuery.field]}</span>{" "}
           matching <span className="italic text-pink-500">"{searchQuery.query}"</span>
         </h2>
 
         <p className="text-sm text-gray-600 max-w-md">
-          {`Try searching for another keyword, or explore all ${activeTab} projects below. Your next
+          {`Try searching for another keyword, or explore all ${activeTab} builds below. Your next
           discovery might just be a scroll away!`}
         </p>
         <button

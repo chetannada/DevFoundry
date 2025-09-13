@@ -1,18 +1,18 @@
 import toast from "react-hot-toast";
 import {
-  editGalleryProject,
-  restoreGalleryProject,
-  reviewGalleryProject,
-  submitProjectToGallery,
-} from "../services/projectService";
+  editGalleryBuild,
+  restoreGalleryBuild,
+  reviewGalleryBuild,
+  submitBuildToGallery,
+} from "../services/buildService";
 
-const handleProjectSubmit = async ({
+const handleBuildSubmit = async ({
   data,
   user,
   selectedItem,
   modalMode, // "add" | "edit" | "review" | "restore"
   activeTab,
-  fetchProjects,
+  fetchBuilds,
   handleClose,
 }) => {
   const contributorInfo = {
@@ -20,7 +20,7 @@ const handleProjectSubmit = async ({
     contributorId: selectedItem?.contributorId || user?.github?.id,
     contributorAvatarUrl: selectedItem?.contributorAvatarUrl || user?.github?.avatarUrl,
     contributorGithubUrl: selectedItem?.contributorGithubUrl || user?.github?.url,
-    contributorRole: selectedItem?.contributorRole || user?.userRole,  
+    contributorRole: selectedItem?.contributorRole || user?.userRole,
   };
 
   let finalData = {
@@ -38,7 +38,7 @@ const handleProjectSubmit = async ({
         rejectionReason: "",
         restoredReason: "",
       };
-      const res = await editGalleryProject(selectedItem._id, finalData, activeTab);
+      const res = await editGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
     } else if (modalMode === "review") {
       finalData = {
@@ -46,7 +46,7 @@ const handleProjectSubmit = async ({
         status: data.status,
         rejectionReason: data.rejectionReason,
       };
-      const res = await reviewGalleryProject(selectedItem._id, finalData, activeTab);
+      const res = await reviewGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
     } else if (modalMode === "restore") {
       finalData = {
@@ -55,7 +55,7 @@ const handleProjectSubmit = async ({
         rejectionReason: "",
         restoredReason: data.restoredReason,
       };
-      const res = await restoreGalleryProject(selectedItem._id, finalData, activeTab);
+      const res = await restoreGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
     } else {
       // "add"
@@ -65,11 +65,11 @@ const handleProjectSubmit = async ({
         rejectionReason: "",
         restoredReason: "",
       };
-      const res = await submitProjectToGallery(finalData, activeTab);
+      const res = await submitBuildToGallery(finalData, activeTab);
       toast.success(res.message);
     }
 
-    fetchProjects({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+    fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
     handleClose();
   } catch (err) {
     const message = err.response?.data?.errorMessage || "Something went wrong!";
@@ -78,4 +78,4 @@ const handleProjectSubmit = async ({
   }
 };
 
-export default handleProjectSubmit;
+export default handleBuildSubmit;

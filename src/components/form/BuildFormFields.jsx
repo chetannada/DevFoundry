@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 import TextInputField from "../text-input-field";
 import ChipInputField from "../chip-input-field";
 
-const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, isRestore }) => {
+const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, isRestore }) => {
   const isReadOnly = isReview || isRestore;
 
   return (
@@ -11,14 +11,14 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
       <div className="flex flex-row md:flex-col gap-4">
         <div className="flex-1">
           <Controller
-            name="projectTitle"
+            name="title"
             control={control}
             rules={{ required: "Title is required" }}
             render={({ field }) => (
               <TextInputField
                 field={field}
-                error={errors.projectTitle}
-                placeholder="Project Title"
+                error={errors.title}
+                placeholder="Build Title"
                 disabled={isReadOnly}
               />
             )}
@@ -27,14 +27,14 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
 
         <div className="flex-1">
           <Controller
-            name="projectDescription"
+            name="description"
             control={control}
             rules={{ required: "Description is required" }}
             render={({ field }) => (
               <TextInputField
                 field={field}
-                error={errors.projectDescription}
-                placeholder="Project Description"
+                error={errors.description}
+                placeholder="Build Description"
                 disabled={isReadOnly}
               />
             )}
@@ -46,7 +46,7 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
       <div className="flex flex-row md:flex-col gap-4">
         <div className="flex-1">
           <Controller
-            name="githubCodeUrl"
+            name="codeUrl"
             control={control}
             rules={{
               required: "Code URL is required",
@@ -58,7 +58,7 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
             render={({ field }) => (
               <TextInputField
                 field={field}
-                error={errors.githubCodeUrl}
+                error={errors.codeUrl}
                 placeholder="Code Repository URL"
                 disabled={isReadOnly}
               />
@@ -75,7 +75,7 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
               pattern: {
                 value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
                 message: `Enter a valid ${
-                  activeTab === "core" ? "relative path like /project-folder-name" : "URL"
+                  activeTab === "core" ? "relative path like /build-folder-name" : "URL"
                 }`,
               },
             }}
@@ -104,7 +104,7 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
               value={field.value}
               onChange={field.onChange}
               error={errors.techStack}
-              placeholder="Add Tech used in your Project..."
+              placeholder="Add Tech used in your Build and press Enter"
               disabled={isReadOnly}
             />
           )}
@@ -190,4 +190,4 @@ const ProjectFormFields = ({ control, errors, statusValue, activeTab, isReview, 
   );
 };
 
-export default ProjectFormFields;
+export default BuildFormFields;

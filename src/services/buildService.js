@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_VERSION_PREFIX = '/api';
+const API_VERSION_PREFIX = "/api";
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
 
-export const fetchGalleryProjects = async (
+export const fetchGalleryBuilds = async (
   search = { query: "", field: "title" },
   contributorId = null,
   activeTab
@@ -12,12 +12,12 @@ export const fetchGalleryProjects = async (
   const { query, field } = search;
 
   const fieldMap = {
-    title: "projectTitle",
+    title: "title",
     techstack: "techStack",
     contributedBy: "contributorName",
   };
 
-  const paramKey = fieldMap[field] || "projectTitle";
+  const paramKey = fieldMap[field] || "title";
 
   if (query) queryParams.append(paramKey, query);
   if (contributorId) queryParams.append("contributorId", contributorId);
@@ -25,9 +25,7 @@ export const fetchGalleryProjects = async (
 
   try {
     const response = await axios.get(
-      `${API_BACKEND_URL}/projects/get${
-        queryParams.toString() ? `?${queryParams.toString()}` : ""
-      }`
+      `${API_BACKEND_URL}/builds/get${queryParams.toString() ? `?${queryParams.toString()}` : ""}`
     );
     return response.data;
   } catch (error) {
@@ -35,16 +33,14 @@ export const fetchGalleryProjects = async (
   }
 };
 
-export const submitProjectToGallery = async (projectData, activeTab) => {
+export const submitBuildToGallery = async (buildData, activeTab) => {
   const queryParams = new URLSearchParams();
   if (activeTab) queryParams.append("type", activeTab);
 
   try {
     const response = await axios.post(
-      `${API_BACKEND_URL}/projects/add${
-        queryParams.toString() ? `?${queryParams.toString()}` : ""
-      }`,
-      projectData
+      `${API_BACKEND_URL}/builds/add${queryParams.toString() ? `?${queryParams.toString()}` : ""}`,
+      buildData
     );
     return response.data;
   } catch (error) {
@@ -52,13 +48,13 @@ export const submitProjectToGallery = async (projectData, activeTab) => {
   }
 };
 
-export const removeProjectFromGallery = async (projectId, payload, activeTab) => {
+export const removeBuildFromGallery = async (buildId, payload, activeTab) => {
   const queryParams = new URLSearchParams();
   if (activeTab) queryParams.append("type", activeTab);
 
   try {
     const response = await axios.delete(
-      `${API_BACKEND_URL}/projects/delete/${projectId}${
+      `${API_BACKEND_URL}/builds/delete/${buildId}${
         queryParams.toString() ? `?${queryParams.toString()}` : ""
       }`,
       {
@@ -71,13 +67,13 @@ export const removeProjectFromGallery = async (projectId, payload, activeTab) =>
   }
 };
 
-export const editGalleryProject = async (projectId, updatedData, activeTab) => {
+export const editGalleryBuild = async (buildId, updatedData, activeTab) => {
   const queryParams = new URLSearchParams();
   if (activeTab) queryParams.append("type", activeTab);
 
   try {
     const response = await axios.put(
-      `${API_BACKEND_URL}/projects/update/${projectId}${
+      `${API_BACKEND_URL}/builds/update/${buildId}${
         queryParams.toString() ? `?${queryParams.toString()}` : ""
       }`,
       updatedData
@@ -88,13 +84,13 @@ export const editGalleryProject = async (projectId, updatedData, activeTab) => {
   }
 };
 
-export const reviewGalleryProject = async (projectId, reviewedData, activeTab) => {
+export const reviewGalleryBuild = async (buildId, reviewedData, activeTab) => {
   const queryParams = new URLSearchParams();
   if (activeTab) queryParams.append("type", activeTab);
 
   try {
     const response = await axios.put(
-      `${API_BACKEND_URL}/projects/review/${projectId}?${queryParams.toString()}`,
+      `${API_BACKEND_URL}/builds/review/${buildId}?${queryParams.toString()}`,
       reviewedData,
       {
         withCredentials: true,
@@ -106,13 +102,13 @@ export const reviewGalleryProject = async (projectId, reviewedData, activeTab) =
   }
 };
 
-export const restoreGalleryProject = async (projectId, restoredData, activeTab) => {
+export const restoreGalleryBuild = async (buildId, restoredData, activeTab) => {
   const queryParams = new URLSearchParams();
   if (activeTab) queryParams.append("type", activeTab);
 
   try {
     const response = await axios.put(
-      `${API_BACKEND_URL}/projects/restore/${projectId}?${queryParams.toString()}`,
+      `${API_BACKEND_URL}/builds/restore/${buildId}?${queryParams.toString()}`,
       restoredData,
       {
         withCredentials: true,

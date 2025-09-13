@@ -1,21 +1,21 @@
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import { removeProjectFromGallery } from "../services/projectService";
+import { removeBuildFromGallery } from "../services/buildService";
 import { capitalizeWord } from "../utils/function";
 import NoData from "./NoData";
 import NoResults from "./NoResults";
-import ProjectCard from "./ProjectCard";
+import BuildCard from "./BuildCard";
 import SearchBar from "./SearchBar";
-import SkeletonProjectCard from "./skeleton/SkeletonProjectCard";
+import SkeletonBuildCard from "./skeleton/SkeletonBuildCard";
 import ActionModal from "./modal/ActionModal";
 import { FaTrashAlt } from "react-icons/fa";
 
-const ProjectGallery = ({
+const BuildGallery = ({
   activeTab,
-  projectItems,
+  buildItems,
   isLoading,
-  fetchProjects,
+  fetchBuilds,
   lastQueryRef,
   handleEditModal,
   handleReviewModal,
@@ -42,9 +42,9 @@ const ProjectGallery = ({
       if (formattedQuery === lastQueryRef.current) return;
 
       setSearchQuery({ query, field });
-      fetchProjects({ query, field }, user?.github?.id || null, activeTab);
+      fetchBuilds({ query, field }, user?.github?.id || null, activeTab);
     },
-    [fetchProjects, lastQueryRef]
+    [fetchBuilds, lastQueryRef]
   );
 
   const handleDeleteModal = item => {
@@ -52,11 +52,11 @@ const ProjectGallery = ({
     setShowModal(true);
   };
 
-  const handleDelete = async projectId => {
+  const handleDelete = async buildId => {
     setIsDisabled(true);
     try {
-      const res = await removeProjectFromGallery(
-        projectId,
+      const res = await removeBuildFromGallery(
+        buildId,
         {
           contributorName: user?.userName || null,
           contributorId: user?.github?.id || null,
@@ -67,7 +67,7 @@ const ProjectGallery = ({
 
       toast.success(res.message);
       handleClose();
-      fetchProjects({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+      fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
       console.error("Error:", message);
@@ -82,22 +82,22 @@ const ProjectGallery = ({
     setShowModal(false);
   };
 
-  const renderProjects = () => {
+  const renderBuilds = () => {
     if (isLoading) {
       return (
         <div className={`w-full grid grid-cols-3 xl:grid-cols-2 mdMid:grid-cols-1 gap-6`}>
           {[...Array(6)].map((_, i) => (
-            <SkeletonProjectCard key={i} />
+            <SkeletonBuildCard key={i} />
           ))}
         </div>
       );
     }
 
-    if (projectItems?.length) {
+    if (buildItems?.length) {
       return (
         <div className={`w-full grid grid-cols-3 xl:grid-cols-2 mdMid:grid-cols-1 gap-6`}>
-          {projectItems?.map(item => (
-            <ProjectCard
+          {buildItems?.map(item => (
+            <BuildCard
               key={item._id}
               item={item}
               userId={user?.github?.id}
@@ -111,11 +111,11 @@ const ProjectGallery = ({
           ))}
         </div>
       );
-    } else if (!projectItems?.length && searchQuery?.query) {
+    } else if (!buildItems?.length && searchQuery?.query) {
       return (
         <NoResults
           searchQuery={searchQuery}
-          fetchProjects={fetchProjects}
+          fetchBuilds={fetchBuilds}
           user={user}
           setSearchQuery={setSearchQuery}
           setInputSearch={setInputSearch}
@@ -124,7 +124,7 @@ const ProjectGallery = ({
         />
       );
     } else {
-      return <NoData message="No projects found" />;
+      return <NoData message="No builds found" />;
     }
   };
 
@@ -133,7 +133,7 @@ const ProjectGallery = ({
       <div className="flex justify-center md:justify-start items-center mx-auto mb-8">
         <SearchBar
           handleSearch={handleSearch}
-          isDisabled={isLoading || projectItems === null}
+          isDisabled={isLoading || buildItems === null}
           inputSearch={inputSearch}
           setInputSearch={setInputSearch}
           searchBy={searchBy}
@@ -141,7 +141,7 @@ const ProjectGallery = ({
         />
       </div>
 
-      {renderProjects()}
+      {renderBuilds()}
 
       {/* Delete Modal */}
       <ActionModal
@@ -152,7 +152,7 @@ const ProjectGallery = ({
           <span>
             Are you sure you want to delete{" "}
             <span className="font-semibold text-red-600 dark:text-red-300">
-              '{deleteItem?.projectTitle}'
+              '{deleteItem?.title}'
             </span>{" "}
             build? This action cannot be undone.
           </span>
@@ -170,4 +170,4 @@ const ProjectGallery = ({
   );
 };
 
-export default ProjectGallery;
+export default BuildGallery;

@@ -1,7 +1,7 @@
 export const statusTooltips = {
-  pending: "This project is awaiting approval",
-  approved: "This project has been approved",
-  rejected: "This project was rejected by an admin",
+  pending: "This build is awaiting approval",
+  approved: "This build has been approved",
+  rejected: "This build was rejected by an admin",
 };
 
 export const fieldLabels = {
@@ -10,10 +10,10 @@ export const fieldLabels = {
   contributedBy: "contributed by",
 };
 
-export const projectFormDefaultValues = {
-  projectTitle: "",
-  projectDescription: "",
-  githubCodeUrl: "",
+export const buildFormDefaultValues = {
+  title: "",
+  description: "",
+  codeUrl: "",
   liveUrl: "",
   techStack: ["React.js"],
   status: "approved",
