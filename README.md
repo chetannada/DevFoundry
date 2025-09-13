@@ -1,4 +1,4 @@
-# ❤️ DevFoundry — Where developers forge their projects. 🚀
+# ❤️ DevFoundry — Where developers forge their builds. 🚀
 
 Welcome to the `DevFoundry` repository — a curated collection of machine coding challenges designed to help developers build, learn, and showcase their skills across stacks. Whether you're just starting out or refining your craft, these projects offer hands-on experience with real-world UI workflows and full-stack architecture.
 
@@ -39,7 +39,7 @@ The backend is powered by a RESTful API built with Node.js and Express.js, enabl
 
 ## 🌻 Projects
 
-DevFoundry hosts a growing collection of hands-on machine coding projects originally built with **React.js**, now evolving to support multiple stacks. Each project includes source code and live demos, offering developers a practical way to explore UI workflows, modular architecture, and real-world problem solving.
+DevFoundry hosts a growing collection of hands-on machine coding projects originally built with **React.js**, now evolving to support multiple stacks. Each build includes source code and live demos, offering developers a practical way to explore UI workflows, modular architecture, and real-world problem solving.
 
 Whether you're refining your frontend skills or contributing full-stack features, these projects are designed to help you forge your craft through experience.
 

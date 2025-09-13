@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { statusStyles } from "../utils/styles";
 
-const ProjectCard = ({
+const BuildCard = ({
   item,
   userId,
   userRole,
@@ -15,9 +15,9 @@ const ProjectCard = ({
   activeTab,
 }) => {
   const {
-    projectTitle,
-    projectDescription,
-    githubCodeUrl,
+    title,
+    description,
+    codeUrl,
     liveUrl,
     contributorGithubUrl,
     contributorAvatarUrl,
@@ -97,12 +97,12 @@ const ProjectCard = ({
 
         {/* Title & Description */}
         <div className={`flex flex-wrap flex-col gap-1 mb-2`}>
-          <h5 className="text-2xl font-bold dark:text-white">{projectTitle}</h5>
+          <h5 className="text-2xl font-bold dark:text-white">{title}</h5>
           <p className="font-normal dark:text-gray-400">
-            {showMore || projectDescription?.length <= characterLimit
-              ? projectDescription
-              : `${projectDescription?.substring(0, characterLimit)}...`}
-            {projectDescription?.length > characterLimit && (
+            {showMore || description?.length <= characterLimit
+              ? description
+              : `${description?.substring(0, characterLimit)}...`}
+            {description?.length > characterLimit && (
               <button
                 onClick={toggleShowMore}
                 className="text-blue-600 dark:text-blue-400 hover:underline ml-1"
@@ -163,7 +163,7 @@ const ProjectCard = ({
         {/* Action Buttons */}
         <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center">
           <Link
-            to={githubCodeUrl}
+            to={codeUrl}
             target="_blank"
             className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-fuchsia-500 to-blue-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm p-2"
           >
@@ -182,4 +182,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard;
+export default BuildCard;

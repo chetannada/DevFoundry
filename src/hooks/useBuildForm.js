@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { projectFormDefaultValues } from "../utils/constant";
+import { buildFormDefaultValues } from "../utils/constant";
 
-const useProjectForm = ({ selectedItem, modalMode }) => {
+const useBuildForm = ({ selectedItem, modalMode }) => {
   const {
     control,
     handleSubmit,
@@ -11,7 +11,7 @@ const useProjectForm = ({ selectedItem, modalMode }) => {
     watch,
     setValue,
   } = useForm({
-    defaultValues: projectFormDefaultValues,
+    defaultValues: buildFormDefaultValues,
   });
 
   const statusValue = watch("status");
@@ -25,9 +25,9 @@ const useProjectForm = ({ selectedItem, modalMode }) => {
   useEffect(() => {
     if (selectedItem) {
       reset({
-        projectTitle: selectedItem.projectTitle || "",
-        projectDescription: selectedItem.projectDescription || "",
-        githubCodeUrl: selectedItem.githubCodeUrl || "",
+        title: selectedItem.title || "",
+        description: selectedItem.description || "",
+        codeUrl: selectedItem.codeUrl || "",
         liveUrl: selectedItem.liveUrl || "",
         techStack: selectedItem.techStack || ["React.js"],
         status:
@@ -38,11 +38,11 @@ const useProjectForm = ({ selectedItem, modalMode }) => {
         restoredReason: selectedItem.restoredReason || "",
       });
     } else {
-      reset(projectFormDefaultValues);
+      reset(buildFormDefaultValues);
     }
   }, [selectedItem, modalMode, reset]);
 
   return { control, handleSubmit, errors, reset, statusValue };
 };
 
-export default useProjectForm;
+export default useBuildForm;
