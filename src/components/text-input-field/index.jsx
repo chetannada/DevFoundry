@@ -13,11 +13,13 @@ const TextInputField = ({ field, error, placeholder, disabled = false, ...rest }
         placeholder={placeholder}
         autoComplete="off"
         className={`w-full px-4 py-2 border rounded-md text-sm ${
-          error ? "border-red-500" : "border-gray-300"
-        } ${disabled ? "cursor-not-allowed bg-gray-300" : ""}`}
+          error
+            ? "border-red-500 dark:border-red-300"
+            : "border-border-light dark:border-border-dark"
+        } ${disabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"}`}
         disabled={disabled}
       />
-      {error && <p className="text-red-500 dark:text-red-400 text-xs mt-1">{error.message}</p>}
+      {error && <p className="text-red-500 dark:text-red-300 text-xs mt-1">{error.message}</p>}
     </>
   );
 };

@@ -25,7 +25,7 @@ const UserMenu = ({ user, handleLogoutClick }) => {
       <button onClick={() => setOpen(!open)} className="flex items-center gap-2">
         <img
           src={github?.avatarUrl}
-          alt={userName}
+          alt={`${userName}'s avatar`}
           className="w-8 h-8 xmob:w-7 xmob:h-7 rounded-full border-2 border-text-light dark:border-text-dark"
         />
       </button>

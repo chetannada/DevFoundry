@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import { FaSearch } from "react-icons/fa";
 import { fieldLabels } from "../utils/constant";
 
@@ -28,17 +28,17 @@ const SearchBar = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`w-full mobMidMin:max-w-2xl flex flex-row mobMid:flex-col items-stretch mobMid:gap-2 border mobMid:border-none border-secondary-dark ${isDisabled ? "bg-gray-100" : "bg-white"} mobMid:bg-transparent rounded-xl mobMid:rounded-none overflow-hidden`}
+      className={`w-full mobMidMin:max-w-2xl flex flex-row mobMid:flex-col items-stretch mobMid:gap-2 border mobMid:border-none border-secondary-light dark:border-secondary-dark ${isDisabled ? "bg-gray-100 dark:bg-gray-700" : "bg-card-light dark:bg-card-dark"} mobMid:bg-transparent rounded-xl mobMid:rounded-none overflow-hidden`}
     >
-      <div className="relative w-full mobMidMin:max-w-48 mobMid:border mobMid:border-secondary-dark mobMid:rounded-xl">
+      <div className="relative w-full mobMidMin:max-w-48 mobMid:border mobMid:border-secondary-light mobMid:dark:border-secondary-dark mobMid:rounded-xl">
         <select
           value={searchBy}
           onChange={handleSelect}
           disabled={isDisabled}
-          className={`w-full px-3 py-4 mr-6 text-sm border-r mobMid:border-none mobMid:rounded-xl border-secondary-dark outline-none appearance-none ${
+          className={`w-full px-3 py-3 mr-6 text-sm border-r mobMid:border-none mobMid:rounded-xl border-secondary-light dark:border-secondary-dark outline-none appearance-none ${
             isDisabled
-              ? "bg-gray-100 text-gray-500 cursor-not-allowed"
-              : "bg-white text-text-light cursor-pointer"
+              ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
+              : "bg-card-light dark:bg-card-dark cursor-pointer"
           }`}
         >
           <option value="title"> {!isDisabled && "Title"}</option>
@@ -49,7 +49,7 @@ const SearchBar = ({
         <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
           {!isDisabled && (
             <svg
-              className="w-4 h-4 text-gray-500"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -62,7 +62,7 @@ const SearchBar = ({
       </div>
 
       <div
-        className={`w-full ${isDisabled ? "bg-gray-100" : "bg-white"} flex items-center mobMid:border mobMid:border-secondary-dark mobMid:rounded-xl`}
+        className={`w-full ${isDisabled ? "bg-gray-100 dark:bg-gray-700" : "bg-card-light dark:bg-card-dark"} flex items-center mobMid:border mobMid:border-secondary-light mobMid:dark:border-secondary-dark mobMid:rounded-xl`}
       >
         <input
           type="text"
@@ -70,18 +70,16 @@ const SearchBar = ({
           onChange={e => setInputSearch(e.target.value)}
           placeholder={isDisabled ? inputSearch : `Search by ${fieldLabels[searchBy]}...`}
           disabled={isDisabled}
-          className={`px-4 py-3 ${isDisabled ? "bg-gray-100" : "bg-white"} outline-none w-full text-sm mobMid:rounded-xl ${
-            isDisabled ? "text-gray-500 cursor-not-allowed" : "text-text-light"
-          } placeholder-gray-400`}
+          className={`px-4 py-2 ${isDisabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"} outline-none w-full text-sm mobMid:rounded-xl placeholder-gray-400`}
         />
         <button
           type="submit"
           disabled={isDisabled}
-          className={`px-4 py-[18px] mobMid:rounded-r-xl ${
-            isDisabled ? "bg-gray-300 cursor-not-allowed" : "bg-purple-700 hover:bg-purple-800"
-          } text-white flex items-center justify-center transition`}
+          className={`mr-3 flex items-center justify-center transition ${
+            isDisabled ? "text-gray-400 cursor-not-allowed" : ""
+          }`}
         >
-          <FaSearch />
+          <FaSearch size={20} />
         </button>
       </div>
     </form>

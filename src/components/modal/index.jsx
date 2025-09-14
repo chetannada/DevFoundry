@@ -15,9 +15,9 @@ const Modal = ({ isOpen, onClose, children, width = "w-128" }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-body-dark dark:bg-body-light bg-opacity-80 dark:bg-opacity-80 px-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-body-dark bg-opacity-90 dark:bg-opacity-80 px-4">
       <div
-        className={`bg-card-light dark:bg-card-dark rounded-lg shadow-2xl p-6 relative transition-all duration-300 ${width} max-h-[80vh] overflow-y-auto`}
+        className={`bg-card-light dark:bg-card-dark rounded-lg shadow-2xl p-6 relative transition-all duration-300 ${width} max-h-[80vh] overflow-y-auto border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_1px_6px_4px_rgba(0,_0,_0,_0.55)] dark:shadow-[0px_1px_6px_4px_rgba(255,_255,_255,_0.55)]`}
       >
         {/* Close Button */}
         <button

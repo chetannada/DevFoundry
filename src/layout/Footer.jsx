@@ -8,13 +8,12 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="p-2 flex flex-row flex-wrap justify-center items-center gap-2 bg-neutral-light dark:bg-neutral-dark text-text-light dark:text-text-dark border-t border-purple-300 shadow-lg">
+      <footer className="p-2 flex flex-row flex-wrap justify-center items-center gap-2 bg-primary-light dark:bg-primary-dark border-t border-t-secondary-light dark:border-t-secondary-dark ">
         Created By <IoMdHeart color={theme === "dark" ? "red" : "darkred"} />
         <a
-          href="https://www.linkedin.com/in/chetannada/"
+          href="https://www.linkedin.com/in/chetannada"
           target="_blank"
-          title="Chetan Nada's Linkedin Profile"
-          className="text-secondary-light dark:text-secondary-dark font-bold hover:underline"
+          className="font-semibold tracking-wider hover:underline"
         >
           Chetan Nada
         </a>
@@ -23,10 +22,10 @@ const Footer = () => {
         <a
           href="https://github.com/chetannada/DevFoundry"
           target="_blank"
-          title="Github Repository"
-          className="text-secondary-light dark:text-secondary-dark font-bold hover:underline"
+          className="font-semibold hover:underline tracking-widest"
         >
-          DevFoundry
+          <span className="text-secondary-light dark:text-secondary-dark">Dev</span>
+          Foundry
         </a>
       </footer>
     </>

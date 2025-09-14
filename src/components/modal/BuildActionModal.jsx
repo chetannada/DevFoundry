@@ -50,9 +50,7 @@ const BuildActionModal = ({
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose} width="w-180 md:w-128">
-      <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-6 mr-8">
-        {buildFormTitle(activeTab, modalMode)}
-      </h2>
+      <h2 className="text-xl font-semibold mb-6 mr-8">{buildFormTitle(activeTab, modalMode)}</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <BuildFormFields
@@ -67,7 +65,7 @@ const BuildActionModal = ({
         <div className="flex flex-row justify-center gap-4 pt-4">
           <button
             onClick={handleClose}
-            className="text-sm px-5 py-2.5 text-text-light dark:text-text-light bg-background-light dark:bg-background-dark hover:bg-accent-dark hover:text-text-dark hover:dark:bg-accent-dark hover:dark:text-text-dark focus:ring-1 focus:outline-none font-medium rounded-lg"
+            className="text-sm px-5 py-2.5 border border-secondary-light dark:border-secondary-dark hover:shadow-md hover:bg-hover-light hover:dark:bg-hover-dark transition-all duration-200 font-medium rounded-lg"
           >
             Cancel
           </button>
@@ -75,9 +73,8 @@ const BuildActionModal = ({
             type="submit"
             disabled={isDisabled}
             className={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
-              text-white bg-gradient-to-br from-teal-700 to-lime-600
-              hover:from-lime-600 hover:to-teal-700 focus:ring-4 focus:outline-none
-              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-teal-700 disabled:hover:to-lime-600 disabled:focus:ring-0`}
+              text-white bg-gradient-to-br from-teal-700 to-lime-600 hover:bg-gradient-to-bl
+              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
           >
             {isEdit ? "Update" : "Submit"}
           </button>
