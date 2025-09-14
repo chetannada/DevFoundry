@@ -1,6 +1,5 @@
 import { FaGithub } from "react-icons/fa6";
 import { IoOpenOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { statusStyles } from "../utils/styles";
 
@@ -139,8 +138,8 @@ const BuildCard = ({
       <div className="flex flex-wrap flex-row gap-4 justify-between items-center w-full">
         {/* Contributor Info */}
         <div className="text-sm flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity duration-200">
-          <Link
-            to={contributorGithubUrl}
+          <a
+            href={contributorGithubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="peer flex items-center gap-2"
@@ -151,29 +150,32 @@ const BuildCard = ({
               className="w-7 h-7 rounded-full border-2 border-text-light dark:border-text-dark"
             />
             {contributorName}
-          </Link>
+          </a>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center text-sm font-medium ">
-          <Link
-            to={
+          <a
+            href={
               activeTab === "core"
                 ? `https://github.com/chetannada/DevFoundry/tree/main/src/features${repoUrl}`
                 : repoUrl
             }
             target="_blank"
+            rel="noopener noreferrer"
             className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-fuchsia-500 to-blue-900 hover:bg-gradient-to-l rounded-lg p-2"
           >
             <FaGithub size={20} /> Code
-          </Link>
-          <Link
-            to={liveUrl}
+          </a>
+
+          <a
+            href={liveUrl}
             target={activeTab === "core" ? "_self" : "_blank"}
+            rel="noopener noreferrer"
             className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-500 to-purple-700 hover:bg-gradient-to-l rounded-lg p-2"
           >
             <IoOpenOutline size={20} /> Live
-          </Link>
+          </a>
         </div>
       </div>
     </div>
