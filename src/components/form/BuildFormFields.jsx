@@ -49,7 +49,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
             name="codeUrl"
             control={control}
             rules={{
-              required: "Code URL is required",
+              required: "Repository URL is required",
               pattern: {
                 value: /^(https?:\/\/)/,
                 message: "Enter a valid URL",
@@ -59,7 +59,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
               <TextInputField
                 field={field}
                 error={errors.codeUrl}
-                placeholder="Code Repository URL"
+                placeholder="Repository URL"
                 disabled={isReadOnly}
               />
             )}
@@ -83,7 +83,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
               <TextInputField
                 field={field}
                 error={errors.liveUrl}
-                placeholder="Live Demo URL"
+                placeholder="Live URL"
                 disabled={isReadOnly}
               />
             )}
@@ -104,7 +104,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
               value={field.value}
               onChange={field.onChange}
               error={errors.techStack}
-              placeholder="Add Tech used in your Build and press Enter"
+              placeholder="Add Tech stack and press Enter"
               disabled={isReadOnly}
             />
           )}

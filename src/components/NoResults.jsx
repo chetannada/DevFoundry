@@ -18,10 +18,10 @@ const NoResults = ({
 
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="w-full max-w-xl flex flex-col items-center justify-center gap-4 py-12 px-6 text-center bg-gradient-to-br from-purple-50 via-white to-purple-100 rounded-xl shadow-md border border-purple-200">
+      <div className="w-full max-w-xl flex flex-col items-center justify-center gap-4 p-6 text-center bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_1px_6px_4px_rgba(0,_0,_0,_0.15)] dark:shadow-[0px_1px_6px_4px_rgba(255,_255,_255,_0.15)]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-16 w-16 text-purple-400 animate-bounce"
+          className="h-16 w-16 text-secondary-light dark:text-secondary-dark animate-bounce"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -31,19 +31,20 @@ const NoResults = ({
             clipRule="evenodd"
           />
         </svg>
-        <h2 className="text-xl font-semibold text-purple-700">
-          No <span className="text-lime-600 font-medium">{activeTab}</span> builds found with{" "}
-          <span className="text-rose-500 font-medium">{fieldLabels[searchQuery.field]}</span>{" "}
-          matching <span className="italic text-pink-500">"{searchQuery.query}"</span>
+        <h2 className="text-lg font-medium">
+          No {activeTab} builds found with {fieldLabels[searchQuery.field]} matching{" "}
+          <span className="italic text-secondary-light dark:text-secondary-dark">
+            {searchQuery.query}
+          </span>
         </h2>
 
-        <p className="text-sm text-gray-600 max-w-md">
+        <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
           {`Try searching for another keyword, or explore all ${activeTab} builds below. Your next
           discovery might just be a scroll away!`}
         </p>
         <button
           onClick={hanldeResetSearch}
-          className="mt-4 px-6 py-2 text-sm bg-purple-600 hover:bg-purple-700 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          className="mt-4 px-6 py-2 text-sm text-white bg-secondary-light dark:bg-secondary-dark rounded-lg shadow-lg transition-transform transform hover:scale-105"
         >
           Reset Search
         </button>

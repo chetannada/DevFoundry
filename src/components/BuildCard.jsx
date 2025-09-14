@@ -31,23 +31,19 @@ const BuildCard = ({
   } = item;
 
   const [showMore, setShowMore] = useState(false);
-  const characterLimit = 60;
+  const characterLimit = 40;
 
   const toggleShowMore = () => setShowMore(!showMore);
 
   return (
-    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-5 bg-opacity-50 bg-purple-50 hover:scale-[1.02] transition-transform duration-300 hover:shadow-[0_10px_25px_-5px_rgba(139,92,246,0.5)] border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_1px_6px_4px_rgba(0,_0,_0,_0.15)] dark:shadow-[0px_1px_6px_4px_rgba(255,_255,_255,_0.15)]">
       <div className="w-full">
         {(contributorId === userId || userRole === "admin") && (
           <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
             {/* Edit/Delete Controls */}
 
             <div className="flex flex-wrap flex-row gap-3">
-              {isDeleted ? (
-                <button className="text-xs px-3 py-1 bg-gray-300 text-gray-600 cursor-default rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200">
-                  Deleted
-                </button>
-              ) : (
+              {!isDeleted && (
                 <button
                   onClick={() => handleEditModal(item)}
                   className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200"
@@ -97,15 +93,15 @@ const BuildCard = ({
 
         {/* Title & Description */}
         <div className={`flex flex-wrap flex-col gap-1 mb-2`}>
-          <h5 className="text-2xl font-bold dark:text-white">{title}</h5>
-          <p className="font-normal dark:text-gray-400">
+          <h5 className="text-2xl font-bold">{title}</h5>
+          <p className="font-normal">
             {showMore || description?.length <= characterLimit
               ? description
               : `${description?.substring(0, characterLimit)}...`}
             {description?.length > characterLimit && (
               <button
                 onClick={toggleShowMore}
-                className="text-blue-600 dark:text-blue-400 hover:underline ml-1"
+                className="text-indigo-700 dark:text-indigo-300 hover:underline ml-1"
               >
                 {showMore ? "see less" : "see more"}
               </button>
@@ -119,7 +115,7 @@ const BuildCard = ({
             {techStack.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs font-semibold text-gray-800 bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100 rounded-full shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                className="px-3 py-1 text-xs font-semibold text-text-light bg-gradient-to-r from-pink-200 to-yellow-200 hover:bg-gradient-to-bl rounded-full shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-200"
               >
                 {tech}
               </span>
@@ -129,12 +125,12 @@ const BuildCard = ({
 
         {/* Rejection and Restored Reason */}
         {rejectionReason && (userId === contributorId || userRole === "admin") && (
-          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-red-50 border border-red-200 rounded-md whitespace-pre-wrap break-words">
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-gray-100 dark:bg-gray-200 border border-red-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Rejected reason:</strong> {rejectionReason}
           </p>
         )}
         {restoredReason && (userId === contributorId || userRole === "admin") && (
-          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-green-700 bg-green-50 border border-green-200 rounded-md whitespace-pre-wrap break-words">
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-green-700 bg-gray-100 dark:bg-gray-200 border border-green-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Restored reason:</strong> {restoredReason}
           </p>
         )}
@@ -142,37 +138,35 @@ const BuildCard = ({
 
       <div className="flex flex-wrap flex-row gap-4 justify-between items-center w-full">
         {/* Contributor Info */}
-        <div className="text-sm flex items-center justify-center text-gray-600 dark:text-gray-400 opacity-90 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="text-sm flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity duration-200">
           <Link
             to={contributorGithubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="peer flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+            className="peer flex items-center gap-2"
           >
             <img
               src={contributorAvatarUrl}
               alt={`${contributorName}'s avatar`}
-              className="w-7 h-7 rounded-full border border-gray-300 dark:border-gray-600"
+              className="w-7 h-7 rounded-full border-2 border-text-light dark:border-text-dark"
             />
-            <span className="text-text-light dark:text-text-dark hover:underline">
-              {contributorName}
-            </span>
+            {contributorName}
           </Link>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center">
+        <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center text-sm font-medium ">
           <Link
             to={codeUrl}
             target="_blank"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-fuchsia-500 to-blue-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm p-2"
+            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-fuchsia-500 to-blue-900 hover:bg-gradient-to-l rounded-lg p-2"
           >
             <FaGithub size={20} /> Code
           </Link>
           <Link
             to={liveUrl}
             target={activeTab === "core" ? "_self" : "_blank"}
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-500 to-purple-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm p-2"
+            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-500 to-purple-700 hover:bg-gradient-to-l rounded-lg p-2"
           >
             <IoOpenOutline size={20} /> Live
           </Link>

@@ -152,7 +152,7 @@ const BuildGallery = ({
           <span>
             Are you sure you want to delete{" "}
             <span className="font-semibold text-red-600 dark:text-red-300">
-              '{deleteItem?.title}'
+              {deleteItem?.title}
             </span>{" "}
             build? This action cannot be undone.
           </span>

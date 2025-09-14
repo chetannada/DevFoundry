@@ -1,6 +1,4 @@
-import { FaGithub } from "react-icons/fa";
 import Modal from ".";
-import { useState } from "react";
 
 const ActionModal = ({
   isOpen,

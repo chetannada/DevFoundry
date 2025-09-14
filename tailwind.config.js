@@ -43,20 +43,20 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          dark: "#020612",
+          dark: "#0d0d0d",
           light: "#fcfcfc",
         },
         secondary: {
           dark: "#b374f2",
-          light: "#9346e0",
+          light: "#7535b5",
         },
         body: {
-          dark: "#050c21",
-          light: "#ffffff",
+          dark: "#0c0c0c",
+          light: "#fdfdfd",
         },
         card: {
-          dark: "#010512",
-          light: "#fafafa",
+          dark: "#0a0a0a",
+          light: "#fefefe",
         },
         text: {
           dark: "#ebeced",
@@ -65,6 +65,14 @@ module.exports = {
         hover: {
           dark: "#061133",
           light: "#f1f1f1",
+        },
+        border: {
+          dark: "#dcdfe3",
+          light: "#9d9fa1",
+        },
+        skeleton: {
+          dark: "#374151",
+          light: "#d1d5db",
         },
       },
       width: {

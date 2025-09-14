@@ -85,11 +85,9 @@ const Header = () => {
       <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
-            <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold">
-              <span className="text-secondary-light dark:text-secondary-dark tracking-widest">
-                Dev
-              </span>
-              <span className="tracking-widest">Foundry</span>
+            <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold tracking-widest">
+              <span className="text-secondary-light dark:text-secondary-dark">Dev</span>
+              Foundry
             </h1>
           </a>
 
