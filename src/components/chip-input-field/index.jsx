@@ -40,13 +40,13 @@ const ChipInputField = ({
         {value.map((tech, index) => (
           <span
             key={index}
-            className={`flex items-center gap-4 px-3 py-1 mr-2 mb-1 text-xs font-medium text-gray-900 rounded-full shadow-sm ${disabled ? "cursor-not-allowed bg-gradient-to-r from-gray-50  via-gray-100 to-gray-200" : "bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200"}`}
+            className={`flex items-center gap-4 px-3 py-1 mr-2 mb-1 text-xs font-medium text-gray-900 rounded-full shadow-sm ${disabled ? "cursor-not-allowed bg-gradient-to-r from-gray-300 to-gray-400" : "bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200"}`}
           >
             {tech}
             <button
               type="button"
               onClick={() => handleRemove(index)}
-              className={`text-red-700 hover:text-red-900 text-sm font-bold ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+              className={`text-sm font-bold ${disabled ? "cursor-not-allowed text-gray-700" : "cursor-pointer text-red-700 hover:text-red-900"}`}
               disabled={disabled}
             >
               ✕
