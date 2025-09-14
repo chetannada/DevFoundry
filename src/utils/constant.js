@@ -13,7 +13,7 @@ export const fieldLabels = {
 export const buildFormDefaultValues = {
   title: "",
   description: "",
-  codeUrl: "",
+  repoUrl: "",
   liveUrl: "",
   techStack: ["React.js"],
   status: "approved",

@@ -17,7 +17,7 @@ const BuildCard = ({
   const {
     title,
     description,
-    codeUrl,
+    repoUrl,
     liveUrl,
     contributorGithubUrl,
     contributorAvatarUrl,
@@ -157,7 +157,11 @@ const BuildCard = ({
         {/* Action Buttons */}
         <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center text-sm font-medium ">
           <Link
-            to={codeUrl}
+            to={
+              activeTab === "core"
+                ? `https://github.com/chetannada/DevFoundry/tree/main/src/features${repoUrl}`
+                : repoUrl
+            }
             target="_blank"
             className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-fuchsia-500 to-blue-900 hover:bg-gradient-to-l rounded-lg p-2"
           >

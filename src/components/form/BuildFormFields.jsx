@@ -42,23 +42,25 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
         </div>
       </div>
 
-      {/* Code & Live URLs */}
+      {/* Repository & Live URLs */}
       <div className="flex flex-row md:flex-col gap-4">
         <div className="flex-1">
           <Controller
-            name="codeUrl"
+            name="repoUrl"
             control={control}
             rules={{
               required: "Repository URL is required",
               pattern: {
-                value: /^(https?:\/\/)/,
-                message: "Enter a valid URL",
+                value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
+                message: `Enter a valid ${
+                  activeTab === "core" ? "relative path like /build-folder-name" : " RepositoryURL"
+                }`,
               },
             }}
             render={({ field }) => (
               <TextInputField
                 field={field}
-                error={errors.codeUrl}
+                error={errors.repoUrl}
                 placeholder="Repository URL"
                 disabled={isReadOnly}
               />
@@ -75,7 +77,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
               pattern: {
                 value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
                 message: `Enter a valid ${
-                  activeTab === "core" ? "relative path like /build-folder-name" : "URL"
+                  activeTab === "core" ? "relative path like /build-folder-name" : " Live URL"
                 }`,
               },
             }}

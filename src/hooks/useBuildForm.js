@@ -27,7 +27,7 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
       reset({
         title: selectedItem.title || "",
         description: selectedItem.description || "",
-        codeUrl: selectedItem.codeUrl || "",
+        repoUrl: selectedItem.repoUrl || "",
         liveUrl: selectedItem.liveUrl || "",
         techStack: selectedItem.techStack || ["React.js"],
         status:
