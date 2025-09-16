@@ -8,7 +8,7 @@ const TabsPage = ({ activeTab, handleTabs, handleAddModal }) => {
           <button
             key={tab}
             onClick={() => handleTabs(tab)}
-            className={`px-6 xsm:px-4 xmob:px-3 py-2 rounded-xl text-sm mob:text-xs font-semibold transition-all duration-200
+            className={`px-6 mob:px-3 py-3 rounded-xl text-sm  font-semibold transition-all duration-200
   ${activeTab === tab ? "text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl" : ""}`}
           >
             {tab === "core" ? "Core Builds" : "Community Builds"}
