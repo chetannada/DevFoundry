@@ -12,7 +12,7 @@ import { FaGithub } from "react-icons/fa";
 const Body = () => {
   const { user, isLoggedIn, isAuthReady } = useSelector(state => state.auth);
 
-  const [activeTab, setActiveTab] = useState("community");
+  const [activeTab, setActiveTab] = useState(localStorage.getItem("activeTab") || "community");
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add"); // "add" | "edit" | "review" | "restore"
   const [selectedItem, setSelectedItem] = useState(null);
@@ -22,8 +22,6 @@ const Body = () => {
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
-
-  const handleTabs = tab => setActiveTab(tab);
 
   const openBuildModal = (mode, item = null) => {
     setModalMode(mode);
@@ -77,7 +75,7 @@ const Body = () => {
 
   return (
     <>
-      <TabsPage activeTab={activeTab} handleTabs={handleTabs} handleAddModal={handleAddModal} />
+      <TabsPage activeTab={activeTab} setActiveTab={setActiveTab} handleAddModal={handleAddModal} />
 
       <BuildGallery
         activeTab={activeTab}

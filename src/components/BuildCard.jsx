@@ -2,6 +2,7 @@ import { FaGithub } from "react-icons/fa6";
 import { IoOpenOutline } from "react-icons/io5";
 import { useState } from "react";
 import { statusStyles } from "../utils/styles";
+import { Link } from "react-router-dom";
 
 const BuildCard = ({
   item,
@@ -168,14 +169,14 @@ const BuildCard = ({
             <FaGithub size={20} /> Code
           </a>
 
-          <a
-            href={liveUrl}
+          <Link
+            to={liveUrl}
             target={activeTab === "core" ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-500 to-purple-700 hover:bg-gradient-to-l rounded-lg p-2"
+            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-500 to-purple-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm p-2"
           >
             <IoOpenOutline size={20} /> Live
-          </a>
+          </Link>
         </div>
       </div>
     </div>
