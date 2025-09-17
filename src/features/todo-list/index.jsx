@@ -55,7 +55,7 @@ const ToDoList = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="w-128 min-h-96 flex flex-col justify-start items-start px-8 py-6 space-y-6 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_1px_6px_4px_rgba(0,_0,_0,_0.15)] dark:shadow-[0px_1px_6px_4px_rgba(255,_255,_255,_0.15)]">
+      <div className="w-128 min-h-96 flex flex-col justify-start items-start px-8 py-6 space-y-6 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
         <div className="flex gap-3 justify-center items-center text-3xl font-medium">
           <RiCalendarTodoLine />
           <h1>To-Do List</h1>
@@ -77,7 +77,7 @@ const ToDoList = () => {
 
           <button
             type="submit"
-            className="absolute end-2.5 bottom-2.5 flex flex-row gap-2 items-center focus:outline-none font-semibold rounded-lg text-sm px-4 py-2 text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl "
+            className="absolute end-2.5 bottom-2.5 flex flex-row gap-2 items-center focus:outline-none font-semibold rounded-lg text-sm px-4 py-2 text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl"
           >
             {addTask.id ? (
               <>
