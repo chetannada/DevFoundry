@@ -18,7 +18,7 @@ const NoResults = ({
 
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="w-full max-w-xl flex flex-col items-center justify-center gap-4 p-6 text-center bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_1px_6px_4px_rgba(0,_0,_0,_0.15)] dark:shadow-[0px_1px_6px_4px_rgba(255,_255,_255,_0.15)]">
+      <div className="w-full max-w-xl flex flex-col items-center justify-center gap-4 p-6 text-center bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-16 w-16 text-secondary-light dark:text-secondary-dark animate-bounce"

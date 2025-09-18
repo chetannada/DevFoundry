@@ -6,42 +6,35 @@ import Tooltip from "../../components/tooltip";
 
 const ListItem = ({ todoList, setTodoList, setAddTask }) => {
   // Set task for editing
-  const handleEdit = (task) => {
+  const handleEdit = task => {
     setAddTask(task);
   };
 
   // Delete task using its unique id
-  const handleDelete = (id) => {
-    const filteredTodoList = todoList.filter((task) => task.id !== id);
+  const handleDelete = id => {
+    const filteredTodoList = todoList.filter(task => task.id !== id);
     setTodoList(filteredTodoList);
   };
 
   // Toggle completion for a task using its unique id
   const handleComplete = (id, taskValue, taskCompleted) => {
-    const updatedTodoList = todoList.map((task) =>
+    const updatedTodoList = todoList.map(task =>
       task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
     );
     setTodoList(updatedTodoList);
 
     toast.success(
-      taskCompleted
-        ? `${taskValue} - Task not completed`
-        : `${taskValue} - Task completed`
+      taskCompleted ? `${taskValue} - Task not completed` : `${taskValue} - Task completed`
     );
   };
 
   return (
     <div className="w-full space-y-4">
-      {todoList.map((task) => (
-        <div
-          key={task.id}
-          className="flex flex-row justify-between items-start gap-x-3"
-        >
+      {todoList.map(task => (
+        <div key={task.id} className="flex flex-row justify-between items-start gap-x-3">
           <div
             className="flex flex-row justify-start items-start gap-x-4 cursor-pointer"
-            onClick={() =>
-              handleComplete(task.id, task.todoValue, task.isCompleted)
-            }
+            onClick={() => handleComplete(task.id, task.todoValue, task.isCompleted)}
           >
             <span className="h-5 w-5">
               {task.isCompleted ? (
@@ -51,11 +44,7 @@ const ListItem = ({ todoList, setTodoList, setAddTask }) => {
               )}
             </span>
 
-            <span
-              className={`break-all ${
-                task.isCompleted ? "line-through" : "no-underline"
-              }`}
-            >
+            <span className={`break-all ${task.isCompleted ? "line-through" : "no-underline"}`}>
               {task.todoValue}
             </span>
           </div>
@@ -63,7 +52,7 @@ const ListItem = ({ todoList, setTodoList, setAddTask }) => {
           <div className="flex flex-row gap-3">
             <Tooltip text="Edit" left="left-1/2">
               <div
-                className="h-5 w-5 cursor-pointer text-green-700 hover:text-green-900"
+                className="h-5 w-5 cursor-pointer text-green-600 dark:text-green-400 hover:text-green-700 hover:dark:text-green-500"
                 onClick={() => handleEdit(task)}
               >
                 <TbEdit size={20} />
@@ -71,7 +60,7 @@ const ListItem = ({ todoList, setTodoList, setAddTask }) => {
             </Tooltip>
             <Tooltip text="Delete" left="left-1/2">
               <div
-                className="h-5 w-5 cursor-pointer text-gray-700 hover:text-rose-800"
+                className="h-5 w-5 cursor-pointer text-red-500 dark:text-red-400 hover:text-red-600 hover:dark:text-red-500"
                 onClick={() => handleDelete(task.id)}
               >
                 <RiDeleteBin6Line size={20} />
