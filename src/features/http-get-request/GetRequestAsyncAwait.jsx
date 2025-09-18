@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const GetRequestAsyncAwait = (props) => {
+const GetRequestAsyncAwait = props => {
   const { searchedPackageName } = props;
 
   const [npmReactData, setNpmReactData] = useState("");
@@ -11,8 +11,8 @@ const GetRequestAsyncAwait = (props) => {
 
     async function getData() {
       await fetch(API_NPM + `/v2/search?q=${searchedPackageName}`)
-        .then((response) => response.json())
-        .then((json) => setNpmReactData(json));
+        .then(response => response.json())
+        .then(json => setNpmReactData(json));
     }
 
     getData();
@@ -21,12 +21,12 @@ const GetRequestAsyncAwait = (props) => {
   return (
     <>
       <div className="flex flex-col flex-wrap items-center justify-center text-center">
-        <h1 className="h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 bg-slate-200 border-4 rounded-xl mt-3 text-2xl font-medium">
+        <h1 className="h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 text-2xl font-medium bg-card-light dark:bg-card-dark border-2 border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
           Get request using Fetch async/await
         </h1>
-        <h2 className="flex flex-row justify-center flex-wrap gap-2 max-sm h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 border-4 text-2xl bg-slate-50 rounded-xl">
+        <h2 className="flex flex-row justify-center flex-wrap gap-2 max-sm h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 text-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
           Total {searchedPackageName} Packages in NPM:
-          <span className="text-red-800">{npmReactData?.total}</span>
+          <span className="text-red-500 dark:text-red-400">{npmReactData?.total}</span>
         </h2>
       </div>
     </>
