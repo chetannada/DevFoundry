@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signInWithGoogle } from "./FirebaseConfig";
 import toast from "react-hot-toast";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 
 const GoogleAuth = () => {
   const currentTime = new Date().getTime();
@@ -31,39 +32,44 @@ const GoogleAuth = () => {
   };
 
   return (
-    <div className="mt-16 p-2 flex justify-center items-center">
-      <div className="flex flex-col justify-center items-center py-10 p-2 space-y-6 w-152 rounded-xl overflow-hidden border border-gray-200 shadow bg-orange-200">
-        <h1 className="text-center text-4xl">
-          React Google Authentication App
-        </h1>
-        <h3 className="text-center text-base">
-          Facilitates a secure login process by allowing users to authenticate
-          their identity through their Google account, ensuring both ease of
-          access and enhanced security.
-        </h3>
+    <div className="mt-16 flex justify-center items-center">
+      <div className="flex flex-col gap-6 justify-center items-center px-5 py-10 w-152 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-center text-4xl">Google Authentication</h1>
+          <h3 className="text-center text-base">
+            Facilitates a secure login process by allowing users to authenticate their identity
+            through their Google account, ensuring both ease of access and enhanced security.
+          </h3>
+        </div>
         {userDetails?.expirationTime - currentTime > 0 ? (
-          <div className="flex sm:flex-col justify-center items-center flex-row gap-8">
-            <img
-              src={userDetails?.photoURL}
-              alt={userDetails?.displayName || "User Avatar"}
-              className="w-14 h-14 object-cover rounded-full border border-gray-300"
-            />
-
-            <h1 className="text-blue-950 font-bold">
-              Welcome {userDetails?.displayName} !!
-            </h1>
+          <div className="flex flex-row sm:flex-col justify-center items-center gap-8">
+            <div className="flex flex-row gap-4 items-center">
+              <img
+                src={userDetails?.photoURL}
+                alt={userDetails?.displayName || "User Avatar"}
+                className="w-14 h-14 object-cover rounded-full border-2 border-text-light dark:border-text-dark"
+              />
+              <h1 className="font-bold">
+                Welcome{" "}
+                <span className="text-secondary-light dark:text-secondary-dark">
+                  {userDetails?.displayName} !!
+                </span>
+              </h1>
+            </div>
             <button
-              className="flex flex-row gap-1 justify-center items-center text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-1"
+              className="flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-purple-500 to-rose-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2 text-center"
               onClick={singOut}
             >
+              <FiLogOut size={18} />
               Logout
             </button>
           </div>
         ) : (
           <button
-            className="flex flex-row gap-1 justify-center items-center text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            className="flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-purple-500 to-rose-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2"
             onClick={signIn}
           >
+            <FiLogIn size={18} />
             Sign in with Google
           </button>
         )}
