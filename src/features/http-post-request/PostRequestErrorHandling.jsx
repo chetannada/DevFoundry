@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const PostRequestErrorHandlingWithTryCatch = (props) => {
+const PostRequestErrorHandlingWithTryCatch = props => {
   const { searchedUserName } = props;
 
   const [reqresData, setReqresData] = useState("");
@@ -41,13 +41,12 @@ const PostRequestErrorHandlingWithTryCatch = (props) => {
   return (
     <>
       <div className="flex flex-col flex-wrap items-center justify-center text-center">
-        <h1 className="h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 bg-slate-200 border-4 rounded-xl mt-3 text-2xl font-medium">
-          Post request using Fetch with Error Handling using async/await and
-          try/catch block
+        <h1 className="h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 text-2xl font-medium bg-card-light dark:bg-card-dark border-2 border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+          Post request using Fetch with Error Handling using async/await and try/catch block
         </h1>
-        <h2 className="flex flex-row justify-center flex-wrap gap-2 max-sm h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 border-4 text-2xl bg-slate-50 rounded-xl text-red-600">
+        <h2 className="flex flex-row justify-center flex-wrap gap-2 max-sm h-auto w-164 md:w-128 sm:w-96 xsm:w-72 mob:w-60 xmob:w-56 p-4 text-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
           {reqresData && `UserId for ${searchedUserName}: ${reqresData?.id}`}
-          {errorData}
+          <span className="text-red-500 dark:text-red-400">{errorData}</span>
         </h2>
       </div>
     </>

@@ -14,7 +14,7 @@ const ImageGeneration = () => {
 
   const { images, loading, generateImages } = useImageGenerator();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (!prompt.trim()) return;
     await generateImages({
@@ -26,24 +26,22 @@ const ImageGeneration = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
-        <ControlsCard
-          prompt={prompt}
-          count={count}
-          dimensions={dimensions}
-          provider={provider}
-          setPrompt={setPrompt}
-          setCount={setCount}
-          setDimensions={setDimensions}
-          setProvider={setProvider}
-          onSubmit={handleSubmit}
-        />
+    <div className="mx-auto max-w-7xl mt-4 mb-4">
+      <ControlsCard
+        prompt={prompt}
+        count={count}
+        dimensions={dimensions}
+        provider={provider}
+        setPrompt={setPrompt}
+        setCount={setCount}
+        setDimensions={setDimensions}
+        setProvider={setProvider}
+        onSubmit={handleSubmit}
+      />
 
-        {loading ? <LoadingSpinner /> : <ResultsGrid images={images} />}
+      {loading ? <LoadingSpinner /> : <ResultsGrid images={images} />}
 
-        <Toaster position="bottom-right" />
-      </div>
+      <Toaster position="top-right" />
     </div>
   );
 };

@@ -12,16 +12,3 @@
 body {
   min-height: 100vh;
 }
-
-@layer utilities {
-  .spinner {
-    @apply w-12 h-12 border-4 border-gray-200 border-t-blue-600 rounded-full;
-    animation: spin 1s linear infinite;
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
