@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_VERSION_PREFIX = "/api";
-const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
+const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
 export const fetchGalleryBuilds = async (
   search = { query: "", field: "title" },

@@ -3,8 +3,7 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-const API_VERSION_PREFIX = '/api';
-const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
+const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
 // Async actions for fetching user and logging out
 export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
@@ -24,19 +23,19 @@ const authSlice = createSlice({
     isAuthReady: false,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isAuthReady = true;
       })
-      .addCase(fetchUser.rejected, (state) => {
+      .addCase(fetchUser.rejected, state => {
         state.user = null;
         state.isLoggedIn = false;
         state.isAuthReady = true;
       })
-      .addCase(logoutUser.fulfilled, (state) => {
+      .addCase(logoutUser.fulfilled, state => {
         state.user = null;
         state.isLoggedIn = false;
       });
