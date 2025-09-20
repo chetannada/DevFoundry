@@ -40,9 +40,8 @@ const Header = () => {
 
   const handleOnLogin = () => {
     setIsDisabled(true);
-    const API_VERSION_PREFIX = "/api";
 
-    const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL + API_VERSION_PREFIX;
+    const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
     window.location.href = `${API_BACKEND_URL}/auth/github`;
   };
 
