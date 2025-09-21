@@ -15,19 +15,11 @@ const BuildCard = ({
   activeTab,
 }) => {
   const {
-    title,
-    description,
-    repoUrl,
-    liveUrl,
-    contributorGithubUrl,
-    contributorAvatarUrl,
-    contributorName,
-    contributorId,
-    status,
-    techStack,
-    rejectionReason,
-    restoredReason,
-    isDeleted,
+    build: { title, description, repoUrl, liveUrl, status, techStack },
+    contributor: { profileUrl, avatarUrl, name, id },
+    deleted: { isDeleted },
+    reviewed: { rejectionReason },
+    restored: { reason },
   } = item;
 
   const [showMore, setShowMore] = useState(false);
@@ -38,7 +30,7 @@ const BuildCard = ({
   return (
     <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
       <div className="w-full">
-        {(contributorId === userId || userRole === "admin") && (
+        {(id === userId || userRole === "admin") && (
           <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
             {/* Edit/Delete Controls */}
 
@@ -80,7 +72,7 @@ const BuildCard = ({
 
             <div className="flex flex-wrap flex-row gap-3">
               {/* Status Badge */}
-              {status && (contributorId === userId || userRole === "admin") && (
+              {status && (id === userId || userRole === "admin") && (
                 <span
                   className={`px-3 py-1 text-xs font-semibold rounded-full ${statusStyles[status]} shadow-sm opacity-30 group-hover:opacity-100 transition-opacity duration-200`}
                 >
@@ -124,14 +116,14 @@ const BuildCard = ({
         )}
 
         {/* Rejection and Restored Reason */}
-        {rejectionReason && (userId === contributorId || userRole === "admin") && (
+        {rejectionReason && (userId === id || userRole === "admin") && (
           <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-gray-100 dark:bg-gray-200 border border-red-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Rejected reason:</strong> {rejectionReason}
           </p>
         )}
-        {restoredReason && (userId === contributorId || userRole === "admin") && (
+        {reason && (userId === id || userRole === "admin") && (
           <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-green-700 bg-gray-100 dark:bg-gray-200 border border-green-100 rounded-md whitespace-pre-wrap break-words">
-            <strong>Restored reason:</strong> {restoredReason}
+            <strong>Restored reason:</strong> {reason}
           </p>
         )}
       </div>
@@ -140,17 +132,17 @@ const BuildCard = ({
         {/* Contributor Info */}
         <div className="text-sm flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity duration-200">
           <a
-            href={contributorGithubUrl}
+            href={profileUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="peer flex items-center gap-2"
           >
             <img
-              src={contributorAvatarUrl}
-              alt={`${contributorName}'s avatar`}
+              src={avatarUrl}
+              alt={`${name}'s avatar`}
               className="w-7 h-7 rounded-full border-2 border-text-light dark:border-text-dark"
             />
-            {contributorName}
+            {name}
           </a>
         </div>
 

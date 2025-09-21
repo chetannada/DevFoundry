@@ -42,7 +42,7 @@ const SearchBar = ({
           }`}
         >
           <option value="title"> {!isDisabled && "Title"}</option>
-          <option value="techstack">Tech Stack</option>
+          <option value="techStack">Tech Stack</option>
           <option value="contributedBy">Contributed By</option>
         </select>
 

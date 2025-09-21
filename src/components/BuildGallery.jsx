@@ -52,11 +52,11 @@ const BuildGallery = ({
     setShowModal(true);
   };
 
-  const handleDelete = async buildId => {
+  const handleDelete = async item => {
     setIsDisabled(true);
     try {
       const res = await removeBuildFromGallery(
-        buildId,
+        item?._id,
         {
           contributorName: user?.userName || null,
           contributorId: user?.github?.id || null,
@@ -73,7 +73,7 @@ const BuildGallery = ({
       console.error("Error:", message);
       toast.error(message);
     } finally {
-      () => setIsDisabled(false);
+      setIsDisabled(false); // fix: remove arrow function
     }
   };
 
@@ -157,7 +157,7 @@ const BuildGallery = ({
             build? This action cannot be undone.
           </span>
         }
-        onConfirm={() => handleDelete(deleteItem._id)}
+        onConfirm={() => handleDelete(deleteItem)}
         confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
     text-white bg-gradient-to-br from-red-500 to-red-800
     hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed

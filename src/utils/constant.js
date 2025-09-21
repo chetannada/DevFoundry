@@ -6,17 +6,17 @@ export const statusTooltips = {
 
 export const fieldLabels = {
   title: "title",
-  techstack: "tech stack",
+  techStack: "tech stack",
   contributedBy: "contributed by",
 };
 
 export const buildFormDefaultValues = {
-  title: "",
-  description: "",
-  repoUrl: "",
-  liveUrl: "",
+  title: null,
+  description: null,
+  repoUrl: null,
+  liveUrl: null,
   techStack: ["React.js"],
   status: "approved",
-  rejectionReason: "",
-  restoredReason: "",
+  rejectionReason: null,
+  restoredReason: null,
 };

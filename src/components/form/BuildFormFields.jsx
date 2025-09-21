@@ -51,7 +51,8 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
             rules={{
               required: "Repository URL is required",
               pattern: {
-                value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
+                value:
+                  activeTab === "core" ? /^\/[\w\-\/]+$/ : /^https?:\/\/[\w\-]+(\.[\w\-]+)+.*$/,
                 message: `Enter a valid ${
                   activeTab === "core" ? "relative path like /build-folder-name" : " RepositoryURL"
                 }`,
@@ -75,7 +76,8 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
             rules={{
               required: "Live URL is required",
               pattern: {
-                value: activeTab === "core" ? /^\/[a-zA-Z0-9\-_/]+$/ : /^(https?:\/\/)/,
+                value:
+                  activeTab === "core" ? /^\/[\w\-\/]+$/ : /^https?:\/\/[\w\-]+(\.[\w\-]+)+.*$/,
                 message: `Enter a valid ${
                   activeTab === "core" ? "relative path like /build-folder-name" : " Live URL"
                 }`,
