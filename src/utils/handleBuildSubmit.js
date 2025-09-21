@@ -16,11 +16,11 @@ const handleBuildSubmit = async ({
   handleClose,
 }) => {
   const contributorInfo = {
-    contributorName: selectedItem?.contributorName || user?.userName,
-    contributorId: selectedItem?.contributorId || user?.github?.id,
-    contributorAvatarUrl: selectedItem?.contributorAvatarUrl || user?.github?.avatarUrl,
-    contributorGithubUrl: selectedItem?.contributorGithubUrl || user?.github?.url,
-    contributorRole: selectedItem?.contributorRole || user?.userRole,
+    contributorName: selectedItem?.contributor?.name || user?.userName,
+    contributorId: selectedItem?.contributor?.id || user?.github?.id,
+    contributorAvatarUrl: selectedItem?.contributor?.avatarUrl || user?.github?.avatarUrl,
+    contributorProfileUrl: selectedItem?.contributor?.profileUrl || user?.github?.url,
+    contributorRole: selectedItem?.contributor?.role || user?.userRole,
   };
 
   let finalData = {
@@ -35,8 +35,8 @@ const handleBuildSubmit = async ({
         updatedBy: user.userName,
         updatedByRole: user.userRole,
         status: "pending",
-        rejectionReason: "",
-        restoredReason: "",
+        rejectionReason: null,
+        restoredReason: null,
       };
       const res = await editGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
@@ -45,6 +45,7 @@ const handleBuildSubmit = async ({
         ...finalData,
         status: data.status,
         rejectionReason: data.rejectionReason,
+        restoredReason: null,
       };
       const res = await reviewGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
@@ -52,18 +53,17 @@ const handleBuildSubmit = async ({
       finalData = {
         ...finalData,
         status: "approved",
-        rejectionReason: "",
+        rejectionReason: null,
         restoredReason: data.restoredReason,
       };
       const res = await restoreGalleryBuild(selectedItem._id, finalData, activeTab);
       toast.success(res.message);
-    } else {
-      // "add"
+    } else if (modalMode === "add") {
       finalData = {
         ...finalData,
         status: "pending",
-        rejectionReason: "",
-        restoredReason: "",
+        rejectionReason: null,
+        restoredReason: null,
       };
       const res = await submitBuildToGallery(finalData, activeTab);
       toast.success(res.message);

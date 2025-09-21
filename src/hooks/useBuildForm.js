@@ -25,17 +25,17 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
   useEffect(() => {
     if (selectedItem) {
       reset({
-        title: selectedItem.title || "",
-        description: selectedItem.description || "",
-        repoUrl: selectedItem.repoUrl || "",
-        liveUrl: selectedItem.liveUrl || "",
-        techStack: selectedItem.techStack || ["React.js"],
+        title: selectedItem.build.title || null,
+        description: selectedItem.build.description || null,
+        repoUrl: selectedItem.build.repoUrl || null,
+        liveUrl: selectedItem.build.liveUrl || null,
+        techStack: selectedItem.build.techStack || ["React.js"],
         status:
           modalMode === "review" || modalMode === "restore"
             ? "approved"
-            : selectedItem.status || "pending",
-        rejectionReason: selectedItem.rejectionReason || "",
-        restoredReason: selectedItem.restoredReason || "",
+            : selectedItem.build.status || "pending",
+        rejectionReason: selectedItem.reviewed.rejectionReason || null,
+        restoredReason: selectedItem.restored.reason || null,
       });
     } else {
       reset(buildFormDefaultValues);
