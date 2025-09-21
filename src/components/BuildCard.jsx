@@ -38,7 +38,7 @@ const BuildCard = ({
               {!isDeleted && (
                 <button
                   onClick={() => handleEditModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200"
+                  className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   Edit
                 </button>
@@ -46,7 +46,7 @@ const BuildCard = ({
 
               <button
                 onClick={() => handleDeleteModal(item)}
-                className="text-xs px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200"
+                className="text-xs px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
               >
                 Delete
               </button>
@@ -54,7 +54,7 @@ const BuildCard = ({
               {userRole === "admin" && isDeleted && (
                 <button
                   onClick={() => handleRestoreModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200"
+                  className="text-xs px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   Restore
                 </button>
@@ -63,7 +63,7 @@ const BuildCard = ({
               {userRole === "admin" && !isDeleted && status === "pending" && (
                 <button
                   onClick={() => handleReviewModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded opacity-30 group-hover:opacity-100 transition-opacity duration-200"
+                  className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   Review
                 </button>
@@ -74,7 +74,7 @@ const BuildCard = ({
               {/* Status Badge */}
               {status && (id === userId || userRole === "admin") && (
                 <span
-                  className={`px-3 py-1 text-xs font-semibold rounded-full ${statusStyles[status]} shadow-sm opacity-30 group-hover:opacity-100 transition-opacity duration-200`}
+                  className={`px-3 py-1 text-xs font-semibold rounded-full ${statusStyles[status]} shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-200`}
                 >
                   {status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()}
                 </span>
@@ -107,7 +107,7 @@ const BuildCard = ({
             {techStack.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs font-semibold text-text-light bg-gradient-to-r from-pink-200 to-yellow-200 hover:bg-gradient-to-bl rounded-full shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                className="px-3 py-1 text-xs font-semibold text-text-light bg-gradient-to-r from-pink-200 to-yellow-200 hover:bg-gradient-to-bl rounded-full shadow-sm opacity-90 group-hover:opacity-100 transition-opacity duration-200"
               >
                 {tech}
               </span>
