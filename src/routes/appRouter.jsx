@@ -8,6 +8,7 @@ import GoogleAuth from "../features/google-auth";
 import HttpGetRequest from "../features/http-get-request";
 import HttpPostRequest from "../features/http-post-request";
 import ImageGeneration from "../features/image-generation";
+import ImageGallery from "../features/image-gallery";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -43,6 +44,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/image-generation",
         element: <ImageGeneration />,
+      },
+      {
+        path: "/image-gallery",
+        element: <ImageGallery />,
       },
     ],
   },
