@@ -9,6 +9,7 @@ import HttpGetRequest from "../features/http-get-request";
 import HttpPostRequest from "../features/http-post-request";
 import ImageGeneration from "../features/image-generation";
 import ImageGallery from "../features/image-gallery";
+import GuessNumber from "../features/guess-number";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -48,6 +49,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/image-gallery",
         element: <ImageGallery />,
+      },
+      {
+        path: "/guess-number",
+        element: <GuessNumber />,
       },
     ],
   },
