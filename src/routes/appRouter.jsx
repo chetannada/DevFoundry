@@ -10,6 +10,7 @@ import HttpPostRequest from "../features/http-post-request";
 import ImageGeneration from "../features/image-generation";
 import ImageGallery from "../features/image-gallery";
 import GuessNumber from "../features/guess-number";
+import PasswordStrength from "../features/password-strength";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -53,6 +54,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/guess-number",
         element: <GuessNumber />,
+      },
+      {
+        path: "/password-strength",
+        element: <PasswordStrength />,
       },
     ],
   },
