@@ -67,8 +67,8 @@ module.exports = {
           light: "#f1f1f1",
         },
         border: {
-          dark: "#dcdfe3",
-          light: "#9d9fa1",
+          dark: "#4f4f4f",
+          light: "#d4d4d4",
         },
         skeleton: {
           dark: "#374151",
@@ -76,8 +76,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        "card-light": "0px 1px 6px 4px rgba(0, 0, 0, 0.15)",
-        "card-dark": "0px 1px 6px 4px rgba(255, 255, 255, 0.15)",
+        "card-light": "0px 0px 10px 1px #1a202c",
+        "card-dark": "0px 0px 10px 1px #f7fafc",
       },
       width: {
         68: "17rem",
