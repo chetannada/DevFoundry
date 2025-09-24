@@ -13,7 +13,7 @@ const Counter = () => {
 
   return (
     <>
-      <div className="py-10 p-2 space-y-6 w-164 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+      <div className="py-10 p-2 space-y-6 w-164 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
         <h1 className="text-center text-4xl ">React Redux Counter App</h1>
         <div className="px-4 space-y-4 flex flex-col justify-center items-center">
           <div className="flex flex-col flex-wrap items-center justify-center text-center">

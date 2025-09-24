@@ -28,7 +28,7 @@ const BuildCard = ({
   const toggleShowMore = () => setShowMore(!showMore);
 
   return (
-    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[0px_0px_10px_1px_#1a202c] dark:shadow-[0px_0px_10px_1px_#f7fafc]">
+    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <div className="w-full">
         {(id === userId || userRole === "admin") && (
           <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">

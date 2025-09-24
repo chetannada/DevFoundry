@@ -18,7 +18,7 @@ const ModalViewer = ({ image, onClose }) => {
         src={image}
         alt="Zoomed"
         onClick={e => e.stopPropagation()}
-        className="max-w-6xl max-h-[90vh] object-contain shadow-lg bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-lg shadow-card-light dark:shadow-card-dark"
+        className="max-w-6xl max-h-[90vh] object-contain shadow-lg bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-lg shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md"
       />
     </div>
   );
