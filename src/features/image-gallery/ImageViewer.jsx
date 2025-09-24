@@ -20,7 +20,7 @@ const ImageViewer = ({ image, onNext, onPrev }) => {
           onClick={() => setShowModal(true)}
           className={`w-full h-full object-cover transition-opacity duration-300 cursor-zoom-in ${
             loaded ? "opacity-100" : "opacity-0"
-          } hover:scale-[1.02] border border-border-light dark:border-border-dark rounded-lg shadow-card-light dark:shadow-card-dark`}
+          } hover:scale-[1.02] border border-border-light dark:border-border-dark rounded-lg shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md`}
         />
 
         {/* Left Arrow */}

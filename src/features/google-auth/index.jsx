@@ -33,7 +33,7 @@ const GoogleAuth = () => {
 
   return (
     <div className="mt-16 flex justify-center items-center">
-      <div className="flex flex-col gap-6 justify-center items-center px-5 py-10 w-152 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+      <div className="flex flex-col gap-6 justify-center items-center px-5 py-10 w-152 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
         <div className="flex flex-col gap-2">
           <h1 className="text-center text-4xl">Google Authentication</h1>
           <h3 className="text-center text-base">

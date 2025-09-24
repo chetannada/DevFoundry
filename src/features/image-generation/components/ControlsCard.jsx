@@ -23,7 +23,7 @@ const ControlsCard = ({
   };
 
   return (
-    <div className="p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+    <div className="p-6 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <form onSubmit={onSubmit} className="space-y-6">
         <StylePresets onSelect={handleKeywordSelect} />
 

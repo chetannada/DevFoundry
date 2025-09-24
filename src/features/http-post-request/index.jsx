@@ -20,7 +20,7 @@ const HttpPostRequest = () => {
   return (
     <>
       <div className="flex flex-col flex-wrap items-center justify-center text-center">
-        <h1 className="h-auto w-auto p-4 text-2xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+        <h1 className="h-auto w-auto p-4 text-2xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
           React HTTP POST Requests for Reqres API using Fetch in Different way
         </h1>
       </div>

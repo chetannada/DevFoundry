@@ -10,7 +10,7 @@ const KeywordChips = ({ onSelect }) => {
             key={keyword}
             type="button"
             onClick={() => onSelect(keyword)}
-            className="px-2.5 py-1 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-full shadow-card-light dark:shadow-card-dark"
+            className="px-2.5 py-1 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-full shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md"
           >
             {keyword}
           </button>

@@ -75,10 +75,6 @@ module.exports = {
           light: "#d1d5db",
         },
       },
-      boxShadow: {
-        "card-light": "0px 0px 10px 1px #1a202c",
-        "card-dark": "0px 0px 10px 1px #f7fafc",
-      },
       width: {
         68: "17rem",
         88: "22rem",

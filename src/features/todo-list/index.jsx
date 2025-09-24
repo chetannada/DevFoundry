@@ -55,7 +55,7 @@ const ToDoList = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="w-128 min-h-96 flex flex-col justify-start items-start px-8 py-6 space-y-6 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark">
+      <div className="w-128 min-h-96 flex flex-col justify-start items-start px-8 py-6 space-y-6 overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
         <div className="flex gap-3 justify-center items-center text-3xl font-medium">
           <RiCalendarTodoLine />
           <h1>To-Do List</h1>

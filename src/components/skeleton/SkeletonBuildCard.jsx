@@ -1,6 +1,6 @@
 const SkeletonBuildCard = () => {
   return (
-    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-card-light dark:shadow-card-dark animate-pulse">
+    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md animate-pulse">
       <div className="w-full">
         {/* Edit/Delete Controls */}
         <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
