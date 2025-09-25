@@ -147,7 +147,7 @@ const BuildCard = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center text-sm font-medium ">
+        <div className="flex flex-wrap flex-row gap-4 max2xs:gap-2 justify-start items-center text-sm font-medium ">
           <a
             href={
               activeTab === "core"

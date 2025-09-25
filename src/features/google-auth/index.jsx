@@ -42,7 +42,7 @@ const GoogleAuth = () => {
           </h3>
         </div>
         {userDetails?.expirationTime - currentTime > 0 ? (
-          <div className="flex flex-row sm:flex-col justify-center items-center gap-8">
+          <div className="flex flex-row maxSm:flex-col justify-center items-center gap-8">
             <div className="flex flex-row gap-4 items-center">
               <img
                 src={userDetails?.photoURL}

@@ -57,7 +57,7 @@ const ControlsCard = ({
 
         {isAdvancedOpen && (
           <div className="space-y-6 pt-4 border-t border-secondary-light dark:border-secondary-dark">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 maxMd:grid-cols-2 gap-6">
               <ProviderSelect value={provider} onChange={setProvider} />
               <DimensionSelect value={dimensions} onChange={setDimensions} />
 

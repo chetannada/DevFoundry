@@ -85,7 +85,7 @@ const BuildGallery = ({
   const renderBuilds = () => {
     if (isLoading) {
       return (
-        <div className={`w-full grid grid-cols-3 xl:grid-cols-2 mdMid:grid-cols-1 gap-14`}>
+        <div className={`w-full grid grid-cols-3 maxXl:grid-cols-2 maxSmPlus:grid-cols-1 gap-14`}>
           {[...Array(6)].map((_, i) => (
             <SkeletonBuildCard key={i} />
           ))}
@@ -95,7 +95,7 @@ const BuildGallery = ({
 
     if (buildItems?.length) {
       return (
-        <div className={`w-full grid grid-cols-3 xl:grid-cols-2 mdMid:grid-cols-1 gap-14`}>
+        <div className={`w-full grid grid-cols-3 maxXl:grid-cols-2 maxSmPlus:grid-cols-1 gap-14`}>
           {buildItems?.map(item => (
             <BuildCard
               key={item._id}
@@ -130,7 +130,7 @@ const BuildGallery = ({
 
   return (
     <>
-      <div className="flex justify-center md:justify-start items-center mx-auto mb-8">
+      <div className="flex justify-center maxMd:justify-start items-center mx-auto mb-8">
         <SearchBar
           handleSearch={handleSearch}
           isDisabled={isLoading || buildItems === null}

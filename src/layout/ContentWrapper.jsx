@@ -9,10 +9,10 @@ const ContentWrapper = ({ children }) => {
 
   return (
     <>
-      <main className="min-h-[calc(100vh-2.6rem)] mob:min-h-[calc(100vh-2.1rem)] mx-8 mob:mx-4 pt-24 mob:pt-20 pb-8">
+      <main className="min-h-[calc(100vh-2.6rem)] max2xs:min-h-[calc(100vh-2.1rem)] mx-8 max2xs:mx-4 pt-24 max2xs:pt-20 pb-8">
         {location.pathname.length > 1 && (
           <>
-            <div className="flex justify-start items-center -mt-4 pb-4 mob:pb-4">
+            <div className="flex justify-start items-center -mt-4 pb-4 max2xs:pb-4">
               <Link
                 to={"/"}
                 className="flex flex-row gap-1 justify-center items-center p-1 text-text-light dark:text-text-dark hover:text-hover-dark hover:dark:text-hover-light hover:font-medium hover:scale-[1.02] transition-transform duration-300"

@@ -15,7 +15,7 @@ const PasswordInput = ({ password, setPassword }) => {
   };
 
   return (
-    <div className="flex mob:flex-wrap items-center gap-3">
+    <div className="flex max2xs:flex-wrap items-center gap-3">
       {/* Password Input */}
       <div className="relative w-full">
         <input
@@ -36,7 +36,7 @@ const PasswordInput = ({ password, setPassword }) => {
       {/* Copy Button */}
       <button
         onClick={handleCopy}
-        className={`flex w-32 mob:w-full items-center justify-center gap-2 px-3 py-2.5 rounded-md text-sm transition-all duration-300
+        className={`flex w-32 max2xs:w-full items-center justify-center gap-2 px-3 py-2.5 rounded-md text-sm transition-all duration-300
           ${
             copied
               ? "bg-secondary-light text-body-light"

@@ -27,7 +27,7 @@ const HttpPostRequest = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="w-full mt-8 flex flex-row flex-wrap gap-3 justify-center items-end ">
-          <div className="min-w-96 sm:min-w-64 xsm:min-w-48 flex flex-col gap-1">
+          <div className="min-w-96 maxSm:min-w-64 maxXs:min-w-48 flex flex-col gap-1">
             <label htmlFor="userName">User Name</label>
             <input
               id="userName"

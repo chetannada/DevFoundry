@@ -49,7 +49,7 @@ const BuildActionModal = ({
   const isEdit = modalMode === "edit";
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} width="w-180 md:w-128">
+    <Modal isOpen={isOpen} onClose={handleClose} width="w-180 maxMd:w-128">
       <h2 className="text-xl font-semibold mb-6 mr-8">{buildFormTitle(activeTab, modalMode)}</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
