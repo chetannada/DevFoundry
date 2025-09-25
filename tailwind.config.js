@@ -1,44 +1,49 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      "2xlMin": "1536px",
-      // => @media (min-width: 1536px) { ... }
+      // Desktop Wide
+      min2xl: "1536px",
+      max2xl: { max: "1536px" },
 
-      "2xl": { max: "1536px" },
-      // => @media (max-width: 1536px) { ... }
+      // Desktop
+      minXl: "1280px",
+      maxXl: { max: "1280px" },
 
-      xlMin: "1280px",
-      xl: { max: "1280px" },
+      // Laptop
+      minLg: "1024px",
+      maxLg: { max: "1024px" },
 
-      lgMin: "1024px",
-      lg: { max: "1024px" },
+      // Tablet
+      minMd: "900px",
+      maxMd: { max: "900px" },
 
-      lgMidMin: "950px",
-      lgMid: { max: "950px" },
+      // Phablet
+      minSmPlus: "750px",
+      maxSmPlus: { max: "750px" },
 
-      mdMin: "900px",
-      md: { max: "900px" },
+      // Mobile Wide
+      minSm: "640px",
+      maxSm: { max: "640px" },
 
-      mdMidMin: "750px",
-      mdMid: { max: "750px" },
+      // Mobile
+      minXsPlus: "520px",
+      maxXsPlus: { max: "520px" },
 
-      smMin: "640px",
-      sm: { max: "640px" },
+      // Mobile Compact
+      minXs: "460px",
+      maxXs: { max: "460px" },
 
-      mobMidMin: "520px",
-      mobMid: { max: "520px" },
+      // Small Mobile
+      min2xs: "400px",
+      max2xs: { max: "400px" },
 
-      xsmMin: "480px",
-      xsm: { max: "480px" },
-
-      mobMin: "420px",
-      mob: { max: "420px" },
-
-      xmobMin: "360px",
-      xmob: { max: "360px" },
+      // Tiny Mobile
+      min3xs: "340px",
+      max3xs: { max: "340px" },
     },
     extend: {
       colors: {

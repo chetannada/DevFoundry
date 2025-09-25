@@ -32,7 +32,7 @@ const SkeletonBuildCard = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap flex-row gap-4 mob:gap-2 justify-start items-center">
+        <div className="flex flex-wrap flex-row gap-4 max2xs:gap-2 justify-start items-center">
           <div className="h-9 w-24 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
           <div className="h-9 w-24 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
         </div>

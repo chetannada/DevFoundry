@@ -17,7 +17,7 @@ const ActionModal = ({
 
       <p className="mb-6">{description}</p>
 
-      <div className="flex flex-row mob:flex-col justify-center gap-4">
+      <div className="flex flex-row max2xs:flex-col justify-center gap-4">
         <button onClick={onConfirm} disabled={isDisabled} className={confirmClass}>
           {confirmIcon()}
           {confirmLabel}

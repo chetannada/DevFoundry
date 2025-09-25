@@ -4,7 +4,7 @@ const StylePresets = ({ onSelect }) => {
   return (
     <div className="mb-4">
       <h3 className="text-sm font-medium mb-3">Style Presets</h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+      <div className="grid grid-cols-2 maxMd:grid-cols-3 maxLg:grid-cols-5 gap-2">
         {ART_STYLES.map(style => (
           <button
             key={style.name}

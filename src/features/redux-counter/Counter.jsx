@@ -50,7 +50,7 @@ const Counter = () => {
           </div>
 
           <input
-            className="text-sm rounded-lg block w-4/5 mob:w-full p-2.5 bg-card-light dark:bg-card-dark border border-secondary-light dark:border-secondary-dark placeholder:text-gray-400"
+            className="text-sm rounded-lg block w-4/5 max2xs:w-full p-2.5 bg-card-light dark:bg-card-dark border border-secondary-light dark:border-secondary-dark placeholder:text-gray-400"
             placeholder="Type any Value"
             type="number"
             value={inputValue}

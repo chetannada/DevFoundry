@@ -8,7 +8,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
   return (
     <div className="space-y-4">
       {/* Title & Description */}
-      <div className="flex flex-row md:flex-col gap-4">
+      <div className="flex flex-row maxMd:flex-col gap-4">
         <div className="flex-1">
           <Controller
             name="title"
@@ -43,7 +43,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
       </div>
 
       {/* Repository & Live URLs */}
-      <div className="flex flex-row md:flex-col gap-4">
+      <div className="flex flex-row maxMd:flex-col gap-4">
         <div className="flex-1">
           <Controller
             name="repoUrl"
@@ -117,7 +117,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
 
       {/* Review/Restore Fields */}
       {(isReview || isRestore) && (
-        <div className="flex flex-row md:flex-col gap-4">
+        <div className="flex flex-row maxMd:flex-col gap-4">
           <div className="flex-1">
             <Controller
               name="status"

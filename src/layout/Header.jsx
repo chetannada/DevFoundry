@@ -63,7 +63,7 @@ const Header = () => {
             {isLoggedIn && user ? (
               <UserMenu user={user} handleLogoutClick={handleLogoutClick} />
             ) : (
-              <div className="block lg:hidden">
+              <div className="block maxLg:hidden">
                 <button
                   onClick={handleLoginClick}
                   className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2"
@@ -81,10 +81,10 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 mob:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
+      <header className="fixed top-0 z-50 px-8 max2xs:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
-            <h1 className="text-2xl mob:text-xl xmob:text-base font-semibold tracking-widest">
+            <h1 className="text-2xl max2xs:text-xl max3xs:text-base font-semibold tracking-widest">
               <span className="text-secondary-light dark:text-secondary-dark">Dev</span>
               Foundry
             </h1>
@@ -95,7 +95,7 @@ const Header = () => {
 
             <div
               onClick={handleSidebar}
-              className="hidden lg:block ml-1 text-3xl mob:text-2xl cursor-pointer"
+              className="hidden maxLg:block ml-1 text-3xl max2xs:text-2xl cursor-pointer"
             >
               {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
             </div>

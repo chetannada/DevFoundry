@@ -28,14 +28,14 @@ const SearchBar = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`w-full mobMidMin:max-w-2xl flex flex-row mobMid:flex-col items-stretch mobMid:gap-2 border mobMid:border-none border-secondary-light dark:border-secondary-dark ${isDisabled ? "" : "bg-card-light dark:bg-card-dark"} mobMid:bg-transparent rounded-xl mobMid:rounded-none overflow-hidden`}
+      className={`w-full minXsPlus:max-w-2xl flex flex-row maxXsPlus:flex-col items-stretch maxXsPlus:gap-2 border maxXsPlus:border-none border-secondary-light dark:border-secondary-dark ${isDisabled ? "" : "bg-card-light dark:bg-card-dark"} maxXsPlus:bg-transparent rounded-xl maxXsPlus:rounded-none overflow-hidden`}
     >
-      <div className="relative w-full mobMidMin:max-w-48 mobMid:border mobMid:border-secondary-light mobMid:dark:border-secondary-dark mobMid:rounded-xl">
+      <div className="relative w-full minXsPlus:max-w-48 maxXsPlus:border maxXsPlus:border-secondary-light maxXsPlus:dark:border-secondary-dark maxXsPlus:rounded-xl">
         <select
           value={searchBy}
           onChange={handleSelect}
           disabled={isDisabled}
-          className={`w-full px-3 py-3 mr-6 text-sm border-r mobMid:border-none mobMid:rounded-xl border-secondary-light dark:border-secondary-dark outline-none appearance-none ${
+          className={`w-full px-3 py-3 mr-6 text-sm border-r maxXsPlus:border-none maxXsPlus:rounded-xl border-secondary-light dark:border-secondary-dark outline-none appearance-none ${
             isDisabled
               ? "bg-gray-100 dark:bg-gray-600 text-gray-500 cursor-not-allowed"
               : "bg-card-light dark:bg-card-dark cursor-pointer"
@@ -62,7 +62,7 @@ const SearchBar = ({
       </div>
 
       <div
-        className={`w-full ${isDisabled ? "bg-gray-100 dark:bg-gray-700" : "bg-card-light dark:bg-card-dark"} flex items-center mobMid:border mobMid:border-secondary-light mobMid:dark:border-secondary-dark mobMid:rounded-xl`}
+        className={`w-full ${isDisabled ? "bg-gray-100 dark:bg-gray-700" : "bg-card-light dark:bg-card-dark"} flex items-center maxXsPlus:border maxXsPlus:border-secondary-light maxXsPlus:dark:border-secondary-dark maxXsPlus:rounded-xl`}
       >
         <input
           type="text"
@@ -70,7 +70,7 @@ const SearchBar = ({
           onChange={e => setInputSearch(e.target.value)}
           placeholder={isDisabled ? inputSearch : `Search by ${fieldLabels[searchBy]}...`}
           disabled={isDisabled}
-          className={`px-4 py-3 ${isDisabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"} outline-none w-full text-sm mobMid:rounded-xl placeholder-gray-400`}
+          className={`px-4 py-3 ${isDisabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"} outline-none w-full text-sm maxXsPlus:rounded-xl placeholder-gray-400`}
         />
         <button
           type="submit"
