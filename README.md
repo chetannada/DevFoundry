@@ -55,6 +55,9 @@ Whether you're refining your frontend skills or contributing full-stack features
 │ │ ├── modal/
 │ │ ├── skeleton/
 │ ├── features/                # Feature-based modules
+│ │ ├── password-strength/
+│ │ ├── guess-number/
+│ │ ├── image-gallery/
 │ │ ├── google-auth/
 │ │ ├── http-get-request/
 │ │ ├── http-post-request/
@@ -77,41 +80,59 @@ Whether you're refining your frontend skills or contributing full-stack features
 └── README.md                  # Project documentation
 ```
 
+## 📚 Password Strength Analyzer
+
+- 👨‍💻 [Coding Challenge](/src/features/password-strength/README.md)
+- 💻 [Source Code](/src/features/password-strength)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/password-strength) 😍
+
+## 📚 Guess the Number
+
+- 👨‍💻 [Coding Challenge](/src/features/guess-number/README.md)
+- 💻 [Source Code](/src/features/guess-number)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/guess-number) 😍
+
+## 📚 Image Gallery
+
+- 👨‍💻 [Coding Challenge](/src/features/image-gallery/README.md)
+- 💻 [Source Code](/src/features/image-gallery/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/image-gallery) 😍
+
 ## 📚 To-Do List
 
-- 👨‍💻 [_Coding Challenge_](./src/features/todo-list/README.md)
-- 💻 [_Source Code_](./src/features/todo-list/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/todo-list)
+- 👨‍💻 [Coding Challenge](/src/features/todo-list/README.md)
+- 💻 [Source Code](/src/features/todo-list/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/todo-list) 😍
 
 ## 📚 Redux Counter
 
-- 👨‍💻 [_Coding Challenge_](./src/features/redux-counter/README.md)
-- 💻 [_Source Code_](./src/features/redux-counter/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/redux-counter)
+- 👨‍💻 [Coding Challenge](/src/features/redux-counter/README.md)
+- 💻 [Source Code](/src/features/redux-counter/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/redux-counter) 😍
 
 ## 📚 Google Authentication
 
-- 👨‍💻 [_Coding Challenge_](./src/features/google-auth/README.md)
-- 💻 [_Source Code_](./src/features/google-auth/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/google-auth)
+- 👨‍💻 [Coding Challenge](/src/features/google-auth/README.md)
+- 💻 [Source Code](/src/features/google-auth/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/google-auth) 😍
 
 ## 📚 HTTP GET Request
 
-- 👨‍💻 [_Coding Challenge_](./src/features/http-get-request/README.md)
-- 💻 [_Source Code_](./src/features/http-get-request/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-get-request)
+- 👨‍💻 [Coding Challenge](/src/features/http-get-request/README.md)
+- 💻 [Source Code](/src/features/http-get-request/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/http-get-request) 😍
 
 ## 📚 HTTP POST Request
 
-- 👨‍💻 [_Coding Challenge_](./src/features/http-post-request/README.md)
-- 💻 [_Source Code_](./src/features/http-post-request/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-post-request)
+- 👨‍💻 [Coding Challenge](/src/features/http-post-request/README.md)
+- 💻 [Source Code](/src/features/http-post-request/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/http-post-request) 😍
 
 ## 📚 Image Generation
 
-- 👨‍💻 [_Coding Challenge_](./src/features/image-generation/README.md)
-- 💻 [_Source Code_](./src/features/image-generation/)
-- [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/image-generation)
+- 👨‍💻 [Coding Challenge](/src/features/image-generation/README.md)
+- 💻 [Source Code](/src/features/image-generation/)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/image-generation) 😍
 
 ## 🎻 Prerequisites
 
