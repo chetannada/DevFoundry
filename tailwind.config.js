@@ -49,7 +49,7 @@ module.exports = {
       colors: {
         primary: {
           dark: "#0d0d0d",
-          light: "#fcfcfc",
+          light: "#fafafa",
         },
         secondary: {
           dark: "#b374f2",
@@ -57,11 +57,11 @@ module.exports = {
         },
         body: {
           dark: "#0c0c0c",
-          light: "#fdfdfd",
+          light: "#fefefe",
         },
         card: {
           dark: "#0a0a0a",
-          light: "#fefefe",
+          light: "#f0f0f0",
         },
         text: {
           dark: "#ebeced",
@@ -69,7 +69,7 @@ module.exports = {
         },
         hover: {
           dark: "#061133",
-          light: "#f1f1f1",
+          light: "#f2f2f2",
         },
         border: {
           dark: "#4f4f4f",
