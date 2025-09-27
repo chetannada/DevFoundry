@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { images } from "./images";
 import ImageViewer from "./ImageViewer";
 import ThumbnailBar from "./ThumbnailBar";
@@ -9,6 +9,20 @@ const ImageGallery = () => {
   const goNext = () => setCurrentIndex((currentIndex + 1) % images.length);
   const goPrev = () => setCurrentIndex((currentIndex - 1 + images.length) % images.length);
   const selectImage = index => setCurrentIndex(index);
+
+  // Preload adjacent images
+  useEffect(() => {
+    const preload = src => {
+      const img = new Image();
+      img.src = src;
+    };
+
+    const nextImage = images[(currentIndex + 1) % images.length]?.original;
+    const prevImage = images[(currentIndex - 1 + images.length) % images.length]?.original;
+
+    if (nextImage) preload(nextImage);
+    if (prevImage) preload(prevImage);
+  }, [currentIndex]);
 
   return (
     <>
