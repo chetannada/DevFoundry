@@ -11,6 +11,7 @@ import ImageGeneration from "../features/image-generation";
 import ImageGallery from "../features/image-gallery";
 import GuessNumber from "../features/guess-number";
 import PasswordStrength from "../features/password-strength";
+import StringConverter from "../features/string-converter";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -58,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/password-strength",
         element: <PasswordStrength />,
+      },
+      {
+        path: "/string-converter",
+        element: <StringConverter />,
       },
     ],
   },
