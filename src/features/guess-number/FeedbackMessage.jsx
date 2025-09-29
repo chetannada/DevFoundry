@@ -1,5 +1,3 @@
-import React from "react";
-
 const FeedbackMessage = ({ message }) => {
   const highlightKeyword = text => {
     if (text.includes("less")) {
