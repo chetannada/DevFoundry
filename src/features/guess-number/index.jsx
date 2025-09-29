@@ -36,7 +36,12 @@ const GuessNumber = () => {
   return (
     <div className="px-6 py-10 w-full max-w-152 mx-auto bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <h2 className="text-4xl font-medium text-center mb-6">🎯 Guess the Number</h2>
-      <GuessInput guess={guess} setGuess={setGuess} disabled={isCorrect} />
+      <GuessInput
+        guess={guess}
+        setGuess={setGuess}
+        disabled={isCorrect}
+        handleGuess={handleGuess}
+      />
       {message && <FeedbackMessage message={message} />}
       <ActionButtons onGuess={handleGuess} onReset={handleReset} disabled={isCorrect} />
     </div>
