@@ -7,7 +7,7 @@ const StringConverter = () => {
   const [inputText, setInputText] = useState("This is a normal sentence to convert");
   const [formattedText, setFormattedText] = useState([]);
 
-  const handleInputChange = (e, clear) => {
+  const handleInputChange = (e, clear = false) => {
     if (clear) return setInputText("");
 
     setInputText(e.target.value);
@@ -17,7 +17,6 @@ const StringConverter = () => {
     setFormattedText(formatInputText(inputText));
   }, [inputText]);
 
-  console.log(formattedText);
   return (
     <div className="w-full mx-auto px-4">
       <h1 className="text-3xl font-medium text-center mb-6">String Converter</h1>

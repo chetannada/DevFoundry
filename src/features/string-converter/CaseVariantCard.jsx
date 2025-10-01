@@ -16,11 +16,11 @@ const CaseVariantCard = ({ title, value }) => {
   return (
     <div className="w-full mx-auto p-4 animate-fadeIn bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-sm">
       <h4 className="mb-3 text-sm uppercase tracking-wider">{title}</h4>
-      <div className="flex max2xs:flex-wrap items-center gap-3">
+      <div className="flex max2xs:flex-wrap items-start gap-3">
         <p
-          className={`${!value && "h-10"} w-full px-4 py-2.5 break-words break-all rounded-md border border-border-light dark:border-border-dark bg-body-light dark:bg-body-dark text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300`}
+          className={`w-full px-4 py-2 min-h-10 break-words break-all rounded-md border border-border-light dark:border-border-dark bg-body-light dark:bg-body-dark text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300`}
         >
-          {value}
+          {value || "\u00A0"}
         </p>
         <button
           onClick={handleCopy}
