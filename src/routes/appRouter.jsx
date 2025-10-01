@@ -13,6 +13,7 @@ import GuessNumber from "../features/guess-number";
 import PasswordStrength from "../features/password-strength";
 import StringConverter from "../features/string-converter";
 import Accordion from "../features/accordion";
+import NumberToWords from "../features/number-to-words";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -68,6 +69,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/accordion",
         element: <Accordion />,
+      },
+      {
+        path: "/number-to-words",
+        element: <NumberToWords />,
       },
     ],
   },
