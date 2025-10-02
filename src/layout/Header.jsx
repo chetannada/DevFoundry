@@ -53,7 +53,7 @@ const Header = () => {
   };
 
   const renderAuthUI = () => {
-    if (!isAuthReady) return null;
+    if (!isAuthReady) return <ThemeToggle />;
 
     return (
       <>

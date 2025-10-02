@@ -18,6 +18,7 @@ const Body = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [buildItems, setBuildItems] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
 
   const lastQueryRef = useRef(null);
@@ -61,6 +62,7 @@ const Body = () => {
       setBuildItems([]);
     } finally {
       setIsLoading(false);
+      setIsFirstTimeLoading(false);
     }
   };
 
@@ -76,7 +78,12 @@ const Body = () => {
 
   return (
     <>
-      <TabsPage activeTab={activeTab} setActiveTab={setActiveTab} handleAddModal={handleAddModal} />
+      <TabsPage
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        handleAddModal={handleAddModal}
+        isDisabled={isFirstTimeLoading}
+      />
 
       <BuildGallery
         activeTab={activeTab}
