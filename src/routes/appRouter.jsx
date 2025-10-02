@@ -14,6 +14,7 @@ import PasswordStrength from "../features/password-strength";
 import StringConverter from "../features/string-converter";
 import Accordion from "../features/accordion";
 import NumberToWords from "../features/number-to-words";
+import Stepper from "../features/Stepper";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -73,6 +74,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/number-to-words",
         element: <NumberToWords />,
+      },
+      {
+        path: "/stepper",
+        element: <Stepper />,
       },
     ],
   },
