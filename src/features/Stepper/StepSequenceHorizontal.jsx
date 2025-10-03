@@ -24,7 +24,14 @@ const StepSequenceHorizontal = ({ steps, currentStep }) => {
 
             {notLastStep && (
               <div
-                className={`absolute top-5 left-[calc(12.5%+0.5rem)] w-[calc(75%-0.5rem)] h-1 transition-colors duration-300 ${isCompleted ? `bg-green-500 w-[calc(${currentStep * 25}%)] z-10` : "bg-border-light dark:bg-border-dark"} `}
+                className={`absolute top-5 left-[calc(12.5%+0.5rem)] h-1 transition-colors duration-300 ${
+                  isCompleted ? "bg-green-500 z-40" : "bg-border-light dark:bg-border-dark"
+                }`}
+                style={
+                  isCompleted && currentStep < 3
+                    ? { width: `${currentStep * 25}%` }
+                    : { width: "calc(75% - 0.5rem)" }
+                }
               />
             )}
           </div>
