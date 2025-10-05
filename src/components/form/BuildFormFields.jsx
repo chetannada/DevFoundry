@@ -5,6 +5,48 @@ import ChipInputField from "../chip-input-field";
 const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, isRestore }) => {
   const isReadOnly = isReview || isRestore;
 
+  const renderIsReviewField = isReview => {
+    if (!isReview) return null;
+
+    if (statusValue === "approved" || statusValue === "rejected") {
+      return (
+        <Controller
+          name="rejectionReason"
+          control={control}
+          rules={{
+            validate: value =>
+              statusValue === "rejected"
+                ? value.trim().length > 0 || "Rejection reason is required"
+                : true,
+          }}
+          render={({ field }) => (
+            <TextInputField
+              field={field}
+              error={errors.rejectionReason}
+              placeholder="Reason for rejection"
+              disabled={statusValue === "approved"}
+            />
+          )}
+        />
+      );
+    } else if (statusValue === "pending") {
+      return (
+        <Controller
+          name="suggestion"
+          control={control}
+          rules={{ required: "Suggestion message is required" }}
+          render={({ field }) => (
+            <TextInputField
+              field={field}
+              error={errors.suggestion}
+              placeholder="Suggestion message for improvement"
+            />
+          )}
+        />
+      );
+    }
+  };
+
   return (
     <div className="space-y-4">
       {/* Title & Description */}
@@ -134,6 +176,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
                         : "bg-card-light dark:bg-card-dark"
                     }`}
                   >
+                    <option value="pending">Pending</option>
                     <option value="approved">Approve</option>
                     <option value="rejected">Reject</option>
                   </select>
@@ -156,26 +199,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
 
           {/* Reason Field */}
           <div className="flex-1">
-            {isReview ? (
-              <Controller
-                name="rejectionReason"
-                control={control}
-                rules={{
-                  validate: value =>
-                    statusValue === "rejected"
-                      ? value.trim().length > 0 || "Rejection reason is required"
-                      : true,
-                }}
-                render={({ field }) => (
-                  <TextInputField
-                    field={field}
-                    error={errors.rejectionReason}
-                    placeholder="Reason for rejection"
-                    disabled={statusValue === "approved"}
-                  />
-                )}
-              />
-            ) : (
+            {isRestore ? (
               <Controller
                 name="restoredReason"
                 control={control}
@@ -188,6 +212,8 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
                   />
                 )}
               />
+            ) : (
+              <>{renderIsReviewField(isReview)}</>
             )}
           </div>
         </div>

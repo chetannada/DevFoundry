@@ -16,7 +16,8 @@ export const buildFormDefaultValues = {
   repoUrl: null,
   liveUrl: null,
   techStack: ["React.js"],
-  status: "approved",
+  status: "pending",
   rejectionReason: null,
+  suggestion: null,
   restoredReason: null,
 };
