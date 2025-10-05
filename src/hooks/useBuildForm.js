@@ -18,7 +18,14 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
 
   useEffect(() => {
     if (statusValue === "approved") {
-      setValue("rejectionReason", "");
+      setValue("rejectionReason", null);
+      setValue("suggestion", null);
+    } else if (statusValue === "rejected") {
+      setValue("suggestion", null);
+      setValue("restoredReason", null);
+    } else if (statusValue === "pending") {
+      setValue("rejectionReason", null);
+      setValue("restoredReason", null);
     }
   }, [statusValue, setValue]);
 
@@ -35,6 +42,7 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
             ? "approved"
             : selectedItem.build.status || "pending",
         rejectionReason: selectedItem.reviewed.rejectionReason || null,
+        suggestion: selectedItem.reviewed.suggestion || null,
         restoredReason: selectedItem.restored.reason || null,
       });
     } else {

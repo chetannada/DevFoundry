@@ -18,7 +18,7 @@ const BuildCard = ({
     build: { title, description, repoUrl, liveUrl, status, techStack },
     contributor: { profileUrl, avatarUrl, name, id },
     deleted: { isDeleted },
-    reviewed: { rejectionReason },
+    reviewed: { rejectionReason, suggestion },
     restored: { reason },
   } = item;
 
@@ -60,7 +60,7 @@ const BuildCard = ({
                 </button>
               )}
 
-              {userRole === "admin" && !isDeleted && status === "pending" && (
+              {userRole === "admin" && !isDeleted && status === "pending" && !suggestion && (
                 <button
                   onClick={() => handleReviewModal(item)}
                   className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
@@ -115,12 +115,19 @@ const BuildCard = ({
           </div>
         )}
 
-        {/* Rejection and Restored Reason */}
+        {/* Rejection, suggestion and Restored Reason */}
         {rejectionReason && (userId === id || userRole === "admin") && (
           <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-gray-100 dark:bg-gray-200 border border-red-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Rejected reason:</strong> {rejectionReason}
           </p>
         )}
+
+        {suggestion && (userId === id || userRole === "admin") && (
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-yellow-800 bg-yellow-50 dark:bg-yellow-100 border border-yellow-300 rounded-md whitespace-pre-wrap break-words">
+            <strong>Suggestion message:</strong> {suggestion}
+          </p>
+        )}
+
         {reason && (userId === id || userRole === "admin") && (
           <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-green-700 bg-gray-100 dark:bg-gray-200 border border-green-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Restored reason:</strong> {reason}

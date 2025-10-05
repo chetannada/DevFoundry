@@ -36,6 +36,7 @@ const handleBuildSubmit = async ({
         updatedByRole: user.userRole,
         status: "pending",
         rejectionReason: null,
+        suggestion: null,
         restoredReason: null,
       };
       const res = await editGalleryBuild(selectedItem._id, finalData, activeTab);
@@ -44,7 +45,8 @@ const handleBuildSubmit = async ({
       finalData = {
         ...finalData,
         status: data.status,
-        rejectionReason: data.rejectionReason,
+        rejectionReason: data.rejectionReason || null,
+        suggestion: data.suggestion || null,
         restoredReason: null,
       };
       const res = await reviewGalleryBuild(selectedItem._id, finalData, activeTab);
@@ -54,6 +56,7 @@ const handleBuildSubmit = async ({
         ...finalData,
         status: "approved",
         rejectionReason: null,
+        suggestion: null,
         restoredReason: data.restoredReason,
       };
       const res = await restoreGalleryBuild(selectedItem._id, finalData, activeTab);
@@ -63,6 +66,7 @@ const handleBuildSubmit = async ({
         ...finalData,
         status: "pending",
         rejectionReason: null,
+        suggestion: null,
         restoredReason: null,
       };
       const res = await submitBuildToGallery(finalData, activeTab);
