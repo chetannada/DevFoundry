@@ -16,7 +16,7 @@ const Sidebar = ({ isLoggedIn, handleLogoutClick, handleLoginClick, sidebarOpen 
   return (
     <>
       <ul
-        className={`fixed top-14 right-0 w-[40%] min-w-40 h-full bg-primary-light dark:bg-primary-dark z-20 transition-transform duration-300 ${
+        className={`fixed top-14 right-0 w-[40%] min-w-40 h-full bg-primary-light dark:bg-primary-dark z-50 transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

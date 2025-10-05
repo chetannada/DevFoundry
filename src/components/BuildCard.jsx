@@ -1,6 +1,6 @@
 import { FaGithub } from "react-icons/fa6";
 import { IoOpenOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { statusStyles } from "../utils/styles";
 import { Link } from "react-router-dom";
 
@@ -23,57 +23,74 @@ const BuildCard = ({
   } = item;
 
   const [showMore, setShowMore] = useState(false);
+  const [showAction, setShowAction] = useState(true);
   const characterLimit = 40;
+  const isApproved = status === "approved";
 
   const toggleShowMore = () => setShowMore(!showMore);
+
+  const toggleShowAction = () => {
+    if (isApproved) {
+      setShowAction(!showAction);
+    }
+  };
+
+  useEffect(() => {
+    if (isApproved) {
+      setShowAction(false);
+    }
+  }, []);
 
   return (
     <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <div className="w-full">
         {(id === userId || userRole === "admin") && (
           <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
-            {/* Edit/Delete Controls */}
+            {/* Edit/Delete/Restore/Review Controls */}
 
-            <div className="flex flex-wrap flex-row gap-3">
-              {!isDeleted && (
+            {showAction && (
+              <div className="flex flex-wrap flex-row gap-3">
+                {!isDeleted && (
+                  <button
+                    onClick={() => handleEditModal(item)}
+                    className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    Edit
+                  </button>
+                )}
+
                 <button
-                  onClick={() => handleEditModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                  onClick={() => handleDeleteModal(item)}
+                  className="text-xs px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 >
-                  Edit
+                  Delete
                 </button>
-              )}
 
-              <button
-                onClick={() => handleDeleteModal(item)}
-                className="text-xs px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
-              >
-                Delete
-              </button>
+                {userRole === "admin" && isDeleted && (
+                  <button
+                    onClick={() => handleRestoreModal(item)}
+                    className="text-xs px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    Restore
+                  </button>
+                )}
 
-              {userRole === "admin" && isDeleted && (
-                <button
-                  onClick={() => handleRestoreModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
-                >
-                  Restore
-                </button>
-              )}
-
-              {userRole === "admin" && !isDeleted && status === "pending" && !suggestion && (
-                <button
-                  onClick={() => handleReviewModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
-                >
-                  Review
-                </button>
-              )}
-            </div>
+                {userRole === "admin" && !isDeleted && status === "pending" && !suggestion && (
+                  <button
+                    onClick={() => handleReviewModal(item)}
+                    className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    Review
+                  </button>
+                )}
+              </div>
+            )}
 
             <div className="flex flex-wrap flex-row gap-3">
               {/* Status Badge */}
               {status && (id === userId || userRole === "admin") && (
                 <span
+                  onClick={toggleShowAction}
                   className={`px-3 py-1 text-xs font-semibold rounded-full ${statusStyles[status]} shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-200`}
                 >
                   {status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()}
@@ -93,7 +110,7 @@ const BuildCard = ({
             {description?.length > characterLimit && (
               <button
                 onClick={toggleShowMore}
-                className="text-indigo-700 dark:text-indigo-300 hover:underline ml-1"
+                className={`text-indigo-700 dark:text-indigo-300 hover:underline ml-1`}
               >
                 {showMore ? "see less" : "see more"}
               </button>
