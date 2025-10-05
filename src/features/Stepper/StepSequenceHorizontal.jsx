@@ -11,7 +11,7 @@ const StepSequenceHorizontal = ({ steps, currentStep }) => {
         return (
           <div key={index} className="flex-1 flex flex-col items-center">
             <div
-              className={`z-50 rounded-full w-10 h-10 flex items-center justify-center transition-colors duration-300 ${isCompleted ? "bg-green-600 dark:bg-green-500 text-white" : isActive ? "bg-secondary-light dark:bg-secondary-dark text-white" : "bg-border-light dark:bg-border-dark"} `}
+              className={`z-20 rounded-full w-10 h-10 flex items-center justify-center transition-colors duration-300 ${isCompleted ? "bg-green-600 dark:bg-green-500 text-white" : isActive ? "bg-secondary-light dark:bg-secondary-dark text-white" : "bg-border-light dark:bg-border-dark"} `}
             >
               {isCompleted ? <FaCheck /> : index + 1}
             </div>
@@ -25,7 +25,7 @@ const StepSequenceHorizontal = ({ steps, currentStep }) => {
             {notLastStep && (
               <div
                 className={`absolute top-5 left-[calc(12.5%+0.5rem)] h-1 transition-colors duration-300 ${
-                  isCompleted ? "bg-green-500 z-40" : "bg-border-light dark:bg-border-dark"
+                  isCompleted ? "bg-green-500 z-10" : "bg-border-light dark:bg-border-dark"
                 }`}
                 style={
                   isCompleted && currentStep < 3
