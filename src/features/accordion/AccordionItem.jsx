@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 
-const AccordionItem = ({ title, content }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const AccordionItem = ({ title, content, isOpen, onToggle }) => {
   return (
     <div
       className={`transition-all duration-300 ${
@@ -11,7 +8,7 @@ const AccordionItem = ({ title, content }) => {
       } border-border-light dark:border-border-dark`}
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="w-full flex justify-between items-start py-4 px-6 bg-card-light dark:bg-card-dark hover:bg-body-light dark:hover:bg-body-dark"
       >
         <h1 className="text-lg font-medium tracking-wider text-primary-dark dark:text-primary-light">
@@ -25,9 +22,7 @@ const AccordionItem = ({ title, content }) => {
         />
       </button>
       {isOpen && (
-        <div
-          className={`max-h-screen px-6 pt-3 pb-4 text-base tracking-wide transition-transform duration-300 ease-in-out`}
-        >
+        <div className="max-h-screen px-6 pt-3 pb-4 text-base tracking-wide transition-transform duration-300 ease-in-out">
           {content}
         </div>
       )}
