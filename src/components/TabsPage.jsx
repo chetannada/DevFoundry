@@ -21,7 +21,7 @@ const TabsPage = ({ activeTab, setActiveTab, handleAddModal, isDisabled }) => {
               onClick={() => handleTabClick(tab)}
               className={`px-6 max2xs:px-3 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
                 activeTab === tab
-                  ? "text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl"
+                  ? "text-white bg-gradient-to-br from-purple-700 to-blue-800 hover:bg-gradient-to-bl"
                   : ""
               }`}
             >
@@ -37,7 +37,7 @@ const TabsPage = ({ activeTab, setActiveTab, handleAddModal, isDisabled }) => {
         ) : (
           <button
             onClick={handleAddModal}
-            className="flex items-center gap-2 px-4 py-3 text-white bg-gradient-to-br from-teal-700 to-lime-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm max2xs:text-xs transition"
+            className="flex items-center gap-2 px-4 py-3 text-white bg-gradient-to-br from-teal-700 to-lime-800 hover:bg-gradient-to-bl font-medium rounded-lg text-sm max2xs:text-xs transition"
           >
             <MdAddCircleOutline className="text-xl" />
             Add Build
