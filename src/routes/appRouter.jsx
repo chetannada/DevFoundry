@@ -16,6 +16,7 @@ import Accordion from "../features/accordion";
 import NumberToWords from "../features/number-to-words";
 import Stepper from "../features/Stepper";
 import Stopwatch from "../features/stopwatch";
+import PasswordGenerator from "../features/password-generator";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -83,6 +84,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/stopwatch",
         element: <Stopwatch />,
+      },
+      {
+        path: "/password-generator",
+        element: <PasswordGenerator />,
       },
     ],
   },
