@@ -3,7 +3,7 @@ const generatePassword = (options, length = 12) => {
     uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lowercase: "abcdefghijklmnopqrstuvwxyz",
     numbers: "0123456789",
-    symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?",
+    symbols: "~!@#$%^&*()_+-=[]{}|;:,.<>?",
   };
 
   let allChars = "";
