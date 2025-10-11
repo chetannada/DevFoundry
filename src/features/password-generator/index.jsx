@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PasswordTextField from "./PasswordTextField";
 import generatePassword from "./generatePassword";
 import CharacterOptions from "./CharacterOptions";
+import PasswordLengthSlider from "./PasswordLengthSlider";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ const PasswordGenerator = () => {
     symbols: false,
   });
   const [isAnimating, setIsAnimating] = useState(false);
+  const [length, setLength] = useState(12);
 
   const handleRegeneratePassword = (refreshAnimating = true) => {
     if (refreshAnimating) {
@@ -19,13 +21,13 @@ const PasswordGenerator = () => {
       setTimeout(() => setIsAnimating(false), 500);
     }
 
-    const newPassword = generatePassword(options);
+    const newPassword = generatePassword(options, length);
     setPassword(newPassword);
   };
 
   useEffect(() => {
     handleRegeneratePassword(false);
-  }, [options]);
+  }, [options, length]);
 
   return (
     <div className="px-8 py-10 w-full max-w-180 mx-auto animate-fadeIn bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
@@ -39,6 +41,8 @@ const PasswordGenerator = () => {
       />
 
       <CharacterOptions options={options} setOptions={setOptions} />
+
+      <PasswordLengthSlider length={length} setLength={setLength} />
     </div>
   );
 };
