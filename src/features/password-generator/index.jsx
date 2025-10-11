@@ -3,6 +3,7 @@ import PasswordTextField from "./PasswordTextField";
 import generatePassword from "./generatePassword";
 import CharacterOptions from "./CharacterOptions";
 import PasswordLengthSlider from "./PasswordLengthSlider";
+import PasswordStrengthLabel from "./passwordStrengthLabel";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -14,6 +15,18 @@ const PasswordGenerator = () => {
   });
   const [isAnimating, setIsAnimating] = useState(false);
   const [length, setLength] = useState(12);
+
+  const getStrengthScore = password => {
+    let score = 0;
+    if (password.length >= 8) score += 1;
+    if (password.length >= 12) score += 1;
+    if (/[A-Z]/.test(password)) score += 1;
+    if (/[0-9]/.test(password)) score += 1;
+    if (/[^A-Za-z0-9]/.test(password)) score += 1;
+    return score;
+  };
+
+  const strengthScore = getStrengthScore(password);
 
   const handleRegeneratePassword = (refreshAnimating = true) => {
     if (refreshAnimating) {
@@ -43,6 +56,8 @@ const PasswordGenerator = () => {
       <CharacterOptions options={options} setOptions={setOptions} />
 
       <PasswordLengthSlider length={length} setLength={setLength} />
+
+      <PasswordStrengthLabel strengthScore={strengthScore} />
     </div>
   );
 };
