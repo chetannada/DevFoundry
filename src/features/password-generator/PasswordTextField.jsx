@@ -25,6 +25,7 @@ const PasswordTextField = ({ password, setPassword, handleRegeneratePassword, is
           className="w-full pl-4 pr-11 py-2 rounded-md border border-border-light dark:border-border-dark bg-body-light dark:bg-body-dark text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark transition-all duration-300"
           placeholder="Generate random password"
         />
+
         <button
           onClick={handleRegeneratePassword}
           className={`absolute right-3 top-2.5 text-secondary-light dark:text-secondary-dark transition-transform duration-300 ${
