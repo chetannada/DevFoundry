@@ -26,7 +26,7 @@ const GoogleAuth = () => {
     }
   };
 
-  const singOut = () => {
+  const signOut = () => {
     localStorage.removeItem("userDetails");
     setUserDetails({});
   };
@@ -58,7 +58,7 @@ const GoogleAuth = () => {
             </div>
             <button
               className="flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-purple-500 to-rose-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2 text-center"
-              onClick={singOut}
+              onClick={signOut}
             >
               <FiLogOut size={18} />
               Logout
