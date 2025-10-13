@@ -17,6 +17,7 @@ import NumberToWords from "../features/number-to-words";
 import Stepper from "../features/Stepper";
 import Stopwatch from "../features/stopwatch";
 import PasswordGenerator from "../features/password-generator";
+import WordCounter from "../features/word-counter";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -88,6 +89,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/password-generator",
         element: <PasswordGenerator />,
+      },
+      {
+        path: "/word-counter",
+        element: <WordCounter />,
       },
     ],
   },
