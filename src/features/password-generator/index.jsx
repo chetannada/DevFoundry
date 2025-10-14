@@ -3,7 +3,7 @@ import PasswordTextField from "./PasswordTextField";
 import generatePassword from "./generatePassword";
 import CharacterOptions from "./CharacterOptions";
 import PasswordLengthSlider from "./PasswordLengthSlider";
-import PasswordStrengthLabel from "./passwordStrengthLabel";
+import PasswordStrengthLabel from "./PasswordStrengthLabel";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
