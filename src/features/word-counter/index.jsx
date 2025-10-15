@@ -1,6 +1,7 @@
 import WordStatsCard from "./WordStatsCard";
 import { useEffect, useState } from "react";
 import WordTextArea from "./WordTextArea";
+import WordCounterButtons from "./WordCounterButtons";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -17,10 +18,12 @@ const WordCounter = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3 items-center justify-center ">
+    <div className="flex flex-col items-center justify-center ">
       <h1 className="text-4xl font-bold text-center">Word Counter</h1>
 
       <WordStatsCard text={text} />
+
+      <WordCounterButtons text={text} setText={setText} />
 
       <WordTextArea text={text} onChange={handleChange} />
     </div>
