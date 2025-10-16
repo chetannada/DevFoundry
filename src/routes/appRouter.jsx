@@ -14,7 +14,7 @@ import PasswordStrength from "../features/password-strength";
 import StringConverter from "../features/string-converter";
 import Accordion from "../features/accordion";
 import NumberToWords from "../features/number-to-words";
-import Stepper from "../features/steppers";
+import Stepper from "../features/stepper";
 import Stopwatch from "../features/stopwatch";
 import PasswordGenerator from "../features/password-generator";
 import WordCounter from "../features/word-counter";
