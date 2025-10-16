@@ -55,6 +55,13 @@ Whether you're refining your frontend skills or contributing full-stack features
 │ │ ├── modal/
 │ │ ├── skeleton/
 │ ├── features/                # Feature-based modules
+│ │ ├── word-counter/
+│ │ ├── password-generator/
+│ │ ├── stopwatch/
+│ │ ├── stepper/
+│ │ ├── number-to-words/
+│ │ ├── accordion/
+│ │ ├── string-converter/
 │ │ ├── password-strength/
 │ │ ├── guess-number/
 │ │ ├── image-gallery/
@@ -79,6 +86,48 @@ Whether you're refining your frontend skills or contributing full-stack features
 └── index.jsx                  # Entry point for React app
 └── README.md                  # Project documentation
 ```
+
+## 📚 Word Counter
+
+- 👨‍💻 [Coding Challenge](/src/features/word-counter/README.md)
+- 💻 [Source Code](/src/features/word-counter)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/word-counter) 😍
+
+## 📚 Random Password Generator
+
+- 👨‍💻 [Coding Challenge](/src/features/password-generator/README.md)
+- 💻 [Source Code](/src/features/password-generator)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/password-generator) 😍
+
+## 📚 Stopwatch
+
+- 👨‍💻 [Coding Challenge](/src/features/stopwatch/README.md)
+- 💻 [Source Code](/src/features/stopwatch)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/stopwatch) 😍
+
+## 📚 Stepper
+
+- 👨‍💻 [Coding Challenge](/src/features/stepper/README.md)
+- 💻 [Source Code](/src/features/stepper)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/stepper) 😍
+
+## 📚 Number to Words Converter
+
+- 👨‍💻 [Coding Challenge](/src/features/number-to-words/README.md)
+- 💻 [Source Code](/src/features/number-to-words)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/number-to-words) 😍
+
+## 📚 Accordion
+
+- 👨‍💻 [Coding Challenge](/src/features/accordion/README.md)
+- 💻 [Source Code](/src/features/accordion)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/accordion) 😍
+
+## 📚 String Converter
+
+- 👨‍💻 [Coding Challenge](/src/features/string-converter/README.md)
+- 💻 [Source Code](/src/features/string-converter)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/string-converter) 😍
 
 ## 📚 Password Strength Analyzer
 
