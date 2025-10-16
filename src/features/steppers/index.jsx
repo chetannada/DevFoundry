@@ -1,8 +1,8 @@
 import { useState } from "react";
-import StepperButtons from "./StepperButtons";
-import StepperMessage from "./StepperMessage";
 import useWindowSize from "../../hooks/useWindowSize";
 import StepSequenceHorizontal from "./StepSequenceHorizontal";
+import StepperMessage from "./StepperMessage";
+import StepperButtons from "./StepperButtons";
 import StepSequenceVertical from "./StepSequenceVertical";
 
 const steps = ["Passenger Info", "Flight Selection", "Payment", "Review & Confirm"];
