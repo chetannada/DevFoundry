@@ -18,6 +18,7 @@ import Stepper from "../features/Stepper";
 import Stopwatch from "../features/stopwatch";
 import PasswordGenerator from "../features/password-generator";
 import WordCounter from "../features/word-counter";
+import StarRating from "../features/star-rating";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -93,6 +94,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/word-counter",
         element: <WordCounter />,
+      },
+      {
+        path: "/star-rating",
+        element: <StarRating />,
       },
     ],
   },
