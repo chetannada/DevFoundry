@@ -1,16 +1,10 @@
 import { FaRegCopy } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
+import { MdUndo, MdRedo } from "react-icons/md";
 
-const WordCounterButtons = ({ text, setText }) => {
-  const handleClear = () => {
-    setText("");
-    localStorage.removeItem("wordCounterText");
-  };
-
+const WordCounterButtons = ({ text, onClear, onUndo, onRedo }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
-
-    toast.success("Text copied to clipboard!");
   };
 
   const buttonStyle =
@@ -18,14 +12,24 @@ const WordCounterButtons = ({ text, setText }) => {
 
   return (
     <div className="flex flex-row flex-wrap gap-1 items-center justify-start bg-primary-light dark:bg-primary-dark border rounded-md border-border-light dark:border-border-dark shadow-md mt-2 p-1.5 w-full max-w-[1200px] transition-all duration-300">
-      <div onClick={handleCopy} className={buttonStyle}>
+      <div onMouseDown={e => e.preventDefault()} onClick={handleCopy} className={buttonStyle}>
         <FaRegCopy size={14} />
         <p>Copy</p>
       </div>
 
-      <div onClick={handleClear} className={buttonStyle}>
+      <div onMouseDown={e => e.preventDefault()} onClick={onClear} className={buttonStyle}>
         <FiTrash2 size={14} />
         <p>Clear</p>
+      </div>
+
+      <div onMouseDown={e => e.preventDefault()} onClick={onUndo} className={buttonStyle}>
+        <MdUndo size={14} />
+        <p>Undo</p>
+      </div>
+
+      <div onMouseDown={e => e.preventDefault()} onClick={onRedo} className={buttonStyle}>
+        <MdRedo size={14} />
+        <p>Redo</p>
       </div>
     </div>
   );
