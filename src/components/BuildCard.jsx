@@ -180,7 +180,7 @@ const BuildCard = ({
             }
             target="_blank"
             rel="noopener noreferrer"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-fuchsia-700 to-blue-900 hover:bg-gradient-to-l rounded-lg p-2"
+            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-fuchsia-700 to-blue-900 hover:bg-gradient-to-l font-medium rounded-lg text-sm p-2"
           >
             <FaGithub size={20} /> Code
           </a>
@@ -189,7 +189,7 @@ const BuildCard = ({
             to={liveUrl}
             target={activeTab === "core" ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-pink-700 to-purple-900 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm p-2"
+            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-br from-teal-500 to-lime-900 hover:bg-gradient-to-bl font-medium rounded-lg text-sm p-2"
           >
             <IoOpenOutline size={20} /> Live
           </Link>
