@@ -11,6 +11,7 @@ import strings from "../utils/strings";
 import Sidebar from "./Sidebar";
 import { FaGithub } from "react-icons/fa";
 import ActionModal from "../components/modal/ActionModal";
+import Logo from "./Logo";
 
 axios.defaults.withCredentials = true;
 
@@ -84,10 +85,7 @@ const Header = () => {
       <header className="fixed top-0 z-50 px-8 max2xs:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
         <nav className="flex justify-between items-center h-full">
           <a href="/">
-            <h1 className="text-2xl max2xs:text-xl max3xs:text-base font-semibold tracking-widest">
-              <span className="text-secondary-light dark:text-secondary-dark">Dev</span>
-              Foundry
-            </h1>
+            <Logo />
           </a>
 
           <div className="flex items-center gap-2">
