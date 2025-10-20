@@ -72,9 +72,7 @@ const BuildActionModal = ({
           <button
             type="submit"
             disabled={isDisabled}
-            className={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
-              text-white bg-gradient-to-br from-teal-700 to-lime-600 hover:bg-gradient-to-bl
-              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
+            className="flex justify-center items-center gap-2 px-5 py-2.5 text-white bg-gradient-to-r from-pink-700 to-purple-800 hover:bg-gradient-to-l font-medium rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br"
           >
             {isEdit ? "Update" : "Submit"}
           </button>

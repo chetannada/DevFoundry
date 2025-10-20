@@ -118,3 +118,14 @@ export const restoreGalleryBuild = async (buildId, restoredData, activeTab) => {
     throw error;
   }
 };
+
+export const toggleFavoriteGalleryBuild = async (buildId, buildType) => {
+  try {
+    const response = await axios.post(`${API_BACKEND_URL}/builds/favorites/${buildId}`, buildType, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
