@@ -7,14 +7,10 @@ const Logo = () => {
 
   const renderImage = () => {
     return theme === "dark" ? (
-      <img
-        src="/images/devFoundry-logo-dark.png"
-        alt="DevFoundry Logo"
-        className="h-10 w-10 object-contain"
-      />
+      <img src="/images/logo-dark.png" alt="DevFoundry Logo" className="h-10 w-10 object-contain" />
     ) : (
       <img
-        src="/images/devFoundry-logo-light.png"
+        src="/images/logo-light.png"
         alt="DevFoundry Logo"
         className="h-10 w-10 object-contain"
       />
