@@ -1,8 +1,10 @@
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaHeart, FaRegHeart } from "react-icons/fa6";
 import { IoOpenOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { statusStyles } from "../utils/styles";
 import { Link } from "react-router-dom";
+import { toggleFavoriteGalleryBuild } from "../services/buildService";
+import toast from "react-hot-toast";
 
 const BuildCard = ({
   item,
@@ -24,6 +26,7 @@ const BuildCard = ({
 
   const [showMore, setShowMore] = useState(false);
   const [showAction, setShowAction] = useState(true);
+  const [isFavorited, setIsFavorited] = useState(item?.isFavorited);
   const characterLimit = 40;
   const isApproved = status === "approved";
 
@@ -41,9 +44,31 @@ const BuildCard = ({
     }
   }, []);
 
+  const toggleFavorite = async () => {
+    try {
+      const res = await toggleFavoriteGalleryBuild(item._id, { buildType: activeTab });
+      setIsFavorited(res.isFavorited);
+    } catch (err) {
+      const message = err.response?.data?.errorMessage || "Something went wrong!";
+      console.error("Error:", message);
+      toast.error(message);
+    }
+  };
+
   return (
     <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
-      <div className="w-full">
+      <div className="w-full relative">
+        {/* Heart Icon */}
+        {userId && (
+          <button
+            onClick={toggleFavorite}
+            className="absolute top-0 right-0 text-red-500 hover:scale-110 transition-transform duration-200"
+            title={isFavorited ? "Remove from favorites" : "Add to favorites"}
+          >
+            {isFavorited ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+          </button>
+        )}
+
         {(id === userId || userRole === "admin") && (
           <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
             {/* Edit/Delete/Restore/Review Controls */}
@@ -86,7 +111,7 @@ const BuildCard = ({
               </div>
             )}
 
-            <div className="flex flex-wrap flex-row gap-3">
+            <div className="flex flex-wrap flex-row gap-3 mr-8">
               {/* Status Badge */}
               {status && (id === userId || userRole === "admin") && (
                 <span
@@ -102,7 +127,7 @@ const BuildCard = ({
 
         {/* Title & Description */}
         <div className={`flex flex-wrap flex-col gap-1 mb-2`}>
-          <h5 className="text-2xl font-bold">{title}</h5>
+          <h5 className="text-2xl font-bold mr-8">{title}</h5>
           <p className="font-normal">
             {showMore || description?.length <= characterLimit
               ? description
