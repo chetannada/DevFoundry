@@ -1,11 +1,13 @@
 import axios from "axios";
+import { searchQueryDefaultValues } from "../utils/constant";
 
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
 export const fetchGalleryBuilds = async (
-  search = { query: "", field: "title" },
+  search = searchQueryDefaultValues,
   contributorId = null,
-  activeTab
+  activeTab,
+  filters = {}
 ) => {
   const queryParams = new URLSearchParams();
   const { query, field } = search;
@@ -21,6 +23,12 @@ export const fetchGalleryBuilds = async (
   if (query) queryParams.append(paramKey, query);
   if (contributorId) queryParams.append("contributorId", contributorId);
   if (activeTab) queryParams.append("type", activeTab);
+
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value !== undefined && value !== null) {
+      queryParams.append(key, value);
+    }
+  });
 
   try {
     const response = await axios.get(

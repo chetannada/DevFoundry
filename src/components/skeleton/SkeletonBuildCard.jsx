@@ -1,14 +1,17 @@
 const SkeletonBuildCard = () => {
   return (
     <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md animate-pulse">
-      <div className="w-full">
+      <div className="relative w-full">
+        {/* Heart Skeleton */}
+        <div className="absolute top-0 right-0 w-6 h-6 bg-skeleton-light dark:bg-skeleton-dark animate-pulse rounded-[50%] clip-heart" />
+
         {/* Edit/Delete Controls */}
         <div className="flex flex-wrap flex-row justify-between items-center gap-4 mb-3">
           <div className="flex flex-wrap flex-row gap-3">
             <div className="h-6 w-16 bg-skeleton-light dark:bg-skeleton-dark rounded" />
             <div className="h-6 w-16 bg-skeleton-light dark:bg-skeleton-dark rounded" />
           </div>
-          <div className="h-6 w-20 bg-skeleton-light dark:bg-skeleton-dark rounded-full" />
+          <div className="h-6 w-20 mr-8 bg-skeleton-light dark:bg-skeleton-dark rounded-full" />
         </div>
 
         {/* Title & Description */}

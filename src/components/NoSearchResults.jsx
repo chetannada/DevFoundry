@@ -1,6 +1,6 @@
-import { fieldLabels } from "../utils/constant";
+import { fieldLabels, searchQueryDefaultValues } from "../utils/constant";
 
-const NoResults = ({
+const NoSearchResults = ({
   searchQuery,
   fetchBuilds,
   user,
@@ -8,12 +8,15 @@ const NoResults = ({
   setInputSearch,
   setSearchBy,
   activeTab,
+  setFilters,
 }) => {
   const hanldeResetSearch = () => {
     setSearchBy("title");
-    setSearchQuery({ query: "", field: "title" });
+    setSearchQuery(searchQueryDefaultValues);
     setInputSearch("");
-    fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+    setFilters({ favorite: false });
+
+    fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab);
   };
 
   return (
@@ -42,6 +45,7 @@ const NoResults = ({
           {`Try searching for another keyword, or explore all ${activeTab} builds below. Your next
           discovery might just be a scroll away!`}
         </p>
+
         <button
           onClick={hanldeResetSearch}
           className="mt-4 px-6 py-2 text-sm text-white bg-secondary-light dark:bg-secondary-dark rounded-lg shadow-lg transition-transform transform hover:scale-105"
@@ -53,4 +57,4 @@ const NoResults = ({
   );
 };
 
-export default NoResults;
+export default NoSearchResults;

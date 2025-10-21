@@ -21,3 +21,12 @@ export const buildFormDefaultValues = {
   suggestion: null,
   restoredReason: null,
 };
+
+export const buildFiltersDefaultValues = {
+  favorite: false,
+  pending: false,
+  approved: false,
+  rejected: false,
+};
+
+export const searchQueryDefaultValues = { query: "", field: "title" };

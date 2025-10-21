@@ -1,0 +1,34 @@
+const NoFilteredResults = ({ activeTab, handleResetFilters }) => {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="w-full max-w-xl flex flex-col items-center justify-center gap-4 p-6 text-center bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-16 w-16 text-secondary-light dark:text-secondary-dark animate-bounce"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zm-6 8a6 6 0 1111.816 2.094l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387A6 6 0 012 12z"
+            clipRule="evenodd"
+          />
+        </svg>
+        <h2 className="text-lg font-medium">No {activeTab} builds match your current filters</h2>
+
+        <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md">
+          Try adjusting your filters or reset them to explore all available builds.
+        </p>
+
+        <button
+          onClick={handleResetFilters}
+          className="mt-4 px-6 py-2 text-sm text-white bg-secondary-light dark:bg-secondary-dark rounded-lg shadow-lg transition-transform transform hover:scale-105"
+        >
+          Reset Filters
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default NoFilteredResults;

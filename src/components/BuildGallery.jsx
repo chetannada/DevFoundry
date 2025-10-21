@@ -4,12 +4,16 @@ import { useSelector } from "react-redux";
 import { removeBuildFromGallery } from "../services/buildService";
 import { capitalizeWord } from "../utils/function";
 import NoData from "./NoData";
-import NoResults from "./NoResults";
 import BuildCard from "./BuildCard";
 import SearchBar from "./SearchBar";
 import SkeletonBuildCard from "./skeleton/SkeletonBuildCard";
 import ActionModal from "./modal/ActionModal";
 import { FaTrashAlt } from "react-icons/fa";
+import FilterButton from "./FilterButton";
+import FilterMenu from "./menu/FilterMenu";
+import NoFilteredResults from "./NoFilteredResults";
+import NoSearchResults from "./NoSearchResults";
+import { buildFiltersDefaultValues, searchQueryDefaultValues } from "../utils/constant";
 
 const BuildGallery = ({
   activeTab,
@@ -20,20 +24,28 @@ const BuildGallery = ({
   handleEditModal,
   handleReviewModal,
   handleRestoreModal,
+  searchQuery,
+  setSearchQuery,
+  filters,
+  setFilters,
+  filterOpen,
+  setFilterOpen,
 }) => {
   const { user } = useSelector(state => state.auth);
 
   const [inputSearch, setInputSearch] = useState("");
   const [searchBy, setSearchBy] = useState("title");
-  const [searchQuery, setSearchQuery] = useState({ query: "", field: "title" });
   const [showModal, setShowModal] = useState(false);
   const [deleteItem, setDeleteItem] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
+  const activeCount = Object.values(filters).filter(Boolean).length;
+
   useEffect(() => {
-    setSearchQuery({ query: "", field: "title" });
+    setSearchQuery(searchQueryDefaultValues);
     setInputSearch("");
     setSearchBy("title");
+    setFilters(buildFiltersDefaultValues);
   }, [activeTab]);
 
   const handleSearch = useCallback(
@@ -42,7 +54,7 @@ const BuildGallery = ({
       if (formattedQuery === lastQueryRef.current) return;
 
       setSearchQuery({ query, field });
-      fetchBuilds({ query, field }, user?.github?.id || null, activeTab);
+      fetchBuilds({ query, field }, user?.github?.id || null, activeTab, filters);
     },
     [fetchBuilds, lastQueryRef]
   );
@@ -67,19 +79,35 @@ const BuildGallery = ({
 
       toast.success(res.message);
       handleClose();
-      fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+      fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab, filters);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
     } finally {
-      setIsDisabled(false); // fix: remove arrow function
+      setIsDisabled(false);
     }
   };
 
   const handleClose = () => {
     setIsDisabled(false);
     setShowModal(false);
+  };
+
+  const handleResetFilters = () => {
+    setSearchQuery(searchQueryDefaultValues);
+    setInputSearch("");
+    setSearchBy("title");
+    setFilters(buildFiltersDefaultValues);
+
+    if (!activeCount) {
+      fetchBuilds(
+        searchQueryDefaultValues,
+        user?.github?.id || null,
+        activeTab,
+        buildFiltersDefaultValues
+      );
+    }
   };
 
   const renderBuilds = () => {
@@ -113,7 +141,7 @@ const BuildGallery = ({
       );
     } else if (!buildItems?.length && searchQuery?.query) {
       return (
-        <NoResults
+        <NoSearchResults
           searchQuery={searchQuery}
           fetchBuilds={fetchBuilds}
           user={user}
@@ -121,8 +149,11 @@ const BuildGallery = ({
           setInputSearch={setInputSearch}
           setSearchBy={setSearchBy}
           activeTab={activeTab}
+          setFilters={setFilters}
         />
       );
+    } else if (!buildItems?.length && Object.values(filters).some(Boolean)) {
+      return <NoFilteredResults activeTab={activeTab} handleResetFilters={handleResetFilters} />;
     } else {
       return <NoData message="No builds found" />;
     }
@@ -130,7 +161,7 @@ const BuildGallery = ({
 
   return (
     <>
-      <div className="flex justify-center maxMd:justify-start items-center mx-auto mb-8">
+      <div className="flex flex-row maxXsPlus:flex-col gap-3 maxXsPlus:gap-4 justify-center maxXsPlus:justify-start items-start w-full mb-8">
         <SearchBar
           handleSearch={handleSearch}
           isDisabled={isLoading || buildItems === null}
@@ -139,6 +170,29 @@ const BuildGallery = ({
           searchBy={searchBy}
           setSearchBy={setSearchBy}
         />
+
+        <div className="flex items-center gap-3 self-start">
+          <div className="relative">
+            <FilterButton
+              count={activeCount}
+              onClick={() => setFilterOpen(prev => !prev)}
+              isDisabled={isDisabled}
+            />
+            <FilterMenu
+              isOpen={filterOpen}
+              setIsOpen={setFilterOpen}
+              filters={filters}
+              setFilters={setFilters}
+            />
+          </div>
+
+          <button
+            onClick={handleResetFilters}
+            className="text-sm font-semibold transition-transform transform hover:scale-105"
+          >
+            Reset
+          </button>
+        </div>
       </div>
 
       {renderBuilds()}

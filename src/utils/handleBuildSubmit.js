@@ -5,6 +5,7 @@ import {
   reviewGalleryBuild,
   submitBuildToGallery,
 } from "../services/buildService";
+import { searchQueryDefaultValues } from "./constant";
 
 const handleBuildSubmit = async ({
   data,
@@ -73,7 +74,7 @@ const handleBuildSubmit = async ({
       toast.success(res.message);
     }
 
-    fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+    fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab);
     handleClose();
   } catch (err) {
     const message = err.response?.data?.errorMessage || "Something went wrong!";

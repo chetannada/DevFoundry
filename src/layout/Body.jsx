@@ -8,6 +8,7 @@ import { fetchGalleryBuilds } from "../services/buildService";
 import strings from "../utils/strings";
 import ActionModal from "../components/modal/ActionModal";
 import { FaGithub } from "react-icons/fa";
+import { buildFiltersDefaultValues, searchQueryDefaultValues } from "../utils/constant";
 
 const Body = () => {
   const { user, isLoggedIn, isAuthReady } = useSelector(state => state.auth);
@@ -20,9 +21,13 @@ const Body = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [filters, setFilters] = useState(buildFiltersDefaultValues);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(searchQueryDefaultValues);
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
+  const hasFetchedOnce = useRef(false);
 
   const openBuildModal = (mode, item = null) => {
     setModalMode(mode);
@@ -43,9 +48,10 @@ const Body = () => {
   };
 
   const fetchBuilds = async (
-    search = { query: "", field: "title" },
+    search = searchQueryDefaultValues,
     contributorId = null,
-    activeTab = "core"
+    activeTab = "core",
+    filters = {}
   ) => {
     setIsLoading(true);
     const { query, field } = search;
@@ -53,7 +59,7 @@ const Body = () => {
     lastQueryRef.current = formattedQuery;
 
     try {
-      const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab);
+      const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab, filters);
       setBuildItems(res);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
@@ -68,13 +74,17 @@ const Body = () => {
 
   useEffect(() => {
     if (isAuthReady) {
-      setIsLoading(true);
       clearTimeout(debounceRef.current);
-      debounceRef.current = setTimeout(() => {
-        fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
-      }, 300);
+
+      debounceRef.current = setTimeout(
+        () => {
+          fetchBuilds(searchQuery, user?.github?.id || null, activeTab, filters);
+          hasFetchedOnce.current = true;
+        },
+        hasFetchedOnce.current ? 0 : 300
+      ); // debounce only on first load
     }
-  }, [isAuthReady, user, activeTab]);
+  }, [isAuthReady, activeTab, filters]);
 
   return (
     <>
@@ -94,6 +104,12 @@ const Body = () => {
         handleEditModal={handleEditModal}
         handleReviewModal={handleReviewModal}
         handleRestoreModal={handleRestoreModal}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        filters={filters}
+        setFilters={setFilters}
+        filterOpen={filterOpen}
+        setFilterOpen={setFilterOpen}
       />
 
       {isLoggedIn && user ? (
