@@ -20,6 +20,9 @@ const Body = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [filters, setFilters] = useState({ favorite: false });
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState({ query: "", field: "title" });
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
@@ -45,7 +48,8 @@ const Body = () => {
   const fetchBuilds = async (
     search = { query: "", field: "title" },
     contributorId = null,
-    activeTab = "core"
+    activeTab = "core",
+    filters = {}
   ) => {
     setIsLoading(true);
     const { query, field } = search;
@@ -53,7 +57,7 @@ const Body = () => {
     lastQueryRef.current = formattedQuery;
 
     try {
-      const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab);
+      const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab, filters);
       setBuildItems(res);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
@@ -71,10 +75,10 @@ const Body = () => {
       setIsLoading(true);
       clearTimeout(debounceRef.current);
       debounceRef.current = setTimeout(() => {
-        fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+        fetchBuilds(searchQuery, user?.github?.id || null, activeTab, filters);
       }, 300);
     }
-  }, [isAuthReady, user, activeTab]);
+  }, [isAuthReady, user, activeTab, filters]);
 
   return (
     <>
@@ -94,6 +98,12 @@ const Body = () => {
         handleEditModal={handleEditModal}
         handleReviewModal={handleReviewModal}
         handleRestoreModal={handleRestoreModal}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        filters={filters}
+        setFilters={setFilters}
+        filterOpen={filterOpen}
+        setFilterOpen={setFilterOpen}
       />
 
       {isLoggedIn && user ? (
