@@ -31,7 +31,7 @@ const BuildGallery = ({
   filterOpen,
   setFilterOpen,
 }) => {
-  const { user, isAuthReady } = useSelector(state => state.auth);
+  const { user } = useSelector(state => state.auth);
 
   const [inputSearch, setInputSearch] = useState("");
   const [searchBy, setSearchBy] = useState("title");
@@ -46,15 +46,6 @@ const BuildGallery = ({
     setInputSearch("");
     setSearchBy("title");
     setFilters(buildFiltersDefaultValues);
-
-    if (!activeCount && isAuthReady) {
-      fetchBuilds(
-        searchQueryDefaultValues,
-        user?.github?.id || null,
-        activeTab,
-        buildFiltersDefaultValues
-      );
-    }
   }, [activeTab]);
 
   const handleSearch = useCallback(

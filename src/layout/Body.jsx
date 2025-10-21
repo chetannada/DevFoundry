@@ -27,6 +27,7 @@ const Body = () => {
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
+  const hasFetchedOnce = useRef(false);
 
   const openBuildModal = (mode, item = null) => {
     setModalMode(mode);
@@ -73,13 +74,17 @@ const Body = () => {
 
   useEffect(() => {
     if (isAuthReady) {
-      setIsLoading(true);
       clearTimeout(debounceRef.current);
-      debounceRef.current = setTimeout(() => {
-        fetchBuilds(searchQuery, user?.github?.id || null, activeTab, filters);
-      }, 300);
+
+      debounceRef.current = setTimeout(
+        () => {
+          fetchBuilds(searchQuery, user?.github?.id || null, activeTab, filters);
+          hasFetchedOnce.current = true;
+        },
+        hasFetchedOnce.current ? 0 : 300
+      ); // debounce only on first load
     }
-  }, [isAuthReady, user, filters]);
+  }, [isAuthReady, activeTab, filters]);
 
   return (
     <>
