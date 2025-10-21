@@ -8,6 +8,7 @@ import { fetchGalleryBuilds } from "../services/buildService";
 import strings from "../utils/strings";
 import ActionModal from "../components/modal/ActionModal";
 import { FaGithub } from "react-icons/fa";
+import { buildFiltersDefaultValues, searchQueryDefaultValues } from "../utils/constant";
 
 const Body = () => {
   const { user, isLoggedIn, isAuthReady } = useSelector(state => state.auth);
@@ -20,9 +21,9 @@ const Body = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstTimeLoading, setIsFirstTimeLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [filters, setFilters] = useState({ favorite: false });
+  const [filters, setFilters] = useState(buildFiltersDefaultValues);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState({ query: "", field: "title" });
+  const [searchQuery, setSearchQuery] = useState(searchQueryDefaultValues);
 
   const lastQueryRef = useRef(null);
   const debounceRef = useRef(null);
@@ -46,7 +47,7 @@ const Body = () => {
   };
 
   const fetchBuilds = async (
-    search = { query: "", field: "title" },
+    search = searchQueryDefaultValues,
     contributorId = null,
     activeTab = "core",
     filters = {}
@@ -78,7 +79,7 @@ const Body = () => {
         fetchBuilds(searchQuery, user?.github?.id || null, activeTab, filters);
       }, 300);
     }
-  }, [isAuthReady, user, activeTab, filters]);
+  }, [isAuthReady, user, filters]);
 
   return (
     <>

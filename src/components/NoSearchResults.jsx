@@ -1,4 +1,4 @@
-import { fieldLabels } from "../utils/constant";
+import { fieldLabels, searchQueryDefaultValues } from "../utils/constant";
 
 const NoSearchResults = ({
   searchQuery,
@@ -12,11 +12,11 @@ const NoSearchResults = ({
 }) => {
   const hanldeResetSearch = () => {
     setSearchBy("title");
-    setSearchQuery({ query: "", field: "title" });
+    setSearchQuery(searchQueryDefaultValues);
     setInputSearch("");
     setFilters({ favorite: false });
 
-    fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab);
+    fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab);
   };
 
   return (

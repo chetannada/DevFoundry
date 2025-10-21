@@ -13,6 +13,7 @@ import FilterButton from "./FilterButton";
 import FilterMenu from "./menu/FilterMenu";
 import NoFilteredResults from "./NoFilteredResults";
 import NoSearchResults from "./NoSearchResults";
+import { buildFiltersDefaultValues, searchQueryDefaultValues } from "../utils/constant";
 
 const BuildGallery = ({
   activeTab,
@@ -30,7 +31,7 @@ const BuildGallery = ({
   filterOpen,
   setFilterOpen,
 }) => {
-  const { user } = useSelector(state => state.auth);
+  const { user, isAuthReady } = useSelector(state => state.auth);
 
   const [inputSearch, setInputSearch] = useState("");
   const [searchBy, setSearchBy] = useState("title");
@@ -38,13 +39,22 @@ const BuildGallery = ({
   const [deleteItem, setDeleteItem] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const activeCount = filters.favorite ? 1 : 0;
+  const activeCount = Object.values(filters).filter(Boolean).length;
 
   useEffect(() => {
-    setSearchQuery({ query: "", field: "title" });
+    setSearchQuery(searchQueryDefaultValues);
     setInputSearch("");
     setSearchBy("title");
-    setFilters({ favorite: false });
+    setFilters(buildFiltersDefaultValues);
+
+    if (!activeCount && isAuthReady) {
+      fetchBuilds(
+        searchQueryDefaultValues,
+        user?.github?.id || null,
+        activeTab,
+        buildFiltersDefaultValues
+      );
+    }
   }, [activeTab]);
 
   const handleSearch = useCallback(
@@ -78,7 +88,7 @@ const BuildGallery = ({
 
       toast.success(res.message);
       handleClose();
-      fetchBuilds({ query: "", field: "title" }, user?.github?.id || null, activeTab, filters);
+      fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab, filters);
     } catch (err) {
       const message = err.response?.data?.errorMessage || "Something went wrong!";
       console.error("Error:", message);
@@ -94,14 +104,19 @@ const BuildGallery = ({
   };
 
   const handleResetFilters = () => {
-    setSearchQuery({ query: "", field: "title" });
+    setSearchQuery(searchQueryDefaultValues);
     setInputSearch("");
     setSearchBy("title");
-    setFilters({ favorite: false });
-  };
+    setFilters(buildFiltersDefaultValues);
 
-  const toggleFavorite = () => {
-    setFilters(prev => ({ ...prev, favorite: !prev.favorite }));
+    if (!activeCount) {
+      fetchBuilds(
+        searchQueryDefaultValues,
+        user?.github?.id || null,
+        activeTab,
+        buildFiltersDefaultValues
+      );
+    }
   };
 
   const renderBuilds = () => {
@@ -176,7 +191,7 @@ const BuildGallery = ({
               isOpen={filterOpen}
               setIsOpen={setFilterOpen}
               filters={filters}
-              toggleFavorite={toggleFavorite}
+              setFilters={setFilters}
             />
           </div>
 

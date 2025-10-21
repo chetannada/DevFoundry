@@ -1,9 +1,10 @@
 import axios from "axios";
+import { searchQueryDefaultValues } from "../utils/constant";
 
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
 export const fetchGalleryBuilds = async (
-  search = { query: "", field: "title" },
+  search = searchQueryDefaultValues,
   contributorId = null,
   activeTab,
   filters = {}
