@@ -2,7 +2,7 @@ import { FaRegCopy } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { MdUndo, MdRedo } from "react-icons/md";
 
-const WordCounterButtons = ({ text, onClear, onUndo, onRedo }) => {
+const WordCounterButtons = ({ text, onClear, onUndo, onRedo, onDeleteDraft, activeDraftId }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
   };
@@ -12,6 +12,17 @@ const WordCounterButtons = ({ text, onClear, onUndo, onRedo }) => {
 
   return (
     <div className="flex flex-row flex-wrap gap-1 items-center justify-start bg-primary-light dark:bg-primary-dark border rounded-md border-border-light dark:border-border-dark shadow-md mt-2 p-1.5 w-full max-w-[1200px] transition-all duration-300">
+      {onDeleteDraft && (
+        <div
+          onMouseDown={e => e.preventDefault()}
+          onClick={() => onDeleteDraft(activeDraftId)}
+          className={buttonStyle}
+        >
+          <FiTrash2 size={14} />
+          <p>Delete Draft</p>
+        </div>
+      )}
+
       <div onMouseDown={e => e.preventDefault()} onClick={handleCopy} className={buttonStyle}>
         <FaRegCopy size={14} />
         <p>Copy</p>

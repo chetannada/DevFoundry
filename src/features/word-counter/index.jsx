@@ -4,70 +4,138 @@ import WordTextArea from "./WordTextArea";
 import WordCounterButtons from "./WordCounterButtons";
 
 const WordCounter = () => {
-  const [text, setText] = useState("");
-  const historyRef = useRef([""]);
-  const indexRef = useRef(0);
+  const [drafts, setDrafts] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("wordDrafts")) || { 1: "" };
+    return saved;
+  });
+  const [activeDraftId, setActiveDraftId] = useState("1");
+
+  // Per-draft undo/redo history
+  const historyMapRef = useRef({
+    1: [""],
+  });
+  const indexMapRef = useRef({
+    1: 0,
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem("wordCounterText");
-    if (saved) {
-      setText(saved);
-      historyRef.current = [saved];
-      indexRef.current = 0;
-    }
+    const savedDrafts = JSON.parse(localStorage.getItem("wordDrafts")) || { 1: "" };
+    setDrafts(savedDrafts);
+
+    // Initialize history for each draft
+    const historyInit = {};
+    const indexInit = {};
+    Object.entries(savedDrafts).forEach(([id, text]) => {
+      historyInit[id] = [text];
+      indexInit[id] = 0;
+    });
+
+    historyMapRef.current = historyInit;
+    indexMapRef.current = indexInit;
   }, []);
 
   const updateText = newText => {
-    const history = historyRef.current.slice(0, indexRef.current + 1);
-    history.push(newText);
-    historyRef.current = history;
-    indexRef.current = history.length - 1;
-    setText(newText);
-    localStorage.setItem("wordCounterText", newText);
-  };
+    const currentHistory = historyMapRef.current[activeDraftId] || [""];
+    const currentIndex = indexMapRef.current[activeDraftId] || 0;
 
-  const handleChange = e => {
-    updateText(e.target.value);
+    const newHistory = currentHistory.slice(0, currentIndex + 1);
+    newHistory.push(newText);
+
+    historyMapRef.current[activeDraftId] = newHistory;
+    indexMapRef.current[activeDraftId] = newHistory.length - 1;
+
+    const updatedDrafts = { ...drafts, [activeDraftId]: newText };
+    setDrafts(updatedDrafts);
+    localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
   };
 
   const handleUndo = () => {
-    if (indexRef.current > 0) {
-      indexRef.current -= 1;
-      const prevText = historyRef.current[indexRef.current];
-      setText(prevText);
-      localStorage.setItem("wordCounterText", prevText);
+    const index = indexMapRef.current[activeDraftId];
+    if (index > 0) {
+      indexMapRef.current[activeDraftId] = index - 1;
+      const prevText = historyMapRef.current[activeDraftId][index - 1];
+      const updatedDrafts = { ...drafts, [activeDraftId]: prevText };
+      setDrafts(updatedDrafts);
+      localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
     }
   };
 
   const handleRedo = () => {
-    if (indexRef.current < historyRef.current.length - 1) {
-      indexRef.current += 1;
-      const nextText = historyRef.current[indexRef.current];
-      setText(nextText);
-      localStorage.setItem("wordCounterText", nextText);
+    const index = indexMapRef.current[activeDraftId];
+    const history = historyMapRef.current[activeDraftId];
+    if (index < history.length - 1) {
+      indexMapRef.current[activeDraftId] = index + 1;
+      const nextText = history[index + 1];
+      const updatedDrafts = { ...drafts, [activeDraftId]: nextText };
+      setDrafts(updatedDrafts);
+      localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
     }
   };
 
   const handleClear = () => {
-    updateText("");
-    localStorage.removeItem("wordCounterText");
+    historyMapRef.current[activeDraftId] = [""];
+    indexMapRef.current[activeDraftId] = 0;
+
+    const updatedDrafts = { ...drafts, [activeDraftId]: "" };
+    setDrafts(updatedDrafts);
+    localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
+  };
+
+  const handleAddDraft = () => {
+    const usedIds = Object.keys(drafts).map(Number);
+    const newId = String([1, 2, 3, 4, 5].find(id => !usedIds.includes(id)));
+
+    if (!newId) return; // All 5 slots used
+
+    const updatedDrafts = { ...drafts, [newId]: "" };
+    setDrafts(updatedDrafts);
+    setActiveDraftId(newId);
+    localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
+
+    historyMapRef.current[newId] = [""];
+    indexMapRef.current[newId] = 0;
+  };
+
+  const handleDeleteDraft = id => {
+    const updatedDrafts = { ...drafts };
+    delete updatedDrafts[id];
+
+    // Remove history and index
+    delete historyMapRef.current[id];
+    delete indexMapRef.current[id];
+
+    // If deleted active draft, switch to first available
+    const remainingIds = Object.keys(updatedDrafts);
+    const newActiveId = remainingIds[0] || "1";
+
+    setDrafts(updatedDrafts);
+    setActiveDraftId(newActiveId);
+    localStorage.setItem("wordDrafts", JSON.stringify(updatedDrafts));
   };
 
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold text-center">Word Counter</h1>
 
-      <WordStatsCard text={text} />
+      <WordStatsCard
+        text={drafts[activeDraftId] || ""}
+        activeDraftId={activeDraftId}
+        setActiveDraftId={setActiveDraftId}
+        drafts={drafts}
+        onAddDraft={handleAddDraft}
+      />
 
       <WordCounterButtons
-        text={text}
-        setText={setText}
+        text={drafts[activeDraftId] || ""}
+        setText={updateText}
         onClear={handleClear}
         onUndo={handleUndo}
         onRedo={handleRedo}
+        onDeleteDraft={Object.keys(drafts).length > 1 ? handleDeleteDraft : null}
+        activeDraftId={activeDraftId}
       />
 
-      <WordTextArea text={text} onChange={handleChange} />
+      <WordTextArea text={drafts[activeDraftId] || ""} onChange={e => updateText(e.target.value)} />
     </div>
   );
 };
