@@ -39,7 +39,7 @@ const WordStatsCard = ({ text, activeDraftId, setActiveDraftId, drafts, onAddDra
           {Object.keys(drafts).length < 5 && (
             <button
               onClick={onAddDraft}
-              className="flex items-center gap-1 px-3 py-1 rounded bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition"
+              className="flex items-center gap-1 px-3 py-1 rounded bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition active:ring-2 active:ring-offset-1 active:ring-secondary-light dark:active:ring-secondary-dark"
             >
               <MdAdd size={16} />
               Add Draft

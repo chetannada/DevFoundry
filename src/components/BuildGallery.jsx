@@ -40,6 +40,7 @@ const BuildGallery = ({
   const [isDisabled, setIsDisabled] = useState(false);
 
   const activeCount = Object.values(filters).filter(Boolean).length;
+  const isButtonDisabled = isLoading || buildItems === null;
 
   useEffect(() => {
     setSearchQuery(searchQueryDefaultValues);
@@ -164,7 +165,7 @@ const BuildGallery = ({
       <div className="flex flex-row maxXsPlus:flex-col gap-3 maxXsPlus:gap-4 justify-center maxXsPlus:justify-start items-start w-full mb-8">
         <SearchBar
           handleSearch={handleSearch}
-          isDisabled={isLoading || buildItems === null}
+          isDisabled={isButtonDisabled}
           inputSearch={inputSearch}
           setInputSearch={setInputSearch}
           searchBy={searchBy}
@@ -176,7 +177,7 @@ const BuildGallery = ({
             <FilterButton
               count={activeCount}
               onClick={() => setFilterOpen(prev => !prev)}
-              isDisabled={isDisabled}
+              isDisabled={isButtonDisabled}
             />
             <FilterMenu
               isOpen={filterOpen}
@@ -188,7 +189,12 @@ const BuildGallery = ({
 
           <button
             onClick={handleResetFilters}
-            className="text-sm font-semibold transition-transform transform hover:scale-105"
+            disabled={isButtonDisabled}
+            className={`text-sm font-semibold transition-transform transform px-3 py-2 rounded ${
+              isButtonDisabled
+                ? "text-gray-400 dark:text-gray-500 cursor-not-allowed"
+                : "hover:scale-105 text-primary-dark dark:text-white"
+            }`}
           >
             Reset
           </button>
