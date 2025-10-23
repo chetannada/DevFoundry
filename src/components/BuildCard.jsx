@@ -45,10 +45,14 @@ const BuildCard = ({
   }, []);
 
   const toggleFavorite = async () => {
+    const previousState = isFavorited;
+    setIsFavorited(!previousState);
+
     try {
       const res = await toggleFavoriteGalleryBuild(item._id, { buildType: activeTab });
       setIsFavorited(res.isFavorited);
     } catch (err) {
+      setIsFavorited(previousState);
       const message = err.response?.data?.errorMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
