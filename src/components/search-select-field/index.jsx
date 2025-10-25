@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTimes } from "react-icons/fa";
 
 const SearchSelectField = ({
   items = [],
@@ -28,6 +28,11 @@ const SearchSelectField = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleClear = () => {
+    setQuery("");
+    setShowList(false);
+  };
+
   return (
     <div ref={wrapperRef} className="relative w-full mb-4">
       <div className="flex items-center border border-border-light dark:border-border-dark rounded-lg px-3 py-2 bg-card-light dark:bg-card-dark">
@@ -43,6 +48,15 @@ const SearchSelectField = ({
           onFocus={() => setShowList(true)}
           className="w-full bg-transparent outline-none text-sm text-text-light dark:text-text-dark"
         />
+        {query && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+          >
+            <FaTimes />
+          </button>
+        )}
       </div>
 
       {showList && (

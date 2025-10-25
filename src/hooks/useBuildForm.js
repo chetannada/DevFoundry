@@ -10,6 +10,7 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
     reset,
     watch,
     setValue,
+    clearErrors,
   } = useForm({
     defaultValues: buildFormDefaultValues,
   });
@@ -50,7 +51,7 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
     }
   }, [selectedItem, modalMode, reset]);
 
-  return { control, handleSubmit, errors, reset, statusValue, setValue };
+  return { control, handleSubmit, errors, reset, statusValue, setValue, clearErrors };
 };
 
 export default useBuildForm;

@@ -19,10 +19,12 @@ const BuildActionModal = ({
   activeTab,
 }) => {
   const { user } = useSelector(state => state.auth);
-  const { control, handleSubmit, errors, reset, statusValue, setValue } = useBuildForm({
-    selectedItem,
-    modalMode,
-  });
+  const { control, handleSubmit, errors, reset, statusValue, setValue, clearErrors } = useBuildForm(
+    {
+      selectedItem,
+      modalMode,
+    }
+  );
 
   const [isDisabled, setIsDisabled] = useState(false);
   const [buildActiveTab, setBuildActiveTab] = useState("manual"); // "manual" | "github"
@@ -104,12 +106,15 @@ const BuildActionModal = ({
           items={repos}
           getLabel={repo => repo.name}
           getDescription={repo => repo.description}
-          placeholder="Search github repositories..."
+          placeholder="Search your GitHub repos to auto-fill your build"
           onSelect={repo => {
             setValue("title", repo.name);
             setValue("description", repo.description || "");
             setValue("repoUrl", repo.html_url);
             setValue("techStack", repo.language ? [repo.language] : ["React.js"]);
+
+            // Clear validation errors for these fields
+            clearErrors(["title", "description", "repoUrl", "techStack"]);
           }}
         />
       )}
