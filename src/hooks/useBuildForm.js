@@ -50,7 +50,7 @@ const useBuildForm = ({ selectedItem, modalMode }) => {
     }
   }, [selectedItem, modalMode, reset]);
 
-  return { control, handleSubmit, errors, reset, statusValue };
+  return { control, handleSubmit, errors, reset, statusValue, setValue };
 };
 
 export default useBuildForm;
