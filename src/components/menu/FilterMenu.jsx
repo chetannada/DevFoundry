@@ -36,7 +36,7 @@ const FilterMenu = ({ isOpen, setIsOpen, filters, setFilters }) => {
               type="checkbox"
               checked={!!filters.favorite}
               onChange={() => handleToggle("favorite")}
-              className="w-4 h-4 accent-primary-dark dark:accent-primary-light"
+              className="w-4 h-4 accent-primary-dark dark:accent-skeleton-dark"
             />
             <span onClick={() => handleToggle("favorite")} className="cursor-pointer select-none">
               Favorite
@@ -58,7 +58,7 @@ const FilterMenu = ({ isOpen, setIsOpen, filters, setFilters }) => {
                 type="checkbox"
                 checked={!!filters[status]}
                 onChange={() => handleToggle(status)}
-                className="w-4 h-4 accent-primary-dark dark:accent-primary-light"
+                className="w-4 h-4 accent-primary-dark dark:accent-skeleton-dark"
               />
               <span
                 onClick={() => handleToggle(status)}
