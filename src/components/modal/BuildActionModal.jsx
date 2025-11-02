@@ -91,7 +91,7 @@ const BuildActionModal = ({
             ${
               isActive
                 ? "bg-gradient-to-br from-blue-700 to-lime-900 text-white shadow-md"
-                : "bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm"
+                : "bg-card-light dark:bg-card-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm"
             }`}
               >
                 {tab === "manual" ? "Manual Build" : "GitHub Build"}
