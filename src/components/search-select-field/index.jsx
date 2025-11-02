@@ -34,8 +34,8 @@ const SearchSelectField = ({
   };
 
   return (
-    <div ref={wrapperRef} className="relative w-full mb-4">
-      <div className="flex items-center border border-border-light dark:border-border-dark rounded-lg px-3 py-2 bg-card-light dark:bg-card-dark">
+    <div ref={wrapperRef} className="relative w-full mb-7">
+      <div className="flex items-center border border-border-light dark:border-border-dark rounded-lg px-3 py-2 bg-card-light dark:bg-card-dark h-12">
         <FaSearch className="mr-2 text-secondary-light dark:text-secondary-dark" />
         <input
           type="text"
@@ -60,7 +60,7 @@ const SearchSelectField = ({
       </div>
 
       {showList && (
-        <ul className="absolute z-10 mt-1 w-full max-h-40 overflow-y-auto bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg shadow-lg">
+        <ul className="absolute z-10 mt-1 w-full max-h-52 overflow-y-auto bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-lg shadow-lg">
           {filtered.length > 0 ? (
             filtered.map(item => (
               <li
@@ -70,10 +70,10 @@ const SearchSelectField = ({
                   setQuery(getLabel(item));
                   setShowList(false);
                 }}
-                className="px-4 py-2 text-sm cursor-pointer hover:bg-hover-light dark:hover:bg-hover-dark text-text-light dark:text-text-dark"
+                className="px-4 py-2 text-base cursor-pointer hover:bg-hover-light dark:hover:bg-hover-dark text-text-light dark:text-text-dark"
               >
                 <div className="font-medium">{getLabel(item)}</div>
-                <div className="text-xs text-gray-500 truncate">
+                <div className="text-sm text-gray-500 truncate">
                   {getDescription(item) || "No description"}
                 </div>
               </li>
