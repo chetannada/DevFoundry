@@ -189,14 +189,14 @@ const BuildGallery = ({
 
           <button
             onClick={handleResetFilters}
-            disabled={isButtonDisabled}
+            disabled={isButtonDisabled || !activeCount}
             className={`text-sm font-semibold transition-transform transform px-3 py-2 rounded ${
-              isButtonDisabled
+              isButtonDisabled || !activeCount
                 ? "text-gray-400 dark:text-gray-500 cursor-not-allowed"
                 : "hover:scale-105 text-primary-dark dark:text-white"
             }`}
           >
-            Reset
+            {!isButtonDisabled && "Reset"}
           </button>
         </div>
       </div>
