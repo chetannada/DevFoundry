@@ -19,6 +19,7 @@ import Stopwatch from "../features/stopwatch";
 import PasswordGenerator from "../features/password-generator";
 import WordCounter from "../features/word-counter";
 import StarRating from "../features/star-rating";
+import WeatherCast from "../features/weather-cast";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -98,6 +99,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/star-rating",
         element: <StarRating />,
+      },
+      {
+        path: "/weather-cast",
+        element: <WeatherCast />,
       },
     ],
   },
