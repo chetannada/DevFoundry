@@ -1,31 +1,81 @@
-import { useState } from "react";
-import WeatherSearchBar from "./WeatherSearchBar";
+import { useEffect, useState } from "react";
 import WeatherCard from "./WeatherCard";
-import { fetchWeather } from "../../services/weatherService";
+import { fetchCities, fetchCountries, fetchWeather } from "../../services/weatherService";
 import { FaExclamationTriangle } from "react-icons/fa";
+import LocationSearchForm from "./LocationSearchForm";
 
 const WeatherCast = () => {
-  const [weather, setWeather] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Mumbai");
+
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("IN"); // Default India
+  const [cities, setCities] = useState([]);
+  const [oneSearch, setOneSearch] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadCountries = async () => {
+      try {
+        const data = await fetchCountries();
+        setCountries(data);
+      } catch (err) {
+        console.error("Error loading countries:", err);
+        setLoading(false);
+      }
+    };
+    loadCountries();
+  }, []);
+
+  useEffect(() => {
+    const loadCities = async () => {
+      if (!selectedCountry || countries.length === 0) return;
+      try {
+        const data = await fetchCities(selectedCountry);
+        setCities(data);
+      } catch (err) {
+        console.error("Error loading cities:", err);
+        setLoading(false);
+      }
+    };
+    loadCities();
+  }, [selectedCountry, countries]);
+
+  useEffect(() => {
+    if (city && cities.length > 0 && !oneSearch) {
+      handleSearch(city);
+      setOneSearch(true);
+    }
+  }, [city, cities, oneSearch]);
 
   const handleSearch = async city => {
     try {
       setError("");
+      setLoading(true);
 
       const data = await fetchWeather(city);
-
-      setWeather(data);
+      setWeatherData(data);
     } catch (err) {
       setError(err);
-      setWeather(null);
+      setWeatherData(null);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="px-8 py-10 w-full max-w-180 mx-auto animate-fadeIn bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <h1 className="text-4xl font-medium text-center mb-8">Weather Cast</h1>
-      <WeatherSearchBar city={city} setCity={setCity} onSearch={handleSearch} />
+      <LocationSearchForm
+        city={city}
+        setCity={setCity}
+        countries={countries}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
+        cities={cities}
+        onSearch={handleSearch}
+      />
 
       {error && (
         <div className="mt-10 mb-6 text-center">
@@ -36,7 +86,7 @@ const WeatherCast = () => {
         </div>
       )}
 
-      <WeatherCard weather={weather} />
+      <WeatherCard weatherData={weatherData} loading={loading} />
     </div>
   );
 };
