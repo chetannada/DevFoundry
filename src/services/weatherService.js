@@ -5,7 +5,7 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
 const GEO_NAMES_USERNAME = import.meta.env.VITE_API_GEONAMES_USERNAME || "YOUR_USERNAME";
 const COUNTRIES_URL = "https://restcountries.com/v3.1/all?fields=name,cca2";
-const GEO_NAMES_URL = "http://api.geonames.org/searchJSON";
+const GEO_NAMES_URL = "https://secure.geonames.org/searchJSON";
 
 export const fetchWeather = async city => {
   try {
