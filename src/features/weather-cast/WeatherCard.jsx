@@ -1,9 +1,20 @@
 import { WiDaySunny, WiCloud, WiRain } from "react-icons/wi";
 
-const WeatherCard = ({ weather }) => {
-  if (!weather) return null;
+const WeatherCard = ({ weatherData, loading }) => {
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-10">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-secondary-light"></div>
+        <p className="ml-4 text-lg font-medium text-text-light dark:text-text-dark">
+          Loading weather data...
+        </p>
+      </div>
+    );
+  }
 
-  const { name, main, weather: details } = weather;
+  if (!weatherData) return null;
+
+  const { name, main, weather: details } = weatherData;
 
   const iconMap = {
     Clear: <WiDaySunny size={48} className="text-secondary-light" />,
