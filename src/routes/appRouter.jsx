@@ -20,6 +20,7 @@ import PasswordGenerator from "../features/password-generator";
 import WordCounter from "../features/word-counter";
 import StarRating from "../features/star-rating";
 import WeatherCast from "../features/weather-cast";
+import AiTextSummarizer from "../features/ai-text-summarizer";
 
 // Define application routes
 const appRouter = createBrowserRouter([
@@ -103,6 +104,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/weather-cast",
         element: <WeatherCast />,
+      },
+      {
+        path: "/ai-text-summarizer",
+        element: <AiTextSummarizer />,
       },
     ],
   },
