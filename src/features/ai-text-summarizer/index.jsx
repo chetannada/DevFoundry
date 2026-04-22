@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import useRetryStatus from "../../hooks/useRetryStatus";
 
 const MAX_CHARS = 10000;
-const MAX_RETRIES = 3;
+const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 2000;
 
 const AiTextSummarizer = () => {
@@ -54,8 +54,8 @@ const AiTextSummarizer = () => {
   return (
     <div className="px-8 py-10 w-full max-w-6xl mx-auto animate-fadeIn bg-opacity-50 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
       <div className="flex items-center justify-center gap-2 mb-2">
-        <IoSparklesOutline className="text-secondary-light dark:text-secondary-dark" size={22} />
-        <h1 className="text-4xl font-medium text-center">AI Text Summarizer</h1>
+        <IoSparklesOutline className="text-secondary-light dark:text-secondary-dark text-3xl maxSm:text-2xl" />
+        <h1 className="text-4xl maxSm:text-3xl font-medium text-center">AI Text Summarizer</h1>
       </div>
 
       <p className="text-center text-base text-text-light dark:text-text-dark mb-8">
