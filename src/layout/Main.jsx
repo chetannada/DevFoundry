@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
-import Layout from "./src/layout/Layout";
-import store from "./src/store/store";
-import { ThemeProvider } from "./src/context/ThemeContext";
+import Layout from "./Layout";
+import store from "../store/store";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const Main = () => {
   return (
