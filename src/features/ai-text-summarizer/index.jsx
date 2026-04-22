@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import useRetryStatus from "../../hooks/useRetryStatus";
 
 const MAX_CHARS = 10000;
-const MAX_RETRIES = 3;
+const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 2000;
 
 const AiTextSummarizer = () => {
