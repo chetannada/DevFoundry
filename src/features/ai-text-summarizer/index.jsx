@@ -2,12 +2,18 @@ import { useState } from "react";
 import SummaryModeSelector from "./SummaryModeSelector";
 import SummaryOutput from "./SummaryOutput";
 import { IoSparklesOutline } from "react-icons/io5";
-import { summarizeText } from "../../services/geminiService";
+import { summarizeText } from "../../services/aiService";
 import SummaryTextarea from "./SummaryTextarea";
+import toast from "react-hot-toast";
+import useRetryStatus from "../../hooks/useRetryStatus";
 
 const MAX_CHARS = 10000;
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 2000;
 
 const AiTextSummarizer = () => {
+  const { status, start, stop } = useRetryStatus(MAX_RETRIES, RETRY_DELAY_MS);
+
   const [text, setText] = useState("");
   const [mode, setMode] = useState("paragraph");
   const [summary, setSummary] = useState("");
@@ -22,14 +28,19 @@ const AiTextSummarizer = () => {
     setError("");
     setIsLoading(true);
     setSummary("");
+    start(); // start retry tracking
+
+    const payload = { text, mode };
 
     try {
-      const response = await summarizeText(text, mode);
+      const response = await summarizeText(payload);
       setSummary(response);
     } catch (err) {
-      setError("Something went wrong. Check your API key or try again.");
-      console.error(err);
+      const message = err.response?.data?.message || "Something went wrong!";
+      console.error("Error:", message);
+      toast.error(message);
     } finally {
+      stop(); // stop retry tracking
       setIsLoading(false);
     }
   };
@@ -89,7 +100,7 @@ const AiTextSummarizer = () => {
         )}
       </div>
 
-      <SummaryOutput summary={summary} isLoading={isLoading} />
+      <SummaryOutput summary={summary} isLoading={isLoading} retryStatus={status} />
     </div>
   );
 };
