@@ -5,7 +5,7 @@ const modes = [
 ];
 
 const SummaryModeSelector = ({ mode, setMode }) => (
-  <div className="flex gap-2 mb-4">
+  <div className="flex flex-row maxSm:flex-col gap-2 mb-4">
     {modes.map(m => (
       <button
         key={m.id}
