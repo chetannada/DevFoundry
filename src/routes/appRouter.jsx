@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../../main";
+import Main from "../layout/Main";
 import Error from "../layout/Error";
 import Body from "../layout/Body";
 import ToDoList from "../features/todo-list";
