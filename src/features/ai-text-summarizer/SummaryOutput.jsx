@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaCheck, FaRegCopy } from "react-icons/fa";
 
-const SummaryOutput = ({ summary, isLoading }) => {
+const SummaryOutput = ({ summary, isLoading, retryStatus }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -13,6 +13,8 @@ const SummaryOutput = ({ summary, isLoading }) => {
   if (isLoading) {
     return (
       <div className="mt-6 p-5 rounded-2xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark animate-pulse">
+        {retryStatus && <p className="text-sm text-gray-500 mb-4">{retryStatus.message}</p>}
+
         <div className="h-3 bg-skeleton-light dark:bg-skeleton-dark rounded w-3/4 mb-3" />
         <div className="h-3 bg-skeleton-light dark:bg-skeleton-dark rounded w-full mb-3" />
         <div className="h-3 bg-skeleton-light dark:bg-skeleton-dark rounded w-5/6" />

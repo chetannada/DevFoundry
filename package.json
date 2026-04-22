@@ -36,7 +36,6 @@
     "nodejs"
   ],
   "dependencies": {
-    "@google/genai": "^1.50.1",
     "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.8.4",
