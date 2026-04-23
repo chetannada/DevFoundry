@@ -1,4 +1,4 @@
-## 📚 Image Generation App
+## 🎨 Image Generation App
 
 - 💻 [_Source Code_](/src/features/image-generation)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/image-generation)

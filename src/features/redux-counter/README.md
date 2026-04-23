@@ -1,4 +1,4 @@
-## 📚 Redux Counter App
+## 🔢 Redux Counter App
 
 - 💻 [_Source Code_](/src/features/redux-counter)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/redux-counter)

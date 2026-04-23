@@ -1,4 +1,4 @@
-## 📚 HTTP GET Request App
+## 📡 HTTP GET Request App
 
 - 💻 [_Source Code_](/src/features/http-get-request)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-get-request)

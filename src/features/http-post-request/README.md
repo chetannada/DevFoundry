@@ -1,4 +1,4 @@
-## 📚 HTTP POST Request App
+## 📤 HTTP POST Request App
 
 - 💻 [_Source Code_](/src/features/http-post-request)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/http-post-request)

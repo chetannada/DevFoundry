@@ -74,6 +74,7 @@ Whether you're refining your frontend skills or contributing full-stack features
 │ ├── hooks/                   # Custom React hooks
 │ ├── layout/                  # Layout components
 │ │ ├── Body.jsx
+│ │ ├── Main.jsx
 │ │ ├── Layout.jsx
 │ ├── routes/
 │ │ └── appRouter.jsx          # App routing configuration
@@ -87,97 +88,115 @@ Whether you're refining your frontend skills or contributing full-stack features
 └── README.md                  # Project documentation
 ```
 
-## 📚 Word Counter
+## ✨ AI Text Summarizer
+
+- 👨‍💻 [Coding Challenge](/src/features/ai-text-summarizer/README.md)
+- 💻 [Source Code](/src/features/ai-text-summarizer)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/ai-text-summarizer) 😍
+
+## ⛅ Weather Cast
+
+- 👨‍💻 [Coding Challenge](/src/features/weather-cast/README.md)
+- 💻 [Source Code](/src/features/weather-cast)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/weather-cast) 😍
+
+## ⭐ Star Rating
+
+- 👨‍💻 [Coding Challenge](/src/features/star-rating/README.md)
+- 💻 [Source Code](/src/features/star-rating)
+- 🌐 [Live Demo](https://devfoundry.netlify.app/star-rating) 😍
+
+## ✍️ Word Counter
 
 - 👨‍💻 [Coding Challenge](/src/features/word-counter/README.md)
 - 💻 [Source Code](/src/features/word-counter)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/word-counter) 😍
 
-## 📚 Random Password Generator
+## 🔐 Random Password Generator
 
 - 👨‍💻 [Coding Challenge](/src/features/password-generator/README.md)
 - 💻 [Source Code](/src/features/password-generator)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/password-generator) 😍
 
-## 📚 Stopwatch
+## ⏱️ Stopwatch
 
 - 👨‍💻 [Coding Challenge](/src/features/stopwatch/README.md)
 - 💻 [Source Code](/src/features/stopwatch)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/stopwatch) 😍
 
-## 📚 Stepper
+## 🚴🏻‍♀️ Stepper
 
 - 👨‍💻 [Coding Challenge](/src/features/stepper/README.md)
 - 💻 [Source Code](/src/features/stepper)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/stepper) 😍
 
-## 📚 Number to Words Converter
+## 🔢 Number to Words Converter
 
 - 👨‍💻 [Coding Challenge](/src/features/number-to-words/README.md)
 - 💻 [Source Code](/src/features/number-to-words)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/number-to-words) 😍
 
-## 📚 Accordion
+## 🪗 Accordion
 
 - 👨‍💻 [Coding Challenge](/src/features/accordion/README.md)
 - 💻 [Source Code](/src/features/accordion)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/accordion) 😍
 
-## 📚 String Converter
+## 🔤 String Converter
 
 - 👨‍💻 [Coding Challenge](/src/features/string-converter/README.md)
 - 💻 [Source Code](/src/features/string-converter)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/string-converter) 😍
 
-## 📚 Password Strength Analyzer
+## 🔐 Password Strength Analyzer
 
 - 👨‍💻 [Coding Challenge](/src/features/password-strength/README.md)
 - 💻 [Source Code](/src/features/password-strength)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/password-strength) 😍
 
-## 📚 Guess the Number
+## 🎲 Guess the Number
 
 - 👨‍💻 [Coding Challenge](/src/features/guess-number/README.md)
 - 💻 [Source Code](/src/features/guess-number)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/guess-number) 😍
 
-## 📚 Image Gallery
+## 🖼️ Image Gallery
 
 - 👨‍💻 [Coding Challenge](/src/features/image-gallery/README.md)
 - 💻 [Source Code](/src/features/image-gallery/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/image-gallery) 😍
 
-## 📚 To-Do List
+## 📝 To-Do List
 
 - 👨‍💻 [Coding Challenge](/src/features/todo-list/README.md)
 - 💻 [Source Code](/src/features/todo-list/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/todo-list) 😍
 
-## 📚 Redux Counter
+## 🔢 Redux Counter
 
 - 👨‍💻 [Coding Challenge](/src/features/redux-counter/README.md)
 - 💻 [Source Code](/src/features/redux-counter/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/redux-counter) 😍
 
-## 📚 Google Authentication
+## 🔑 Google Authentication
 
 - 👨‍💻 [Coding Challenge](/src/features/google-auth/README.md)
 - 💻 [Source Code](/src/features/google-auth/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/google-auth) 😍
 
-## 📚 HTTP GET Request
+## 📡 HTTP GET Request
 
 - 👨‍💻 [Coding Challenge](/src/features/http-get-request/README.md)
 - 💻 [Source Code](/src/features/http-get-request/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/http-get-request) 😍
 
-## 📚 HTTP POST Request
+## 📤 HTTP POST Request
 
 - 👨‍💻 [Coding Challenge](/src/features/http-post-request/README.md)
 - 💻 [Source Code](/src/features/http-post-request/)
 - 🌐 [Live Demo](https://devfoundry.netlify.app/http-post-request) 😍
 
-## 📚 Image Generation
+## 🎨 Image Generation
 
 - 👨‍💻 [Coding Challenge](/src/features/image-generation/README.md)
 - 💻 [Source Code](/src/features/image-generation/)

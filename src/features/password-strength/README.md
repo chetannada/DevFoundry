@@ -1,4 +1,4 @@
-## 📚 Password Strength Analyzer
+## 🔐 Password Strength Analyzer
 
 A responsive and interactive password strength checker built with **React.js**, **JavaScript**, and **TailwindCSS**. This tool helps users evaluate the strength of their passwords in real-time based on length and complexity.
 
