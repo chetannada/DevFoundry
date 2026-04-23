@@ -1,4 +1,4 @@
-## 📚 Google Authentication App
+## 🔑 Google Authentication App
 
 - 💻 [_Source Code_](/src/features/google-auth)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/google-auth)

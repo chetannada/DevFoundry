@@ -1,4 +1,4 @@
-## 📚 Image Gallery
+## 🖼️ Image Gallery
 
 An interactive and responsive image gallery built with **React** and **TailwindCSS**. The gallery allows users to view, navigate, and select images seamlessly with a clean UI.
 

@@ -1,4 +1,4 @@
-## 📚 To-Do List App
+## 📝 To-Do List App
 
 - 💻 [_Source Code_](/src/features/todo-list)
 - [🚀 _Live Demo_ 😍](https://devfoundry.netlify.app/todo-list)

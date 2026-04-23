@@ -1,4 +1,4 @@
-## 📚 Guess the Number
+## 🎲 Guess the Number
 
 A fun and interactive number guessing game built with **React.js**, **JavaScript**, and **TailwindCSS**. The player tries to guess a randomly generated number between **1 and 100**, receiving instant feedback after each attempt.
 

@@ -1,4 +1,4 @@
-## 📂 Accordion
+## 🪗 Accordion
 
 An elegant and accessible FAQ accordion built with **React.js**, **JavaScript**, and **TailwindCSS**. This component allows users to expand and collapse questions interactively, with an optional single-open mode for streamlined UX.
 

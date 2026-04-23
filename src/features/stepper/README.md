@@ -1,4 +1,4 @@
-## 🧭 Stepper Flow Interface
+## 🚴🏻‍♀️ Stepper
 
 A dynamic and accessible multi-step form built with **React.js**, **JavaScript**, and **TailwindCSS**. This component helps users navigate complex workflows like flight booking, registration, or checkout by breaking them into clear, manageable steps.
 
