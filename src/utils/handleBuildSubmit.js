@@ -41,7 +41,7 @@ const handleBuildSubmit = async ({
         restoredReason: null,
       };
       const res = await editGalleryBuild(selectedItem._id, finalData, activeTab);
-      toast.success(res.message);
+      toast.success(res.displayMessage);
     } else if (modalMode === "review") {
       finalData = {
         ...finalData,
@@ -51,7 +51,7 @@ const handleBuildSubmit = async ({
         restoredReason: null,
       };
       const res = await reviewGalleryBuild(selectedItem._id, finalData, activeTab);
-      toast.success(res.message);
+      toast.success(res.displayMessage);
     } else if (modalMode === "restore") {
       finalData = {
         ...finalData,
@@ -61,7 +61,7 @@ const handleBuildSubmit = async ({
         restoredReason: data.restoredReason,
       };
       const res = await restoreGalleryBuild(selectedItem._id, finalData, activeTab);
-      toast.success(res.message);
+      toast.success(res.displayMessage);
     } else if (modalMode === "add") {
       finalData = {
         ...finalData,
@@ -71,13 +71,13 @@ const handleBuildSubmit = async ({
         restoredReason: null,
       };
       const res = await submitBuildToGallery(finalData, activeTab);
-      toast.success(res.message);
+      toast.success(res.displayMessage);
     }
 
     fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab);
     handleClose();
   } catch (err) {
-    const message = err.response?.data?.errorMessage || "Something went wrong!";
+    const message = err.response?.data?.displayMessage || "Something went wrong!";
     console.error("Error:", message);
     toast.error(message);
   }

@@ -53,7 +53,7 @@ const BuildCard = ({
       setIsFavorited(res.isFavorited);
     } catch (err) {
       setIsFavorited(previousState);
-      const message = err.response?.data?.errorMessage || "Something went wrong!";
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
     }

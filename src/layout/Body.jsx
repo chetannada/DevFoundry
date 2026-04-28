@@ -62,7 +62,7 @@ const Body = () => {
       const res = await fetchGalleryBuilds({ query, field }, contributorId, activeTab, filters);
       setBuildItems(res);
     } catch (err) {
-      const message = err.response?.data?.errorMessage || "Something went wrong!";
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
       setBuildItems([]);

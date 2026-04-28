@@ -36,7 +36,7 @@ const AiTextSummarizer = () => {
       const response = await summarizeText(payload);
       setSummary(response);
     } catch (err) {
-      const message = err.response?.data?.message || "Something went wrong!";
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
     } finally {
