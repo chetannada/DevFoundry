@@ -35,7 +35,7 @@ const BuildActionModal = ({
       const res = await fetchGithubRepos("public", "owner", "100");
       setRepos(res || []);
     } catch (err) {
-      const message = err.response?.data?.errorMessage || "Something went wrong!";
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
     } finally {

@@ -78,11 +78,11 @@ const BuildGallery = ({
         activeTab
       );
 
-      toast.success(res.message);
+      toast.success(res.displayMessage);
       handleClose();
       fetchBuilds(searchQueryDefaultValues, user?.github?.id || null, activeTab, filters);
     } catch (err) {
-      const message = err.response?.data?.errorMessage || "Something went wrong!";
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error:", message);
       toast.error(message);
     } finally {
