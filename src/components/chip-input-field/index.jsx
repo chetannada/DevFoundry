@@ -31,7 +31,7 @@ const ChipInputField = ({
   return (
     <>
       <div
-        className={`flex flex-wrap items-center px-2 py-2 border rounded-md text-sm ${disabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"} ${
+        className={`flex flex-wrap items-center px-2 py-2 border rounded-md text-sm ${disabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-body-light dark:bg-body-dark"} ${
           error
             ? "border-red-500 dark:border-red-300"
             : "border-border-light dark:border-border-dark"
@@ -66,7 +66,7 @@ const ChipInputField = ({
             }
           }}
           placeholder={placeholder}
-          className={`flex-grow min-w-[120px] px-2 py-1 outline-none text-sm ${disabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-card-light dark:bg-card-dark"}`}
+          className={`flex-grow min-w-[120px] px-2 py-1 outline-none text-sm ${disabled ? "bg-gray-100 dark:bg-gray-700 text-gray-500 cursor-not-allowed" : "bg-body-light dark:bg-body-dark"}`}
           disabled={disabled}
         />
       </div>
