@@ -1,26 +1,23 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_API_OPENWEATHER_KEY || "YOUR_OPENWEATHER_API_KEY";
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
-
 const GEO_NAMES_USERNAME = import.meta.env.VITE_API_GEONAMES_USERNAME || "YOUR_USERNAME";
 const COUNTRIES_URL = "https://restcountries.com/v3.1/all?fields=name,cca2";
 const GEO_NAMES_URL = "https://secure.geonames.org/searchJSON";
 
+const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
+
 export const fetchWeather = async city => {
   try {
-    const response = await axios.get(BASE_URL, {
+    const response = await axios.get(`${API_BACKEND_URL}/weather`, {
       params: {
-        q: city,
-        appid: API_KEY,
-        units: "metric",
+        city: city,
       },
       withCredentials: false,
     });
 
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || "Error fetching weather data";
+    throw error;
   }
 };
 
