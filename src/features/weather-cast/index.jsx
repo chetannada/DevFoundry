@@ -57,7 +57,10 @@ const WeatherCast = () => {
       const data = await fetchWeather(city);
       setWeatherData(data);
     } catch (err) {
-      setError(err);
+      const message = err.response?.data?.displayMessage || "Something went wrong!";
+      console.error("Error:", message);
+      setError(message);
+
       setWeatherData(null);
     } finally {
       setLoading(false);
