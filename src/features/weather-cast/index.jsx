@@ -21,7 +21,9 @@ const WeatherCast = () => {
         const data = await fetchCountries();
         setCountries(data);
       } catch (err) {
-        console.error("Error loading countries:", err);
+        const message = err.response?.data?.displayMessage || "Something went wrong!";
+        console.error("Error loading countries:", message);
+        setError(message);
         setLoading(false);
       }
     };
@@ -35,7 +37,9 @@ const WeatherCast = () => {
         const data = await fetchCities(selectedCountry);
         setCities(data);
       } catch (err) {
-        console.error("Error loading cities:", err);
+        const message = err.response?.data?.displayMessage || "Something went wrong!";
+        console.error("Error loading cities:", message);
+        setError(message);
         setLoading(false);
       }
     };
