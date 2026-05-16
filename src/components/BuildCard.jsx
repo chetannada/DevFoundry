@@ -60,7 +60,7 @@ const BuildCard = ({
   };
 
   return (
-    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-2xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-md">
+    <div className="group w-full flex flex-col flex-wrap gap-1 justify-between items-center p-4 bg-opacity-50 bg-card-light dark:bg-card-dark hover:scale-[1.02] transition-transform duration-300 border border-border-light dark:border-border-dark rounded-xl shadow-[#1a202c] dark:shadow-[#f7fafc] shadow-sm">
       <div className="w-full relative">
         {/* Heart Icon */}
         {userId && (
@@ -69,7 +69,7 @@ const BuildCard = ({
             className="absolute top-0 right-0 text-red-500 hover:scale-110 transition-transform duration-200"
             title={isFavorited ? "Remove from favorites" : "Add to favorites"}
           >
-            {isFavorited ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+            {isFavorited ? <FaHeart size={20} /> : <FaRegHeart size={20} />}
           </button>
         )}
 
@@ -82,7 +82,7 @@ const BuildCard = ({
                 {!isDeleted && (
                   <button
                     onClick={() => handleEditModal(item)}
-                    className="text-xs px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                    className="text-xs px-2 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     Edit
                   </button>
@@ -90,7 +90,7 @@ const BuildCard = ({
 
                 <button
                   onClick={() => handleDeleteModal(item)}
-                  className="text-xs px-3 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                  className="text-xs px-2 py-1 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                 >
                   Delete
                 </button>
@@ -98,7 +98,7 @@ const BuildCard = ({
                 {userRole === "admin" && isDeleted && (
                   <button
                     onClick={() => handleRestoreModal(item)}
-                    className="text-xs px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                    className="text-xs px-2 py-1 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     Restore
                   </button>
@@ -107,7 +107,7 @@ const BuildCard = ({
                 {userRole === "admin" && !isDeleted && status === "pending" && !suggestion && (
                   <button
                     onClick={() => handleReviewModal(item)}
-                    className="text-xs px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                    className="text-xs px-2 py-1 bg-gradient-to-r from-orange-700 to-yellow-600 text-white rounded dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     Review
                   </button>
@@ -120,7 +120,7 @@ const BuildCard = ({
               {status && (id === userId || userRole === "admin") && (
                 <span
                   onClick={toggleShowAction}
-                  className={`px-3 py-1 text-xs font-semibold rounded-full ${statusStyles[status]} shadow-sm dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200`}
+                  className={`text-xs px-2 py-1 font-semibold rounded-full ${statusStyles[status]} shadow-sm dark:opacity-80 group-hover:opacity-100 transition-opacity duration-200`}
                 >
                   {status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()}
                 </span>
@@ -130,9 +130,9 @@ const BuildCard = ({
         )}
 
         {/* Title & Description */}
-        <div className={`flex flex-wrap flex-col gap-1 mb-2`}>
-          <h5 className="text-2xl font-bold mr-8">{title}</h5>
-          <p className="font-normal">
+        <div className={`flex flex-wrap flex-col gap-1 mb-4`}>
+          <h2 className="text-2xl font-bold mr-8">{title}</h2>
+          <p className="font-normal text-sm text-gray-600 dark:text-gray-400">
             {showMore || description?.length <= characterLimit
               ? description
               : `${description?.substring(0, characterLimit)}...`}
@@ -153,7 +153,7 @@ const BuildCard = ({
             {techStack.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-xs font-semibold text-text-light bg-gradient-to-r from-pink-200 to-yellow-200 hover:bg-gradient-to-bl rounded-full shadow-sm dark:opacity-90 group-hover:opacity-100 transition-opacity duration-200"
+                className="px-2 py-1 text-xs font-semibold text-text-light bg-gradient-to-r from-pink-200 to-yellow-200 hover:bg-gradient-to-bl rounded-full shadow-sm dark:opacity-90 group-hover:opacity-100 transition-opacity duration-200"
               >
                 {tech}
               </span>
@@ -163,7 +163,7 @@ const BuildCard = ({
 
         {/* Rejection, suggestion and Restored Reason */}
         {rejectionReason && (userId === id || userRole === "admin") && (
-          <p className="w-fit max-w-full mb-2 px-2 py-1 text-sm text-red-700 bg-gray-300 dark:bg-gray-200 border border-red-100 rounded-md whitespace-pre-wrap break-words">
+          <p className="w-fit max-w-full mb-2 px-2 py-1 text-xs text-red-700 bg-gray-300 dark:bg-gray-200 border border-red-100 rounded-md whitespace-pre-wrap break-words">
             <strong>Rejected reason:</strong> {rejectionReason}
           </p>
         )}
@@ -188,19 +188,19 @@ const BuildCard = ({
             href={profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="peer text-md flex items-center gap-2"
+            className="peer text-md flex items-center gap-2 text-gray-600 dark:text-gray-400"
           >
             <img
               src={avatarUrl}
               alt={`${name}'s avatar`}
-              className="w-7 h-7 rounded-full border-2 border-text-light dark:border-text-dark"
+              className="w-6 h-6 rounded-full border-2 border-text-light dark:border-text-dark"
             />
             {name}
           </a>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap flex-row gap-4 max2xs:gap-2 justify-start items-center text-sm font-medium ">
+        <div className="flex flex-wrap flex-row gap-4 max2xs:gap-2 justify-start items-center text-sm">
           <a
             href={
               activeTab === "core"
@@ -209,18 +209,18 @@ const BuildCard = ({
             }
             target="_blank"
             rel="noopener noreferrer"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 font-medium rounded-xl text-sm px-4 py-2.5 transition-all duration-300 hover:scale-105 active:scale-95"
+            className="min-w-20 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 font-medium rounded-lg text-sm px-3 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            <FaGithub size={20} /> Code
+            <FaGithub size={16} /> Code
           </a>
 
           <Link
             to={liveUrl}
             target={activeTab === "core" ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            className="min-w-24 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-green-800 to-cyan-800 hover:from-green-700 hover:to-cyan-700 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 font-medium rounded-xl text-sm px-4 py-2.5 transition-all duration-300 hover:scale-105 active:scale-95"
+            className="min-w-20 flex flex-row gap-2 justify-center items-center text-white bg-gradient-to-r from-green-800 to-cyan-800 hover:from-green-700 hover:to-cyan-700 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 font-medium rounded-lg text-sm px-3 py-1.5 transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            <IoOpenOutline size={20} /> Live
+            <IoOpenOutline size={16} /> Live
           </Link>
         </div>
       </div>

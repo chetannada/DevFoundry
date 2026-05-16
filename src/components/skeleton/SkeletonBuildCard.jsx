@@ -15,7 +15,7 @@ const SkeletonBuildCard = () => {
         </div>
 
         {/* Title & Description */}
-        <div className="flex flex-col gap-2 mb-2">
+        <div className="flex flex-col gap-2 mb-3">
           <div className="h-6 w-2/3 bg-skeleton-light dark:bg-skeleton-dark rounded" />
           <div className="h-4 w-5/6 bg-skeleton-light dark:bg-skeleton-dark rounded" />
         </div>
@@ -30,14 +30,14 @@ const SkeletonBuildCard = () => {
       <div className="flex flex-wrap flex-row gap-4 justify-between items-center w-full">
         {/* Contributor Info */}
         <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-full bg-skeleton-light dark:bg-skeleton-dark" />
+          <div className="h-6 w-6 rounded-full bg-skeleton-light dark:bg-skeleton-dark" />
           <div className="h-6 w-24 bg-skeleton-light dark:bg-skeleton-dark rounded" />
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-wrap flex-row gap-4 max2xs:gap-2 justify-start items-center">
-          <div className="h-9 w-24 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
-          <div className="h-9 w-24 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
+          <div className="h-8 w-20 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
+          <div className="h-8 w-20 bg-skeleton-light dark:bg-skeleton-dark rounded-lg" />
         </div>
       </div>
     </div>

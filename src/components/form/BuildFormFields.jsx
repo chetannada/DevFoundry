@@ -16,7 +16,7 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
           rules={{
             validate: value =>
               statusValue === "rejected"
-                ? value.trim().length > 0 || "Rejection reason is required"
+                ? value?.trim()?.length > 0 || "Rejection reason is required"
                 : true,
           }}
           render={({ field }) => (
@@ -170,10 +170,10 @@ const BuildFormFields = ({ control, errors, statusValue, activeTab, isReview, is
                   <select
                     {...field}
                     disabled={isRestore}
-                    className={`w-full px-3 py-2 pr-10 border rounded-md text-sm appearance-none ${
+                    className={`w-full px-3 py-2 pr-10 border border-border-light dark:border-border-dark rounded-md text-sm appearance-none ${
                       isRestore
                         ? "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 cursor-not-allowed"
-                        : "bg-card-light dark:bg-card-dark"
+                        : "bg-body-light dark:bg-body-dark"
                     }`}
                   >
                     <option value="pending">Pending</option>
