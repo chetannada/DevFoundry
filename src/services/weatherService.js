@@ -1,9 +1,5 @@
 import axios from "axios";
 
-const GEO_NAMES_USERNAME = import.meta.env.VITE_API_GEONAMES_USERNAME || "YOUR_USERNAME";
-const COUNTRIES_URL = "https://restcountries.com/v3.1/all?fields=name,cca2";
-const GEO_NAMES_URL = "https://secure.geonames.org/searchJSON";
-
 const API_BACKEND_URL = import.meta.env.VITE_API_BACKEND_URL;
 
 export const fetchWeather = async city => {
@@ -23,8 +19,10 @@ export const fetchWeather = async city => {
 
 export const fetchCountries = async () => {
   try {
-    const res = await axios.get(COUNTRIES_URL, { withCredentials: false });
-    const data = res.data;
+    const response = await axios.get(`${API_BACKEND_URL}/weather/countries`, {
+      withCredentials: false,
+    });
+    const data = response.data;
 
     return data
       .map(c => ({ name: c.name.common, code: c.cca2 }))
@@ -36,12 +34,9 @@ export const fetchCountries = async () => {
 
 export const fetchCities = async countryCode => {
   try {
-    const res = await axios.get(GEO_NAMES_URL, {
+    const res = await axios.get(`${API_BACKEND_URL}/weather/cities`, {
       params: {
         country: countryCode,
-        featureClass: "P", // populated places
-        maxRows: 1000,
-        username: GEO_NAMES_USERNAME,
       },
       withCredentials: false,
     });
