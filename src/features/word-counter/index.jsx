@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 const WordCounter = () => {
   const [cloudMode, setCloudMode] = useState(false);
   const [text, setText] = useState(() => localStorage.getItem("wordDraft") || "");
-  const [lastUpdated, setLastUpdated] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState("");
 
   const historyRef = useRef([localStorage.getItem("wordDraft") || ""]);
   const indexRef = useRef(0);
@@ -99,7 +99,15 @@ const WordCounter = () => {
   };
 
   const handleSaveCloud = async () => {
-    if (lastUpdated === text) return;
+    if (text === "") {
+      toast.error("Content is required");
+      return;
+    }
+
+    if (lastUpdated === text) {
+      toast.error("Content is already saved to cloud");
+      return;
+    }
 
     try {
       const response = await updateWordCounterDraft(text);
