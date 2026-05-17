@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UserMenu from "../components/menu/UserMenu";
 import ThemeToggle from "../components/theme/ThemeToggle";
 import useWindowSize from "../hooks/useWindowSize";
-import { fetchUser, logoutUser, setAuthReadyAndLoggedOut } from "../store/reducers/authSlice";
+import { fetchUser, logoutUser } from "../store/reducers/authSlice";
 import strings from "../utils/strings";
 import Sidebar from "./Sidebar";
 import { FaGithub } from "react-icons/fa";
@@ -27,16 +27,8 @@ const Header = () => {
   const windowSize = useWindowSize();
 
   useEffect(() => {
-    const hasHintCookie = document.cookie.includes("is_logged_in=true");
-
-    if (hasHintCookie) {
-      // Cookie exists, Fetch user data.
-      dispatch(fetchUser());
-    } else {
-      // No hint cookie. Skip the API call!
-      dispatch(setAuthReadyAndLoggedOut());
-    }
-  }, [dispatch]);
+    dispatch(fetchUser());
+  }, []);
 
   useEffect(() => {
     if (windowSize.width > 1024) {

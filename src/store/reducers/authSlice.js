@@ -22,13 +22,6 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isAuthReady: false,
   },
-  reducers: {
-    setAuthReadyAndLoggedOut: state => {
-      state.user = null;
-      state.isLoggedIn = false;
-      state.isAuthReady = true;
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(fetchUser.fulfilled, (state, action) => {
@@ -47,7 +40,5 @@ const authSlice = createSlice({
       });
   },
 });
-
-export const { setAuthReadyAndLoggedOut } = authSlice.actions;
 
 export default authSlice.reducer;
