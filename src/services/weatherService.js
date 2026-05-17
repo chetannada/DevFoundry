@@ -28,7 +28,7 @@ export const fetchCountries = async () => {
       .map(c => ({ name: c.name.common, code: c.cca2 }))
       .sort((a, b) => a.name.localeCompare(b.name));
   } catch (error) {
-    throw error.response?.data?.message || "Error fetching countries";
+    throw error;
   }
 };
 
@@ -46,6 +46,6 @@ export const fetchCities = async countryCode => {
       name: c.name,
     }));
   } catch (error) {
-    throw error.response?.data?.message || "Error fetching cities";
+    throw error;
   }
 };
