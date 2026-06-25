@@ -32,7 +32,6 @@ const WeatherCast = () => {
 
   useEffect(() => {
     const loadCities = async () => {
-      if (!selectedCountry || countries.length === 0) return;
       try {
         const data = await fetchCities(selectedCountry);
         setCities(data);
@@ -44,7 +43,7 @@ const WeatherCast = () => {
       }
     };
     loadCities();
-  }, [selectedCountry, countries]);
+  }, [selectedCountry]);
 
   useEffect(() => {
     if (city && cities.length > 0 && !oneSearch) {

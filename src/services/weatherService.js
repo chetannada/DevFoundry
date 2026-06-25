@@ -22,10 +22,10 @@ export const fetchCountries = async () => {
     const response = await axios.get(`${API_BACKEND_URL}/weather/countries`, {
       withCredentials: false,
     });
-    const data = response.data;
+    const data = response?.data?.geonames;
 
     return data
-      .map(c => ({ name: c.name.common, code: c.cca2 }))
+      .map(c => ({ name: c.countryName, code: c.countryCode }))
       .sort((a, b) => a.name.localeCompare(b.name));
   } catch (error) {
     throw error;
