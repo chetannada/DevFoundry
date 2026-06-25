@@ -19,14 +19,10 @@ const Footer = () => {
         </a>
         <FaRegCopyright />
         {year}
-        <a
-          href="https://github.com/chetannada/DevFoundry"
-          target="_blank"
-          className="font-semibold hover:underline tracking-widest"
-        >
+        <span className="font-semibold tracking-widest">
           <span className="text-secondary-light dark:text-secondary-dark">Dev</span>
           Foundry
-        </a>
+        </span>
       </footer>
     </>
   );

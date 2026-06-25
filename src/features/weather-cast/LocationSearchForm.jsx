@@ -8,6 +8,7 @@ const LocationSearchForm = ({
   selectedCountry,
   setSelectedCountry,
   cities,
+  setCities,
 }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,13 +28,16 @@ const LocationSearchForm = ({
           onChange={e => {
             setSelectedCountry(e.target.value);
             setCity("");
+            setCities([]);
           }}
           className="appearance-none w-full px-4 py-2 rounded-lg border border-border-light dark:border-border-dark 
              bg-card-light dark:bg-card-dark text-text-light dark:text-text-dark 
              focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark
              pr-8"
         >
-          <option value="">Select country...</option>
+          <option value="">
+            {countries.length <= 1 ? "Loading countries..." : "Select country..."}
+          </option>
           {countries.map(c => (
             <option key={c.code} value={c.code}>
               {c.name}
@@ -63,7 +67,7 @@ const LocationSearchForm = ({
                      focus:outline-none focus:ring-2 focus:ring-secondary-light dark:focus:ring-secondary-dark
                      pr-8"
         >
-          <option value="">Select city...</option>
+          <option value="">{cities.length <= 1 ? "Loading cities..." : "Select city..."}</option>
           {cities.map(ct => (
             <option key={ct.id} value={ct.name}>
               {ct.name}
