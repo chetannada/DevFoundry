@@ -9,9 +9,9 @@ const WeatherCast = () => {
   const [error, setError] = useState("");
   const [city, setCity] = useState("Mumbai");
 
-  const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("IN"); // Default India
-  const [cities, setCities] = useState([]);
+  const [countries, setCountries] = useState([{ name: "India", code: "IN" }]);
+  const [selectedCountry, setSelectedCountry] = useState("IN");
+  const [cities, setCities] = useState([{ id: 1275339, name: "Mumbai" }]);
   const [oneSearch, setOneSearch] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -80,6 +80,7 @@ const WeatherCast = () => {
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
         cities={cities}
+        setCities={setCities}
         onSearch={handleSearch}
       />
 
