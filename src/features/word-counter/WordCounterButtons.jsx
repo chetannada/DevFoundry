@@ -10,6 +10,8 @@ const WordCounterButtons = ({
   onRedo,
   cloudMode,
   handleSaveCloud,
+  isSaveLoading,
+  isDeleteLoading,
 }) => {
   const handleCopy = () => navigator.clipboard.writeText(text);
 
@@ -21,10 +23,15 @@ const WordCounterButtons = ({
       {cloudMode && (
         <div
           onMouseDown={e => e.preventDefault()}
-          onClick={handleSaveCloud}
+          onClick={isSaveLoading ? undefined : handleSaveCloud}
           className={buttonStyle}
         >
-          <MdCloudUpload size={16} className="text-secondary-light dark:text-secondary-dark" />
+          <MdCloudUpload
+            size={16}
+            className={`text-secondary-light dark:text-secondary-dark ${
+              isSaveLoading ? "animate-spin" : ""
+            }`}
+          />
           <p>Save</p>
         </div>
       )}
@@ -39,8 +46,12 @@ const WordCounterButtons = ({
         <p>Clear</p>
       </div>
 
-      <div onMouseDown={e => e.preventDefault()} onClick={onDelete} className={buttonStyle}>
-        <MdDelete size={16} />
+      <div
+        onMouseDown={e => e.preventDefault()}
+        onClick={isDeleteLoading ? undefined : onDelete}
+        className={buttonStyle}
+      >
+        <MdDelete size={16} className={isDeleteLoading ? "animate-spin" : ""} />
         <p>Delete</p>
       </div>
 
