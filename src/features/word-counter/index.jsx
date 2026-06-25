@@ -11,6 +11,9 @@ import toast from "react-hot-toast";
 
 const WordCounter = () => {
   const [cloudMode, setCloudMode] = useState(false);
+  const [isCloudLoading, setIsCloudLoading] = useState(false);
+  const [isSaveLoading, setIsSaveLoading] = useState(false);
+  const [isDeleteLoading, setIsDeleteLoading] = useState(false);
   const [text, setText] = useState(() => localStorage.getItem("wordDraft") || "");
   const [lastUpdated, setLastUpdated] = useState("");
 
@@ -20,6 +23,7 @@ const WordCounter = () => {
   useEffect(() => {
     if (cloudMode) {
       const getDraft = async () => {
+        setIsCloudLoading(true);
         try {
           const data = await getWordCounterDraft();
           setText(data.content);
@@ -28,6 +32,8 @@ const WordCounter = () => {
         } catch (err) {
           const message = err.response?.data?.displayMessage || "Something went wrong!";
           console.error("Error fetching draft:", message);
+        } finally {
+          setIsCloudLoading(false);
         }
       };
       getDraft();
@@ -78,7 +84,13 @@ const WordCounter = () => {
 
   const handleDelete = async () => {
     if (cloudMode) {
+      if (text === "") {
+        toast.error("Content is required");
+        return;
+      }
+
       try {
+        setIsDeleteLoading(true);
         const response = await deleteWordCounterDraft();
         toast.success(response.displayMessage);
 
@@ -89,6 +101,8 @@ const WordCounter = () => {
         const message = err.response?.data?.displayMessage || "Something went wrong!";
         console.error("Error deleting draft:", message);
         toast.error(message);
+      } finally {
+        setIsDeleteLoading(false);
       }
     } else {
       setText("");
@@ -110,6 +124,7 @@ const WordCounter = () => {
     }
 
     try {
+      setIsSaveLoading(true);
       const response = await updateWordCounterDraft(text);
       toast.success(response.displayMessage);
       setLastUpdated(text);
@@ -117,6 +132,8 @@ const WordCounter = () => {
       const message = err.response?.data?.displayMessage || "Something went wrong!";
       console.error("Error updating draft:", message);
       toast.error(message);
+    } finally {
+      setIsSaveLoading(false);
     }
   };
 
@@ -134,9 +151,15 @@ const WordCounter = () => {
         onRedo={handleRedo}
         cloudMode={cloudMode}
         handleSaveCloud={handleSaveCloud}
+        isSaveLoading={isSaveLoading}
+        isDeleteLoading={isDeleteLoading}
       />
 
-      <WordTextArea text={text} onChange={e => updateText(e.target.value)} />
+      <WordTextArea
+        text={isCloudLoading ? "" : text}
+        onChange={e => updateText(e.target.value)}
+        isCloudLoading={isCloudLoading}
+      />
     </div>
   );
 };
