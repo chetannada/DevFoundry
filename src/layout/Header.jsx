@@ -53,14 +53,30 @@ const Header = () => {
     dispatch(logoutUser());
   };
 
+  const renderCommonButtons = () => {
+    return (
+      <>
+        <a
+          href="https://github.com/chetannada/DevFoundry"
+          target="_blank"
+          title="Github Repository"
+        >
+          <FaGithub size={28} className="text-text-light dark:text-text-dark" />
+        </a>
+        <ThemeToggle />
+      </>
+    );
+  };
+
   const renderAuthUI = () => {
-    if (!isAuthReady) return <ThemeToggle />;
+    if (!isAuthReady) return <>{renderCommonButtons()}</>;
 
     return (
       <>
         {!sidebarOpen && (
           <>
-            <ThemeToggle />
+            {renderCommonButtons()}
+
             {isLoggedIn && user ? (
               <UserMenu user={user} handleLogoutClick={handleLogoutClick} />
             ) : (
@@ -88,7 +104,7 @@ const Header = () => {
             <Logo />
           </a>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {renderAuthUI()}
 
             <div
