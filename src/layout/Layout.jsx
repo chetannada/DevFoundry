@@ -10,7 +10,6 @@ const Layout = () => {
       <div className="min-h-screen bg-body-light dark:bg-body-dark text-text-light dark:text-text-dark">
         <Header />
 
-        {/* Render Body and it's children component */}
         <ContentWrapper>
           <Outlet />
         </ContentWrapper>
