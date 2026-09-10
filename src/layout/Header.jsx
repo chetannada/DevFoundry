@@ -53,29 +53,34 @@ const Header = () => {
     dispatch(logoutUser());
   };
 
-  const renderCommonButtons = () => {
+  const renderActionGroup = () => {
     return (
-      <>
+      <div className="flex items-center gap-1 rounded-full border border-border-light dark:border-border-dark bg-white/60 dark:bg-white/5 backdrop-blur-sm px-1 py-0.5 transition-colors duration-300">
         <a
           href="https://github.com/chetannada/DevFoundry"
           target="_blank"
           title="Github Repository"
+          className="flex items-center gap-1.5 rounded-full px-2 py-0.5 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200"
         >
-          <FaGithub size={28} className="text-text-light dark:text-text-dark" />
+          <FaGithub size={18} />
+          <span className="text-sm font-medium maxXs:hidden">GitHub</span>
         </a>
+
+        <div className="w-px h-5 bg-border-light dark:bg-border-dark" />
+
         <ThemeToggle />
-      </>
+      </div>
     );
   };
 
   const renderAuthUI = () => {
-    if (!isAuthReady) return <>{renderCommonButtons()}</>;
+    if (!isAuthReady) return <>{renderActionGroup()}</>;
 
     return (
       <>
         {!sidebarOpen && (
           <>
-            {renderCommonButtons()}
+            {renderActionGroup()}
 
             {isLoggedIn && user ? (
               <UserMenu user={user} handleLogoutClick={handleLogoutClick} />
@@ -83,7 +88,7 @@ const Header = () => {
               <div className="block maxLg:hidden">
                 <button
                   onClick={handleLoginClick}
-                  className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2"
+                  className="flex flex-row gap-2 items-center text-white bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2 transition-all duration-200 hover:shadow-lg hover:shadow-green-500/25"
                 >
                   <FiLogIn size={18} />
                   Login
@@ -98,9 +103,9 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 max2xs:px-4 h-14 w-full bg-primary-light dark:bg-primary-dark border-b-4 border-b-secondary-light dark:border-b-secondary-dark transition-colors duration-300">
+      <header className="fixed top-0 z-50 px-8 max2xs:px-4 h-14 w-full bg-primary-light/80 dark:bg-primary-dark/80 backdrop-blur-md border-b border-b-border-light/50 dark:border-b-border-dark/50 transition-all duration-300">
         <nav className="flex justify-between items-center h-full">
-          <a href="/">
+          <a href="/" className="transition-opacity duration-200 hover:opacity-80">
             <Logo />
           </a>
 
@@ -109,53 +114,52 @@ const Header = () => {
 
             <div
               onClick={handleSidebar}
-              className="hidden maxLg:block ml-1 text-3xl max2xs:text-2xl cursor-pointer"
+              className="hidden maxLg:block ml-1 text-3xl max2xs:text-2xl cursor-pointer text-text-light dark:text-text-dark hover:text-secondary-light dark:hover:text-secondary-dark transition-colors duration-200 relative z-[60]"
             >
               {sidebarOpen ? <IoMdClose /> : <IoMdMenu />}
             </div>
           </div>
-
-          {sidebarOpen && (
-            <>
-              <Sidebar
-                isLoggedIn={isLoggedIn}
-                handleLogoutClick={handleLogoutClick}
-                handleLoginClick={handleLoginClick}
-                sidebarOpen={sidebarOpen}
-              />
-            </>
-          )}
-
-          {/* Login Modal */}
-          <ActionModal
-            isOpen={showLoginModal}
-            onClose={() => setShowLoginModal(false)}
-            title={strings.loginHeaderTitle}
-            description={strings.loginHeaderDescription}
-            onConfirm={handleOnLogin}
-            confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
-      text-white bg-gradient-to-br from-purple-500 to-blue-800
-      hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
-            confirmIcon={() => <FaGithub size={18} />}
-            confirmLabel={"Login with GitHub"}
-            isDisabled={isDisabled}
-          />
-
-          {/* Logout Modal */}
-          <ActionModal
-            isOpen={showLogoutModal}
-            onClose={() => setShowLogoutModal(false)}
-            title={strings.logoutHeaderTitle}
-            description={strings.logoutHeaderDescription}
-            onConfirm={handleOnLogout}
-            confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
-    text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl`}
-            confirmIcon={() => <FiLogOut size={18} />}
-            confirmLabel={"Confirm Logout"}
-            isDisabled={isDisabled}
-          />
         </nav>
       </header>
+
+      {sidebarOpen && (
+        <Sidebar
+          isLoggedIn={isLoggedIn}
+          handleLogoutClick={handleLogoutClick}
+          handleLoginClick={handleLoginClick}
+          sidebarOpen={sidebarOpen}
+          onClose={handleSidebar}
+        />
+      )}
+
+      {/* Login Modal */}
+      <ActionModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        title={strings.loginHeaderTitle}
+        description={strings.loginHeaderDescription}
+        onConfirm={handleOnLogin}
+        confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+      text-white bg-gradient-to-br from-purple-500 to-blue-800
+      hover:bg-gradient-to-bl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gradient-to-br`}
+        confirmIcon={() => <FaGithub size={18} />}
+        confirmLabel={"Login with GitHub"}
+        isDisabled={isDisabled}
+      />
+
+      {/* Logout Modal */}
+      <ActionModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        title={strings.logoutHeaderTitle}
+        description={strings.logoutHeaderDescription}
+        onConfirm={handleOnLogout}
+        confirmClass={`flex justify-center items-center gap-2 text-sm px-5 py-2.5 font-medium rounded-lg
+    text-white bg-gradient-to-br from-purple-500 to-blue-800 hover:bg-gradient-to-bl`}
+        confirmIcon={() => <FiLogOut size={18} />}
+        confirmLabel={"Confirm Logout"}
+        isDisabled={isDisabled}
+      />
     </>
   );
 };

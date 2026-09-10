@@ -12,9 +12,9 @@ const ThemeToggle = () => {
       title={`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
     >
       {theme === "light" ? (
-        <MdDarkMode size={28} className="text-text-light" />
+        <MdDarkMode size={20} className="text-text-light" />
       ) : (
-        <BsSunFill size={28} className="text-text-dark" />
+        <BsSunFill size={20} className="text-text-dark" />
       )}
     </button>
   );
