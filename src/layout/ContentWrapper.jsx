@@ -9,7 +9,7 @@ const ContentWrapper = ({ children }) => {
 
   return (
     <>
-      <main className="min-h-[calc(100vh-3rem)] max2xs:min-h-[calc(100vh-3rem)] mx-8 max2xs:mx-4 pt-20 pb-10">
+      <main className="max-w-7xl mx-auto min-h-[calc(100vh-3rem)] max2xs:min-h-[calc(100vh-3rem)] px-8 max2xs:px-4 pt-20 pb-10">
         {location.pathname.length > 1 && (
           <>
             <div className="flex justify-start items-center mb-6">

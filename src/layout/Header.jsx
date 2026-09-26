@@ -103,8 +103,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 px-8 max2xs:px-4 h-14 w-full bg-primary-light/80 dark:bg-primary-dark/80 backdrop-blur-md border-b border-b-border-light/50 dark:border-b-border-dark/50 transition-all duration-300">
-        <nav className="flex justify-between items-center h-full">
+      <header className="fixed top-0 z-50 h-14 w-full bg-primary-light/80 dark:bg-primary-dark/80 backdrop-blur-md border-b border-b-border-light/50 dark:border-b-border-dark/50 transition-all duration-300">
+        <nav className="max-w-7xl mx-auto px-8 max2xs:px-4 flex justify-between items-center h-full">
           <a href="/" className="transition-opacity duration-200 hover:opacity-80">
             <Logo />
           </a>
@@ -132,7 +132,6 @@ const Header = () => {
         />
       )}
 
-      {/* Login Modal */}
       <ActionModal
         isOpen={showLoginModal}
         onClose={() => setShowLoginModal(false)}
@@ -147,7 +146,6 @@ const Header = () => {
         isDisabled={isDisabled}
       />
 
-      {/* Logout Modal */}
       <ActionModal
         isOpen={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
